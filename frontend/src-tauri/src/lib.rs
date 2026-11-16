@@ -571,7 +571,6 @@ pub fn run() {
         .plugin(tauri_plugin_store::Builder::default().build())
         .plugin(tauri_plugin_log::Builder::new().skip_logger().build())
         .plugin(tauri_plugin_dialog::init())
-        .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_process::init())
         .manage(whisper_engine::parallel_commands::ParallelProcessorState::new())
         .manage(Arc::new(RwLock::new(
@@ -588,10 +587,10 @@ pub fn run() {
             match split_startup_logger(_app.handle(), app_data_dir, verbose) {
                 Ok(((level, logger), persistent)) => {
                     if tauri_plugin_log::attach_logger(level, logger).is_err() || !persistent {
-                        eprintln!("Meetily logging is unavailable or degraded.");
+                        eprintln!("Trascrivi Seduta logging is unavailable or degraded.");
                     }
                 }
-                Err(_) => eprintln!("Meetily logging is unavailable or degraded."),
+                Err(_) => eprintln!("Trascrivi Seduta logging is unavailable or degraded."),
             }
 
             log::info!("Starting application...");

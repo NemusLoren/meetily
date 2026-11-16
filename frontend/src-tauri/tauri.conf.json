@@ -1,8 +1,8 @@
 {
     "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-    "productName": "meetily",
+    "productName": "Trascrivi Seduta",
     "version": "0.5.0",
-    "identifier": "com.meetily.ai",
+    "identifier": "it.trascriviseduta.app",
     "build": {
         "frontendDist": "../out",
         "devUrl": "http://localhost:3118",
@@ -12,7 +12,7 @@
     "app": {
         "windows": [
             {
-                "title": "meetily",
+                "title": "Trascrivi Seduta",
                 "width": 1100,
                 "height": 700,
                 "preventOverflow": true,
@@ -64,7 +64,6 @@
                         "store:default",
                         "notification:default",
                         "notification:allow-is-permission-granted",
-                        "updater:default",
                         "process:default",
                         {
                             "identifier": "fs:scope",
@@ -81,11 +80,11 @@
     },
     "bundle": {
         "active": true,
-        "shortDescription": "Privacy-first AI meeting note taker",
-        "longDescription": "Meetily Community Edition is a free, open-source AI meeting assistant. Record meetings, transcribe audio locally and create AI summaries using local models or a provider you choose. Your recordings and transcripts stay on your device.",
+        "shortDescription": "Trascrizione privata delle sedute cliniche",
+        "longDescription": "Trascrivi Seduta è un software gratuito e open source per psicologi e psicoterapeuti: registra le sedute, trascrive l'audio in locale e crea riassunti con modelli locali. Registrazioni e trascrizioni restano sul tuo computer. Basato su Meetily.",
         "category": "Productivity",
-        "publisher": "Meetily",
-        "homepage": "https://meetily.ai",
+        "publisher": "Trascrivi Seduta",
+        "homepage": "https://github.com/NemusLoren/Meetily-ai",
         "targets": [
             "deb",
             "appimage",
@@ -94,7 +93,7 @@
             "app",
             "dmg"
         ],
-        "createUpdaterArtifacts": true,
+        "createUpdaterArtifacts": false,
         "icon": [
             "icons/icon.png",
             "icons/icon_512x512.png",
@@ -124,14 +123,6 @@
         },
         "windows": {
             "signCommand": "powershell -ExecutionPolicy Bypass -File scripts/sign-windows.ps1 -FilePath %1"
-        }
-    },
-    "plugins": {
-        "updater": {
-            "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEVDQTYzMUQ3ODc5N0M4MkEKUldRcXlKZUgxekdtN09DRkVWSHNpZlJseEVOUmpNd1dDSTNaLzZ3MXJGTnY3WW1pdnlOYjBpbkIK",
-            "endpoints": [
-                "https://github.com/Zackriya-Solutions/meeting-minutes/releases/latest/download/latest.json"
-            ]
         }
     }
 }

@@ -12,7 +12,7 @@ export default function FeedbackLink({ isCollapsed }: { isCollapsed: boolean }) 
     <Link
       href="/feedback"
       replace={pathname === '/settings'}
-      aria-label="Send Feedback"
+      aria-label="Feedback"
       aria-current={isActive ? 'page' : undefined}
       className={`flex items-center justify-center rounded-lg transition-colors active:bg-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 ${
         isCollapsed
@@ -25,7 +25,7 @@ export default function FeedbackLink({ isCollapsed }: { isCollapsed: boolean }) 
       }`}
     >
       <MessagesSquare aria-hidden="true" className={isCollapsed ? 'w-5 h-5' : 'w-4 h-4'} />
-      {!isCollapsed && <span className="ml-2">Send Feedback</span>}
+      {!isCollapsed && <span className="ml-2">Feedback</span>}
     </Link>
   );
 
@@ -34,7 +34,7 @@ export default function FeedbackLink({ isCollapsed }: { isCollapsed: boolean }) 
   return (
     <Tooltip>
       <TooltipTrigger asChild>{link}</TooltipTrigger>
-      <TooltipContent side="right">Send Feedback</TooltipContent>
+      <TooltipContent side="right">Feedback</TooltipContent>
     </Tooltip>
   );
 }
