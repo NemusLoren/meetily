@@ -9,6 +9,7 @@ import {
   MIN_PASSWORD_LENGTH,
 } from '@/services/appLockService';
 
+import { t } from '@/i18n';
 interface SecurityStepProps {
   onDone: () => void;
 }
@@ -34,11 +35,11 @@ export function SecurityStep({ onDone }: SecurityStepProps) {
 
   const validate = (): string | null => {
     if (password.length < MIN_PASSWORD_LENGTH) {
-      return `La password deve avere almeno ${MIN_PASSWORD_LENGTH} caratteri.`;
+      return t("The password must have at least {MIN_PASSWORD_LENGTH} characters.", { MIN_PASSWORD_LENGTH });
     }
-    if (password !== confirm) return 'Le due password non coincidono.';
-    if (question.trim().length < 5) return 'Scrivi una domanda segreta (almeno 5 caratteri).';
-    if (answer.trim().length < 3) return 'Scrivi la risposta alla domanda segreta.';
+    if (password !== confirm) return t("The two passwords do not match.");
+    if (question.trim().length < 5) return t("Write a secret question (at least 5 characters).");
+    if (answer.trim().length < 3) return t("Write the answer to the secret question.");
     return null;
   };
 
@@ -62,8 +63,8 @@ export function SecurityStep({ onDone }: SecurityStepProps) {
 
   return (
     <OnboardingContainer
-      title="Proteggi l'accesso"
-      description="Scegli se bloccare l'app con una password master. È facoltativa."
+      title={t("Protect access")}
+      description={t("Choose whether to lock the app with a master password. It is optional.")}
       step={2}
       hideProgress={true}
     >
@@ -71,10 +72,7 @@ export function SecurityStep({ onDone }: SecurityStepProps) {
         <div className="w-full max-w-md rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
           <p className="flex items-start gap-2">
             <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0" aria-hidden="true" />
-            <span>
-              La password <strong>blocca l&apos;apertura dell&apos;app</strong>. In questa versione
-              i file di sedute e registrazioni <strong>non sono ancora cifrati</strong>: attiva anche
-              FileVault (Mac) o BitLocker (Windows).
+            <span>{t("The password")} <strong>{t("blocks opening the app")}</strong>{t(". In this version the session and recording files")} <strong>{t("are not encrypted yet")}</strong>{t(": also turn on FileVault (Mac) or BitLocker (Windows).")}
             </span>
           </p>
         </div>
@@ -89,50 +87,48 @@ export function SecurityStep({ onDone }: SecurityStepProps) {
           <div className="relative">
             <Input
               type={showPassword ? 'text' : 'password'}
-              placeholder="Password master"
+              placeholder={t("Master password")}
               autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              aria-label="Password master"
+              aria-label={t("Master password")}
             />
             <button
               type="button"
               onClick={() => setShowPassword((v) => !v)}
               className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-800"
-              aria-label={showPassword ? 'Nascondi password' : 'Mostra password'}
+              aria-label={showPassword ? t("Hide password") : t("Show password")}
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
           </div>
           <Input
             type={showPassword ? 'text' : 'password'}
-            placeholder="Ripeti la password"
+            placeholder={t("Repeat the password")}
             autoComplete="new-password"
             value={confirm}
             onChange={(e) => setConfirm(e.target.value)}
-            aria-label="Ripeti la password"
+            aria-label={t("Repeat the password")}
           />
 
           <div className="pt-2">
-            <p className="mb-2 text-xs text-gray-600">
-              Domanda segreta per reimpostare la password se la dimentichi. Scegli una risposta che
-              nessun altro possa indovinare.
+            <p className="mb-2 text-xs text-gray-600">{t("Secret question to reset the password if you forget it. Choose an answer nobody else can guess.")}
             </p>
             <Input
               type="text"
-              placeholder="Domanda segreta"
+              placeholder={t("Secret question")}
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
-              aria-label="Domanda segreta"
+              aria-label={t("Secret question")}
             />
             <Input
               type="password"
               className="mt-3"
-              placeholder="Risposta"
+              placeholder={t("Answer")}
               autoComplete="off"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              aria-label="Risposta alla domanda segreta"
+              aria-label={t("Answer to the secret question")}
             />
           </div>
 
@@ -147,19 +143,16 @@ export function SecurityStep({ onDone }: SecurityStepProps) {
             disabled={saving}
             className="h-11 w-full bg-gray-900 text-white hover:bg-gray-800"
           >
-            {saving ? 'Salvataggio…' : 'Imposta password'}
+            {saving ? t("Saving...") : t("Set password")}
           </Button>
           <button
             type="button"
             onClick={onDone}
             disabled={saving}
             className="w-full text-sm text-gray-600 underline underline-offset-2 hover:text-gray-900"
-          >
-            Salta per ora
+          >{t("Skip for now")}
           </button>
-          <p className="text-center text-xs text-gray-500">
-            Senza password l&apos;app si apre direttamente. Se la dimentichi e perdi anche la risposta
-            segreta, non potrai più sbloccare l&apos;app.
+          <p className="text-center text-xs text-gray-500">{t("Without a password the app opens directly. If you forget it and also lose the secret answer, you will no longer be able to unlock the app.")}
           </p>
         </form>
       </div>

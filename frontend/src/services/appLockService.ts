@@ -1,4 +1,5 @@
 import { invoke } from '@tauri-apps/api/core';
+import { t } from '@/i18n';
 
 export interface AppLockStatus {
   configured: boolean;
@@ -12,7 +13,7 @@ export const MIN_PASSWORD_LENGTH = 8;
 export function lockErrorMessage(error: unknown): string {
   if (typeof error === 'string') return error;
   if (error instanceof Error) return error.message;
-  return 'Operazione non riuscita. Riprova.';
+  return t('Operation failed. Please try again.');
 }
 
 export const appLockService = {

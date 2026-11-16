@@ -1,0 +1,41 @@
+{
+  "name": "Colloquio iniziale",
+  "description": "Raccolta delle informazioni del primo colloquio: richiesta, storia, obiettivi e accordi.",
+  "sections": [
+    {
+      "title": "Dati del colloquio",
+      "instruction": "Data, durata approssimativa e modalità, solo se emergono dalla trascrizione.",
+      "format": "string"
+    },
+    {
+      "title": "Motivo della richiesta",
+      "instruction": "Perché il paziente si rivolge al professionista e cosa si aspetta dal percorso.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Storia e contesto",
+      "instruction": "Informazioni su storia personale, famiglia, lavoro, relazioni e percorsi precedenti, solo se riferite.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Sintomi e difficoltà attuali",
+      "instruction": "Difficoltà riferite, durata, intensità e impatto sulla vita quotidiana.",
+      "format": "list"
+    },
+    {
+      "title": "Risorse e fattori protettivi",
+      "instruction": "Punti di forza, sostegni e risorse che il paziente menziona.",
+      "format": "list"
+    },
+    {
+      "title": "Rischio e sicurezza",
+      "instruction": "Segnala solo ciò che emerge: ideazione autolesiva, rischio per sé o per altri. In assenza, indica che non emergono elementi di rischio.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Obiettivi e accordi",
+      "instruction": "Obiettivi condivisi, frequenza, costi e modalità concordati, consenso informato se citato.",
+      "format": "list"
+    }
+  ]
+}

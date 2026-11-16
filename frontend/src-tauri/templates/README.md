@@ -1,86 +1,29 @@
-# Meeting Summary Templates
+# Modelli di riassunto
 
-This directory contains template definitions for meeting summary generation.
+Questa cartella contiene i modelli con cui Trascrivi Seduta compila le note cliniche.
 
-## Available Templates
+| File | Uso |
+| --- | --- |
+| `nota_di_seduta.json` | Nota di seduta generale (modello predefinito) |
+| `nota_soap.json` | Nota in formato SOAP |
+| `andamento_trattamento.json` | Verifica dei progressi del percorso |
+| `colloquio_iniziale.json` | Primo colloquio |
 
-### 1. `daily_standup.json`
-Time-boxed daily updates template designed for engineering/product teams.
-
-**Sections:**
-- Date
-- Attendees
-- Yesterday (completed work)
-- Today (planned work)
-- Blockers
-- Notes
-
-### 2. `standard_meeting.json`
-General-purpose meeting notes template focusing on key outcomes and actions.
-
-**Sections:**
-- Summary
-- Key Decisions
-- Action Items
-- Discussion Highlights
-
-## Template Structure
-
-Each template JSON file follows this schema:
+## Struttura
 
 ```json
 {
-  "name": "Template Name",
-  "description": "Brief description of the template's purpose",
+  "name": "Nome mostrato",
+  "description": "A cosa serve",
   "sections": [
-    {
-      "title": "Section Title",
-      "instruction": "Instructions for the LLM on what to extract/include",
-      "format": "paragraph|list|string",
-      "item_format": "Optional: Markdown table format for list items"
-    }
+    { "title": "Titolo", "instruction": "Cosa deve scrivere il modello", "format": "paragraph|list|string",
+      "item_format": "Facoltativo: intestazione di tabella Markdown per le liste" }
   ]
 }
 ```
 
-## Custom Templates
+Il riassunto è sempre un **supporto**: va riletto e firmato dal professionista. Il modello deve riportare solo ciò che emerge dalla trascrizione, senza formulare diagnosi.
 
-Users can add custom templates to the application data directory:
+## Modelli personalizzati
 
-- **macOS**: `~/Library/Application Support/Meetily/templates/`
-- **Windows**: `%APPDATA%\Meetily\templates\`
-- **Linux**: `~/.config/Meetily/templates/`
-
-Custom templates override built-in templates with the same filename.
-
-## Template Fields
-
-### Root Level
-- `name` (required): Display name for the template
-- `description` (required): Brief explanation of the template's use case
-- `sections` (required): Array of section definitions
-
-### Section Object
-- `title` (required): Section heading text
-- `instruction` (required): LLM guidance for this section
-- `format` (required): One of `"paragraph"`, `"list"`, or `"string"`
-- `item_format` (optional): Markdown formatting hint for list items (e.g., table structure)
-- `example_item_format` (optional): Alternative formatting hint
-
-## Usage in Code
-
-Templates are loaded using the `templates` module:
-
-```rust
-use crate::summary::templates;
-
-// Get a specific template
-let template = templates::get_template("daily_standup")?;
-
-// List available templates
-let available = templates::list_templates();
-
-// Validate custom template JSON
-let custom_json = std::fs::read_to_string("custom.json")?;
-let validated = templates::validate_template(&custom_json)?;
-```
+Si possono aggiungere file `.json` nella cartella dei dati dell'app, sotto `templates/`: sostituiscono quelli predefiniti con lo stesso nome.

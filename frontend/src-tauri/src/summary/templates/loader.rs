@@ -88,7 +88,7 @@ fn load_custom_template(template_id: &str) -> Option<String> {
 /// 4. Return error if not found in any location
 ///
 /// # Arguments
-/// * `template_id` - Template identifier (e.g., "daily_standup", "standard_meeting")
+/// * `template_id` - Template identifier (e.g., "nota_di_seduta", "nota_soap")
 ///
 /// # Returns
 /// Parsed and validated Template struct
@@ -223,11 +223,11 @@ mod tests {
 
     #[test]
     fn test_get_builtin_template() {
-        let template = get_template("daily_standup");
+        let template = get_template("nota_di_seduta");
         assert!(template.is_ok());
 
         let template = template.unwrap();
-        assert_eq!(template.name, "Daily Standup");
+        assert_eq!(template.name, "Nota di seduta");
         assert!(!template.sections.is_empty());
     }
 
@@ -240,8 +240,8 @@ mod tests {
     #[test]
     fn test_list_template_ids() {
         let ids = list_template_ids();
-        assert!(ids.contains(&"daily_standup".to_string()));
-        assert!(ids.contains(&"standard_meeting".to_string()));
+        assert!(ids.contains(&"nota_di_seduta".to_string()));
+        assert!(ids.contains(&"nota_soap".to_string()));
     }
 
     #[test]

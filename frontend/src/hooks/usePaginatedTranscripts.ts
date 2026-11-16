@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect, useMemo } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { Transcript, MeetingMetadata, PaginatedTranscriptsResponse, TranscriptSegmentData } from "@/types";
 
+import { t } from '@/i18n';
 const DEFAULT_PAGE_SIZE = 100;
 
 interface UsePaginatedTranscriptsProps {
@@ -92,7 +93,7 @@ export function usePaginatedTranscripts({
         } catch (err) {
             if (!isCurrentRequest(requestId)) return null;
             console.error('Failed to load meeting metadata:', err);
-            setError('Failed to load meeting details');
+            setError(t("Failed to load meeting details"));
             return null;
         }
     }, [meetingId, isCurrentRequest]);
@@ -141,7 +142,7 @@ export function usePaginatedTranscripts({
         } catch (err) {
             if (!isCurrentRequest(requestId)) return [];
             console.error('Failed to load transcripts:', err);
-            setError('Failed to load transcripts');
+            setError(t("Failed to load transcripts"));
             return [];
         }
     }, [meetingId, isCurrentRequest]);

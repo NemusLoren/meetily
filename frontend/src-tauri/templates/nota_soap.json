@@ -1,0 +1,37 @@
+{
+  "name": "Nota SOAP",
+  "description": "Nota clinica strutturata in Soggettivo, Oggettivo, Valutazione e Piano.",
+  "sections": [
+    {
+      "title": "Dati della seduta",
+      "instruction": "Data, durata approssimativa e modalità, solo se emergono dalla trascrizione.",
+      "format": "string"
+    },
+    {
+      "title": "Soggettivo (S)",
+      "instruction": "Ciò che il paziente riferisce: umore, sintomi, sonno, appetito, eventi di vita, fattori di stress, con parole sue quando possibile.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Oggettivo (O)",
+      "instruction": "Ciò che il terapeuta osserva dalla trascrizione: modo di esprimersi, affettività, coerenza del discorso. Non inventare osservazioni non supportate dal testo.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Valutazione (A)",
+      "instruction": "Andamento rispetto agli obiettivi di trattamento e impressioni cliniche espresse dal terapeuta durante la seduta. Non formulare diagnosi che il terapeuta non abbia espresso.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Piano (P)",
+      "instruction": "Interventi, compiti, frequenza e prossimi appuntamenti concordati.",
+      "format": "list",
+      "item_format": "| **Intervento / compito** | Chi | Quando |\n| --- | --- | --- |"
+    },
+    {
+      "title": "Rischio e sicurezza",
+      "instruction": "Segnala solo ciò che emerge: ideazione autolesiva, rischio per sé o per altri, emergenze. In assenza, scrivi che non emergono elementi di rischio.",
+      "format": "paragraph"
+    }
+  ]
+}

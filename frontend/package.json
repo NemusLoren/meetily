@@ -9,6 +9,7 @@
         "export": "next export",
         "start": "next start -p 3118",
         "tauri": "tauri",
+        "i18n:extract": "node scripts/i18n-extract.mjs",
         "tauri:dev": "node scripts/tauri-auto.js dev",
         "tauri:build": "node scripts/tauri-auto.js build",
         "tauri:dev:cpu": "tauri dev",

@@ -1,0 +1,5 @@
+# Inglese: il testo originale è già in inglese, quindi non servono traduzioni.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"

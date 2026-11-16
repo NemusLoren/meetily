@@ -10,6 +10,7 @@ import {
   MIN_PASSWORD_LENGTH,
 } from '@/services/appLockService';
 
+import { t } from '@/i18n';
 interface LockScreenProps {
   onUnlocked: () => void;
 }
@@ -30,7 +31,7 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
     try {
       const ok = await appLockService.verify(password);
       if (ok) onUnlocked();
-      else setError('Password errata. Dopo alcuni errori l’attesa si allunga.');
+      else setError(t("Wrong password. After a few mistakes the wait gets longer."));
     } catch (e) {
       setError(lockErrorMessage(e));
     } finally {
@@ -51,11 +52,11 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
 
   const handleReset = async () => {
     if (newPassword.length < MIN_PASSWORD_LENGTH) {
-      setError(`La nuova password deve avere almeno ${MIN_PASSWORD_LENGTH} caratteri.`);
+      setError(t("The new password must have at least {MIN_PASSWORD_LENGTH} characters.", { MIN_PASSWORD_LENGTH }));
       return;
     }
     if (newPassword !== confirm) {
-      setError('Le due password non coincidono.');
+      setError(t("The two passwords do not match."));
       return;
     }
     setBusy(true);
@@ -63,7 +64,7 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
     try {
       const ok = await appLockService.reset(answer, newPassword);
       if (ok) onUnlocked();
-      else setError('Risposta errata.');
+      else setError(t("Wrong answer."));
     } catch (e) {
       setError(lockErrorMessage(e));
     } finally {
@@ -78,11 +79,11 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
             <Lock className="h-5 w-5 text-gray-700" aria-hidden="true" />
           </div>
-          <h1 className="text-lg font-semibold text-gray-900">Trascrivi Seduta</h1>
+          <h1 className="text-lg font-semibold text-gray-900">{t("Trascrivi Seduta")}</h1>
           <p className="text-sm text-gray-600">
             {mode === 'unlock'
-              ? 'Inserisci la password master per aprire l’app.'
-              : 'Rispondi alla domanda segreta e scegli una nuova password. I tuoi dati non vengono toccati.'}
+              ? t("Enter the master password to open the app.")
+              : t("Answer the secret question and choose a new password. Your data is not touched.")}
           </p>
         </div>
 
@@ -98,10 +99,10 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
               type="password"
               autoFocus
               autoComplete="current-password"
-              placeholder="Password master"
+              placeholder={t("Master password")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              aria-label="Password master"
+              aria-label={t("Master password")}
             />
             {error && (
               <p role="alert" className="text-sm text-red-600">
@@ -113,14 +114,13 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
               disabled={busy || password.length === 0}
               className="h-10 w-full bg-gray-900 text-white hover:bg-gray-800"
             >
-              {busy ? 'Verifica…' : 'Apri'}
+              {busy ? t("Checking...") : t("Open")}
             </Button>
             <button
               type="button"
               onClick={() => void openReset()}
               className="w-full text-sm text-gray-600 underline underline-offset-2 hover:text-gray-900"
-            >
-              Password dimenticata?
+            >{t("Forgot your password?")}
             </button>
           </form>
         ) : (
@@ -136,26 +136,26 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
               type="password"
               autoFocus
               autoComplete="off"
-              placeholder="Risposta"
+              placeholder={t("Answer")}
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              aria-label="Risposta alla domanda segreta"
+              aria-label={t("Answer to the secret question")}
             />
             <Input
               type="password"
               autoComplete="new-password"
-              placeholder="Nuova password"
+              placeholder={t("New password")}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              aria-label="Nuova password"
+              aria-label={t("New password")}
             />
             <Input
               type="password"
               autoComplete="new-password"
-              placeholder="Ripeti la nuova password"
+              placeholder={t("Repeat the new password")}
               value={confirm}
               onChange={(e) => setConfirm(e.target.value)}
-              aria-label="Ripeti la nuova password"
+              aria-label={t("Repeat the new password")}
             />
             {error && (
               <p role="alert" className="text-sm text-red-600">
@@ -167,7 +167,7 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
               disabled={busy}
               className="h-10 w-full bg-gray-900 text-white hover:bg-gray-800"
             >
-              {busy ? 'Verifica…' : 'Reimposta e apri'}
+              {busy ? t("Checking...") : t("Reset and open")}
             </Button>
             <button
               type="button"
@@ -176,8 +176,7 @@ export function LockScreen({ onUnlocked }: LockScreenProps) {
                 setError(null);
               }}
               className="w-full text-sm text-gray-600 underline underline-offset-2 hover:text-gray-900"
-            >
-              Torna indietro
+            >{t("Go back")}
             </button>
           </form>
         )}

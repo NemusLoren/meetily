@@ -30,6 +30,7 @@ import {
 import { cn, isOllamaNotInstalledError } from '@/lib/utils';
 import { toast } from 'sonner';
 
+import { t } from '@/i18n';
 export interface ModelConfig {
   provider: 'ollama' | 'builtin-ai';
   model: string;
@@ -58,7 +59,7 @@ async function openOllamaDownload() {
     await invoke('open_external_url', { url: 'https://ollama.com/download' });
   } catch (error) {
     console.error('Failed to open Ollama download page:', error);
-    toast.error('Could not open this link. Please check your default browser and try again.');
+    toast.error(t("Could not open this link. Please check your default browser and try again."));
   }
 }
 
@@ -319,7 +320,7 @@ export function ModelSettingsModal({
       }
     } catch (err) {
       console.error('Error loading Built-in AI models:', err);
-      toast.error('Failed to load Built-in AI models');
+      toast.error(t("Failed to load Built-in AI models"));
     }
   };
 
@@ -367,8 +368,8 @@ export function ModelSettingsModal({
 
     // Prevent duplicate downloads (defense in depth - backend also checks)
     if (isDownloading(recommendedModel)) {
-      toast.info(`${recommendedModel} is already downloading`, {
-        description: `Progress: ${Math.round(getProgress(recommendedModel) || 0)}%`
+      toast.info(t("{recommendedModel} is already downloading", { recommendedModel }), {
+        description: t("Progress: {v1}%", { v1: Math.round(getProgress(recommendedModel) || 0) })
       });
       return;
     }
@@ -394,11 +395,11 @@ export function ModelSettingsModal({
 
       // Check if Ollama is not installed and show appropriate error
       if (isOllamaNotInstalledError(errorMsg)) {
-        toast.error('Ollama is not installed', {
-          description: 'Please download and install Ollama before downloading models.',
+        toast.error(t("Ollama is not installed"), {
+          description: t("Please download and install Ollama before downloading models."),
           duration: 7000,
           action: {
-            label: 'Download',
+            label: t("Download"),
             onClick: openOllamaDownload
           }
         });
@@ -418,7 +419,7 @@ export function ModelSettingsModal({
         endpoint
       });
 
-      toast.success(`Model ${modelName} deleted`);
+      toast.success(t("Model {modelName} deleted", { modelName }));
       await fetchOllamaModels(true); // Refresh list
     } catch (err) {
       const errorMsg = err instanceof Error ? err.message : 'Failed to delete model';
@@ -467,12 +468,12 @@ export function ModelSettingsModal({
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold">Model Settings</h3>
+        <h3 className="text-lg font-semibold">{t("Model Settings")}</h3>
       </div>
 
       <div className="space-y-4">
         <div>
-          <Label>Summarization Model</Label>
+          <Label>{t("Summarization Model")}</Label>
           <div className="flex space-x-2 mt-1">
             <Select
               value={modelConfig.provider}
@@ -513,11 +514,11 @@ export function ModelSettingsModal({
               }}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select provider" />
+                <SelectValue placeholder={t("Select provider")} />
               </SelectTrigger>
               <SelectContent className="max-h-64 overflow-y-auto">
-                <SelectItem value="builtin-ai">Built-in AI (Offline, No API needed)</SelectItem>
-                <SelectItem value="ollama">Ollama</SelectItem>
+                <SelectItem value="builtin-ai">{t("Built-in AI (Offline, No API needed)")}</SelectItem>
+                <SelectItem value="ollama">{t("Ollama")}</SelectItem>
               </SelectContent>
             </Select>
 
@@ -531,16 +532,16 @@ export function ModelSettingsModal({
                     className="flex-1 max-w-[200px] justify-between font-normal"
                   >
                     <span className="truncate">
-                      {modelConfig.model || "Select model..."}
+                      {modelConfig.model || t("Select model...")}
                     </span>
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-[250px] p-0" align="start">
                   <Command>
-                    <CommandInput placeholder="Search models..." />
+                    <CommandInput placeholder={t("Search models...")} />
                     <CommandList className="max-h-[300px]">
-                          <CommandEmpty>No models found.</CommandEmpty>
+                          <CommandEmpty>{t("No models found.")}</CommandEmpty>
                           <CommandGroup>
                             {modelOptions[modelConfig.provider]?.map((model) => (
                               <CommandItem
@@ -575,7 +576,7 @@ export function ModelSettingsModal({
               className="flex items-center justify-between cursor-pointer py-2"
               onClick={() => setIsEndpointSectionCollapsed(!isEndpointSectionCollapsed)}
             >
-              <Label className="cursor-pointer">Custom Endpoint (optional)</Label>
+              <Label className="cursor-pointer">{t("Custom Endpoint (optional)")}</Label>
               {isEndpointSectionCollapsed ? (
                 <ChevronDown className="h-4 w-4 text-muted-foreground" />
               ) : (
@@ -585,8 +586,7 @@ export function ModelSettingsModal({
 
             {!isEndpointSectionCollapsed && (
               <>
-                <p className="text-sm text-muted-foreground mt-1 mb-2">
-                  Leave empty or enter a custom endpoint (e.g., http://x.yy.zz:11434)
+                <p className="text-sm text-muted-foreground mt-1 mb-2">{t("Leave empty or enter a custom endpoint (e.g., http://x.yy.zz:11434)")}
                 </p>
                 <div className="flex gap-2 mt-1">
                   <div className="relative flex-1">
@@ -624,21 +624,18 @@ export function ModelSettingsModal({
                   >
                     {isLoadingOllama ? (
                       <>
-                        <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
-                        Fetching...
+                        <RefreshCw className="mr-2 h-4 w-4 animate-spin" />{t("Fetching...")}
                       </>
                     ) : (
                       <>
-                        <RefreshCw className="mr-2 h-4 w-4" />
-                        Fetch Models
+                        <RefreshCw className="mr-2 h-4 w-4" />{t("Fetch Models")}
                       </>
                     )}
                   </Button>
                 </div>
                 {ollamaEndpointChanged && !error && (
                   <Alert className="mt-3 border-yellow-500 bg-yellow-50">
-                    <AlertDescription className="text-yellow-800">
-                      Endpoint changed. Please click "Fetch Models" to load models from the new endpoint before saving.
+                    <AlertDescription className="text-yellow-800">{t("Endpoint changed. Please click \"Fetch Models\" to load models from the new endpoint before saving.")}
                     </AlertDescription>
                   </Alert>
                 )}
@@ -650,10 +647,10 @@ export function ModelSettingsModal({
         {modelConfig.provider === 'ollama' && (
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h4 className="text-sm font-bold">Available Ollama Models</h4>
+              <h4 className="text-sm font-bold">{t("Available Ollama Models")}</h4>
               {lastFetchedEndpoint && models.length > 0 && (
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="text-muted-foreground">Using:</span>
+                  <span className="text-muted-foreground">{t("Using:")}</span>
                   <code className="px-2 py-1 bg-muted rounded text-xs">
                     {lastFetchedEndpoint || 'http://localhost:11434'}
                   </code>
@@ -663,7 +660,7 @@ export function ModelSettingsModal({
             {models.length > 0 && (
               <div className="mb-4">
                 <Input
-                  placeholder="Search models..."
+                  placeholder={t("Search models...")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full"
@@ -672,8 +669,7 @@ export function ModelSettingsModal({
             )}
             {isLoadingOllama ? (
               <div className="text-center py-8 text-muted-foreground">
-                <RefreshCw className="mx-auto h-8 w-8 animate-spin mb-2" />
-                Loading models...
+                <RefreshCw className="mx-auto h-8 w-8 animate-spin mb-2" />{t("Loading models...")}
               </div>
             ) : models.length === 0 ? (
               <div className="space-y-3">
@@ -681,8 +677,7 @@ export function ModelSettingsModal({
                   /* Show Ollama download link when not installed */
                   <div className="space-y-4">
                     <Alert className="border-orange-500 bg-orange-50">
-                      <AlertDescription className="text-orange-800">
-                        Ollama is not installed or not running. Please download and install Ollama to use local models.
+                      <AlertDescription className="text-orange-800">{t("Ollama is not installed or not running. Please download and install Ollama to use local models.")}
                       </AlertDescription>
                     </Alert>
                     <Button
@@ -691,11 +686,9 @@ export function ModelSettingsModal({
                       onClick={openOllamaDownload}
                       className="w-full bg-blue-600 hover:bg-blue-700"
                     >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Download Ollama
+                      <ExternalLink className="mr-2 h-4 w-4" />{t("Download Ollama")}
                     </Button>
-                    <div className="text-sm text-muted-foreground text-center">
-                      After installing Ollama, restart this application and click "Fetch Models" to continue.
+                    <div className="text-sm text-muted-foreground text-center">{t("After installing Ollama, restart this application and click \"Fetch Models\" to continue.")}
                     </div>
                   </div>
                 ) : (
@@ -704,8 +697,8 @@ export function ModelSettingsModal({
                     <Alert className="mb-4">
                       <AlertDescription>
                         {ollamaEndpointChanged
-                          ? 'Endpoint changed. Click "Fetch Models" to load models from the new endpoint.'
-                          : 'No models found. Download a recommended model or click "Fetch Models" to load available Ollama models.'}
+                          ? t("Endpoint changed. Click \"Fetch Models\" to load models from the new endpoint.")
+                          : t("No models found. Download a recommended model or click \"Fetch Models\" to load available Ollama models.")}
                       </AlertDescription>
                     </Alert>
                     {!ollamaEndpointChanged && (
@@ -719,13 +712,11 @@ export function ModelSettingsModal({
                         >
                           {isDownloading('gemma3:1b') ? (
                             <>
-                              <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
-                              Downloading gemma3:1b...
+                              <RefreshCw className="mr-2 h-4 w-4 animate-spin" />{t("Downloading gemma3:1b...")}
                             </>
                           ) : (
                             <>
-                              <Download className="mr-2 h-4 w-4" />
-                              Download gemma3:1b (Recommended, ~800MB)
+                              <Download className="mr-2 h-4 w-4" />{t("Download gemma3:1b (Recommended, ~800MB)")}
                             </>
                           )}
                         </Button>
@@ -734,7 +725,7 @@ export function ModelSettingsModal({
                         {isDownloading('gemma3:1b') && getProgress('gemma3:1b') !== undefined && (
                           <div className="bg-white rounded-md border p-3">
                             <div className="flex items-center justify-between mb-2">
-                              <span className="text-sm font-medium text-blue-600">Downloading gemma3:1b</span>
+                              <span className="text-sm font-medium text-blue-600">{t("Downloading gemma3:1b")}</span>
                               <span className="text-sm font-semibold text-blue-600">
                                 {Math.round(getProgress('gemma3:1b')!)}%
                               </span>
@@ -756,8 +747,7 @@ export function ModelSettingsModal({
               <ScrollArea className="max-h-[calc(100vh-450px)] overflow-y-auto pr-4">
                 {filteredModels.length === 0 ? (
                   <Alert>
-                    <AlertDescription>
-                      No models found matching "{searchQuery}". Try a different search term.
+                    <AlertDescription>{t("No models found matching \"")}{searchQuery}{t("\". Try a different search term.")}
                     </AlertDescription>
                   </Alert>
                 ) : (
@@ -784,7 +774,7 @@ export function ModelSettingsModal({
                         >
                           <div>
                             <b className="font-bold">{model.name}&nbsp;</b>
-                            <span className="text-muted-foreground">with a size of </span>
+                            <span className="text-muted-foreground">{t("with a size of")} </span>
                             <span className="font-mono font-bold text-sm">{model.size}</span>
                           </div>
 
@@ -792,7 +782,7 @@ export function ModelSettingsModal({
                           {modelIsDownloading && progress !== undefined && (
                             <div className="mt-3 pt-3 border-t border-gray-200">
                               <div className="flex items-center justify-between mb-2">
-                                <span className="text-sm font-medium text-blue-600">Downloading...</span>
+                                <span className="text-sm font-medium text-blue-600">{t("Downloading...")}</span>
                                 <span className="text-sm font-semibold text-blue-600">{Math.round(progress)}%</span>
                               </div>
                               <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -854,8 +844,7 @@ export function ModelSettingsModal({
           )}
           onClick={handleSave}
           disabled={isDoneDisabled}
-        >
-          Save
+        >{t("Save")}
         </Button>
       </div>
     </div>

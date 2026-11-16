@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { invoke } from '@tauri-apps/api/core';
 
+import { t } from '@/i18n';
 export const useAudioPlayer = (audioPath: string | null) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -35,7 +36,7 @@ export const useAudioPlayer = (audioPath: string | null) => {
       return true;
     } catch (error) {
       console.error('Error initializing AudioContext:', error);
-      setError('Failed to initialize audio');
+      setError(t("Failed to initialize audio"));
       return false;
     }
   };
@@ -122,7 +123,7 @@ export const useAudioPlayer = (audioPath: string | null) => {
           stack: error.stack,
         });
       }
-      setError('Failed to load audio file');
+      setError(t("Failed to load audio file"));
     }
   };
 
@@ -232,7 +233,7 @@ export const useAudioPlayer = (audioPath: string | null) => {
       rafRef.current = requestAnimationFrame(updateTime);
     } catch (error) {
       console.error('Error during playback:', error);
-      setError('Failed to play audio');
+      setError(t("Failed to play audio"));
       stopPlayback();
     }
   };

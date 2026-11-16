@@ -4,28 +4,29 @@ import { Button } from '@/components/ui/button';
 import { OnboardingContainer } from '../OnboardingContainer';
 import { useOnboarding } from '@/contexts/OnboardingContext';
 
+import { t } from '@/i18n';
 export function WelcomeStep() {
   const { goNext } = useOnboarding();
 
   const features = [
     {
       icon: Lock,
-      title: 'Your data never leaves your device',
+      title: t("Your data never leaves your device"),
     },
     {
       icon: Sparkles,
-      title: 'Intelligent summaries & insights',
+      title: t("Intelligent summaries & insights"),
     },
     {
       icon: Cpu,
-      title: 'Works offline, no cloud required',
+      title: t("Works offline, no cloud required"),
     },
   ];
 
   return (
     <OnboardingContainer
-      title="Benvenuto in Trascrivi Seduta"
-      description="Record. Transcribe. Summarize. All on your device."
+      title={t("Welcome to Trascrivi Seduta")}
+      description={t("Record. Transcribe. Summarize. All on your device.")}
       step={1}
       hideProgress={true}
     >
@@ -55,10 +56,9 @@ export function WelcomeStep() {
           <Button
             onClick={goNext}
             className="w-full h-11 bg-gray-900 hover:bg-gray-800 text-white"
-          >
-            Get Started
+          >{t("Get Started")}
           </Button>
-          <p className="text-xs text-center text-gray-500">Takes less than 3 minutes</p>
+          <p className="text-xs text-center text-gray-500">{t("Takes less than 3 minutes")}</p>
         </div>
       </div>
     </OnboardingContainer>

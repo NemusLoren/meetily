@@ -14,6 +14,7 @@ import {
 } from '@/lib/transcription-model-readiness';
 import { toast } from 'sonner';
 
+import { t } from '@/i18n';
 const TRANSCRIPTION_RUNTIME_START_ERROR_CODE = 'TRANSCRIPTION_RUNTIME_INITIALIZATION_FAILED';
 const TRANSCRIPTION_RUNTIME_USER_MESSAGE = 'Speech recognition could not initialize. Restart Trascrivi Seduta. If the problem continues, repair or reinstall the app.';
 
@@ -130,14 +131,14 @@ export function useRecordingStart(
       if (!modelReady) {
         const isDownloading = await checkIfModelDownloading();
         if (isDownloading) {
-          toast.info('Model download in progress', {
-            description: 'Please wait for the transcription model to finish downloading before recording.',
+          toast.info(t("Model download in progress"), {
+            description: t("Please wait for the transcription model to finish downloading before recording."),
             duration: 5000,
           });
           Analytics.trackButtonClick('start_recording_blocked_downloading', 'home_page');
         } else {
-          toast.error('Transcription model not ready', {
-            description: 'Please download a transcription model before recording.',
+          toast.error(t("Transcription model not ready"), {
+            description: t("Please download a transcription model before recording."),
             duration: 5000,
           });
           showModal?.('modelSelector', 'Transcription model setup required');
@@ -191,7 +192,7 @@ export function useRecordingStart(
 
       const isRuntimeError = isTranscriptionRuntimeStartError(error);
       if (errorMsg.includes('Recording start timed out')) {
-        toast.error('Recording start timed out — please try again');
+        toast.error(t("Recording start timed out — please try again"));
       }
 
       setStatus(RecordingStatus.ERROR, isRuntimeError
@@ -222,14 +223,14 @@ export function useRecordingStart(
           if (!modelReady) {
             const isDownloading = await checkIfModelDownloading();
             if (isDownloading) {
-              toast.info('Model download in progress', {
-                description: 'Please wait for the transcription model to finish downloading before recording.',
+              toast.info(t("Model download in progress"), {
+                description: t("Please wait for the transcription model to finish downloading before recording."),
                 duration: 5000,
               });
               Analytics.trackButtonClick('start_recording_blocked_downloading', 'sidebar_auto');
             } else {
-              toast.error('Transcription model not ready', {
-                description: 'Please download a transcription model before recording.',
+              toast.error(t("Transcription model not ready"), {
+                description: t("Please download a transcription model before recording."),
                 duration: 5000,
               });
               showModal?.('modelSelector', 'Transcription model setup required');
@@ -321,14 +322,14 @@ export function useRecordingStart(
       if (!modelReady) {
         const isDownloading = await checkIfModelDownloading();
         if (isDownloading) {
-          toast.info('Model download in progress', {
-            description: 'Please wait for the transcription model to finish downloading before recording.',
+          toast.info(t("Model download in progress"), {
+            description: t("Please wait for the transcription model to finish downloading before recording."),
             duration: 5000,
           });
           Analytics.trackButtonClick('start_recording_blocked_downloading', 'sidebar_direct');
         } else {
-          toast.error('Transcription model not ready', {
-            description: 'Please download a transcription model before recording.',
+          toast.error(t("Transcription model not ready"), {
+            description: t("Please download a transcription model before recording."),
             duration: 5000,
           });
           showModal?.('modelSelector', 'Transcription model setup required');

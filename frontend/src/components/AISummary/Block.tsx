@@ -3,6 +3,7 @@
 import { Block } from '@/types';
 import { useRef, useState, useEffect } from 'react';
 
+import { t } from '@/i18n';
 interface BlockProps {
   block: Block;
   isSelected: boolean;
@@ -29,31 +30,31 @@ interface CommandOption {
 const COMMANDS: CommandOption[] = [
   { 
     id: 'text', 
-    label: 'Text', 
+    label: t("Text"), 
     type: 'text', 
     icon: 'T', 
-    description: 'Just start writing with plain text' 
+    description: t("Just start writing with plain text") 
   },
   { 
     id: 'bullet', 
-    label: 'Bullet List', 
+    label: t("Bullet List"), 
     type: 'bullet', 
     icon: '•', 
-    description: 'Create a bulleted list' 
+    description: t("Create a bulleted list") 
   },
   { 
     id: 'h1', 
-    label: 'Heading 1', 
+    label: t("Heading 1"), 
     type: 'heading1', 
     icon: 'H1', 
-    description: 'Big section heading' 
+    description: t("Big section heading") 
   },
   { 
     id: 'h2', 
-    label: 'Heading 2', 
+    label: t("Heading 2"), 
     type: 'heading2', 
     icon: 'H2', 
-    description: 'Medium section heading' 
+    description: t("Medium section heading") 
   },
 ];
 
@@ -250,7 +251,7 @@ export const BlockComponent: React.FC<BlockProps> = ({
             ${block.type === 'heading1' ? 'text-xl font-bold' : ''}
             ${block.type === 'heading2' ? 'text-lg font-semibold' : ''}
           `}
-          placeholder="Type '/' for commands..."
+          placeholder={t("Type '/' for commands...")}
         />
 
         {showCommands && (

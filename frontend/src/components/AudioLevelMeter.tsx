@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { t } from '@/i18n';
 interface AudioLevelMeterProps {
   rmsLevel: number;    // 0.0 to 1.0
   peakLevel: number;   // 0.0 to 1.0
@@ -65,7 +66,7 @@ export function AudioLevelMeter({
       {/* Device activity indicator */}
       <div className={`w-2 h-2 rounded-full ${
         isActive ? 'bg-green-400 animate-pulse' : 'bg-gray-300'
-      }`} title={`${deviceName} - ${isActive ? 'Active' : 'Inactive'}`} />
+      }`} title={`${deviceName} - ${isActive ? t("Active") : t("Inactive")}`} />
 
       {/* Level meter container */}
       <div className={`flex-1 ${sizes.container} relative`}>

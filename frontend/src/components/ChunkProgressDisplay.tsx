@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { t } from '@/i18n';
 export interface ChunkStatus {
   chunk_id: number;
   status: 'pending' | 'processing' | 'completed' | 'failed';
@@ -92,12 +93,10 @@ export function ChunkProgressDisplay({
       {/* Progress Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-3">
-          <h3 className="text-lg font-semibold text-gray-900">
-            Processing Progress
+          <h3 className="text-lg font-semibold text-gray-900">{t("Processing Progress")}
           </h3>
           {isPaused && (
-            <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">
-              Paused
+            <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">{t("Paused")}
             </span>
           )}
         </div>
@@ -108,23 +107,20 @@ export function ChunkProgressDisplay({
               onClick={onPause}
               className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm transition-colors"
               disabled={progress.processing_chunks === 0 && progress.completed_chunks === progress.total_chunks}
-            >
-              Pause
+            >{t("Pause")}
             </button>
           ) : (
             <button
               onClick={onResume}
               className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm transition-colors"
-            >
-              Resume
+            >{t("Resume")}
             </button>
           )}
 
           <button
             onClick={onCancel}
             className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm transition-colors"
-          >
-            Cancel
+          >{t("Cancel")}
           </button>
         </div>
       </div>
@@ -133,7 +129,7 @@ export function ChunkProgressDisplay({
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-gray-700">
-            {progress.completed_chunks} of {progress.total_chunks} chunks completed
+            {progress.completed_chunks} of {progress.total_chunks}{t("chunks completed")}
           </span>
           <span className="text-sm font-medium text-gray-700">
             {completionPercentage}%
@@ -154,28 +150,28 @@ export function ChunkProgressDisplay({
           <div className="text-lg font-semibold text-green-600">
             {progress.completed_chunks}
           </div>
-          <div className="text-gray-600">Completed</div>
+          <div className="text-gray-600">{t("Completed")}</div>
         </div>
 
         <div className="text-center">
           <div className="text-lg font-semibold text-blue-600">
             {progress.processing_chunks}
           </div>
-          <div className="text-gray-600">Processing</div>
+          <div className="text-gray-600">{t("Processing")}</div>
         </div>
 
         <div className="text-center">
           <div className="text-lg font-semibold text-gray-600">
             {progress.total_chunks - progress.completed_chunks - progress.processing_chunks - progress.failed_chunks}
           </div>
-          <div className="text-gray-600">Pending</div>
+          <div className="text-gray-600">{t("Pending")}</div>
         </div>
 
         <div className="text-center">
           <div className="text-lg font-semibold text-red-600">
             {progress.failed_chunks}
           </div>
-          <div className="text-gray-600">Failed</div>
+          <div className="text-gray-600">{t("Failed")}</div>
         </div>
       </div>
 
@@ -184,8 +180,7 @@ export function ChunkProgressDisplay({
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
           <div className="flex items-center space-x-2">
             <span className="text-blue-600">⏱️</span>
-            <span className="text-sm text-blue-800">
-              Estimated time remaining: {formatTimeRemaining(progress.estimated_remaining_ms)}
+            <span className="text-sm text-blue-800">{t("Estimated time remaining:")} {formatTimeRemaining(progress.estimated_remaining_ms)}
             </span>
           </div>
         </div>
@@ -193,8 +188,7 @@ export function ChunkProgressDisplay({
 
       {/* Recent Chunks Grid */}
       <div className="space-y-2">
-        <h4 className="text-sm font-medium text-gray-700 mb-2">
-          Recent Chunks ({Math.min(progress.chunks.length, 10)} of {progress.total_chunks})
+        <h4 className="text-sm font-medium text-gray-700 mb-2">{t("Recent Chunks (")}{Math.min(progress.chunks.length, 10)} of {progress.total_chunks})
         </h4>
 
         <div className="max-h-48 overflow-y-auto space-y-1">
@@ -209,8 +203,7 @@ export function ChunkProgressDisplay({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <span>{getChunkStatusIcon(chunk.status)}</span>
-                    <span className="font-medium">
-                      Chunk {chunk.chunk_id}
+                    <span className="font-medium">{t("Chunk")} {chunk.chunk_id}
                     </span>
                     {chunk.duration_ms && (
                       <span className="text-gray-500">
@@ -233,8 +226,7 @@ export function ChunkProgressDisplay({
                 )}
 
                 {chunk.error_message && (
-                  <div className="mt-1 text-red-700 text-xs">
-                    Error: {chunk.error_message}
+                  <div className="mt-1 text-red-700 text-xs">{t("Error:")} {chunk.error_message}
                   </div>
                 )}
               </div>
@@ -247,8 +239,7 @@ export function ChunkProgressDisplay({
         <div className="mt-4 bg-green-50 border border-green-200 rounded-lg p-3">
           <div className="flex items-center space-x-2">
             <span className="text-green-600">🎉</span>
-            <span className="text-sm font-medium text-green-800">
-              Processing completed! All {progress.total_chunks} chunks have been transcribed.
+            <span className="text-sm font-medium text-green-800">{t("Processing completed! All")} {progress.total_chunks}{t("chunks have been transcribed.")}
             </span>
           </div>
         </div>
@@ -266,8 +257,7 @@ export function ChunkProgressMini({ progress, className = '' }: { progress: Proc
   return (
     <div className={`bg-gray-50 border border-gray-200 rounded-lg p-3 ${className}`}>
       <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-gray-700">
-          Processing
+        <span className="text-sm font-medium text-gray-700">{t("Processing")}
         </span>
         <span className="text-sm font-medium text-gray-700">
           {completionPercentage}%
@@ -285,7 +275,7 @@ export function ChunkProgressMini({ progress, className = '' }: { progress: Proc
         {progress.completed_chunks} / {progress.total_chunks} chunks
         {progress.processing_chunks > 0 && (
           <span className="ml-2 text-blue-600">
-            ({progress.processing_chunks} processing)
+            ({progress.processing_chunks}{t("processing)")}
           </span>
         )}
       </div>

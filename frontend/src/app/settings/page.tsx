@@ -13,13 +13,14 @@ import { BetaSettings } from '@/components/BetaSettings';
 import { useConfig } from '@/contexts/ConfigContext';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 
+import { t } from '@/i18n';
 // Tabs configuration (constant)
 const TABS = [
-  { value: 'general', label: 'General', icon: Settings2 },
-  { value: 'recording', label: 'Recordings', icon: Mic },
-  { value: 'Transcriptionmodels', label: 'Transcription', icon: DatabaseIcon },
-  { value: 'summaryModels', label: 'Summary', icon: SparkleIcon },
-  { value: 'beta', label: 'Beta', icon: FlaskConical }
+  { value: 'general', label: t("General"), icon: Settings2 },
+  { value: 'recording', label: t("Recordings"), icon: Mic },
+  { value: 'Transcriptionmodels', label: t("Transcription"), icon: DatabaseIcon },
+  { value: 'summaryModels', label: t("Summary"), icon: SparkleIcon },
+  { value: 'beta', label: t("Beta"), icon: FlaskConical }
 ] as const;
 
 export default function SettingsPage() {
@@ -73,9 +74,9 @@ export default function SettingsPage() {
               className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
-              <span>Back</span>
+              <span>{t("Back")}</span>
             </button>
-            <h1 className="text-3xl font-bold">Settings</h1>
+            <h1 className="text-3xl font-bold">{t("Settings")}</h1>
           </div>
         </div>
       </div>

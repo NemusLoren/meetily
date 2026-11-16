@@ -4,6 +4,7 @@ import { BlockNoteView } from "@blocknote/shadcn";
 import "@blocknote/shadcn/style.css";
 import { ChangeEvent, useCallback, useEffect } from "react";
 
+import { t } from '@/i18n';
 const initialMarkdown = "Hello, **world!**";
 
 export default function BasicBlockNoteTest() {
@@ -33,7 +34,7 @@ export default function BasicBlockNoteTest() {
   return (
     <div className="views">
       <div className="view-wrapper">
-        <div className="view-label">Markdown Input</div>
+        <div className="view-label">{t("Markdown Input")}</div>
         <div className="view">
           <code>
             <textarea
@@ -44,7 +45,7 @@ export default function BasicBlockNoteTest() {
         </div>
       </div>
       <div className="view-wrapper">
-        <div className="view-label">Editor Output</div>
+        <div className="view-label">{t("Editor Output")}</div>
         <div className="view">
           <BlockNoteView editor={editor} editable={true} />
         </div>

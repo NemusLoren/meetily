@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import { listen } from '@tauri-apps/api/event';
 import { resolveDeviceLabel } from '@/lib/audioDevices';
 
+import { t } from '@/i18n';
 /**
  * Recording state synchronized with backend
  * This context provides a single source of truth for recording state
@@ -288,7 +289,7 @@ export function RecordingStateProvider({ children }: { children: React.ReactNode
           // selected mic that wasn't available at start (backend fell back to
           // the default). Copy is worded to be accurate for both.
           toast.info(
-            `Microphone switched to ${label} for this meeting.`,
+            t("Microphone switched to {label} for this meeting.", { label }),
             { duration: 6000 }
           );
         });
@@ -303,7 +304,7 @@ export function RecordingStateProvider({ children }: { children: React.ReactNode
           // available" — expected, not an error worth a toast.
           if (isRecordingRef.current) {
             toast.error(
-              `Microphone fallback failed for ${label}: ${error}`,
+              t("Microphone fallback failed for {label}: {error}", { label, error }),
               { duration: 8000 }
             );
           }
@@ -316,7 +317,7 @@ export function RecordingStateProvider({ children }: { children: React.ReactNode
           // Fires at recording start, before isRecording flips true, so this
           // is intentionally NOT gated by isRecordingRef.
           toast.error(
-            'No microphone available — recording system audio only.',
+            t("No microphone available — recording system audio only."),
             { duration: 8000 }
           );
         });
@@ -330,7 +331,7 @@ export function RecordingStateProvider({ children }: { children: React.ReactNode
           // mic-swap-failed so a stale event after Stop doesn't alarm the user.
           if (isRecordingRef.current) {
             toast.error(
-              `Microphone '${label}' could not be recovered — recording continues without a microphone. Stop and restart to fix.`,
+              t("Microphone '{label}' could not be recovered — recording continues without a microphone. Stop and restart to fix.", { label }),
               { duration: 10000 }
             );
           }

@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import type { PermissionRowProps } from '@/types/onboarding';
 
+import { t } from '@/i18n';
 export function PermissionRow({ icon, title, description, status, isPending = false, onAction }: PermissionRowProps) {
   const isAuthorized = status === 'authorized';
   const isDenied = status === 'denied';
@@ -41,13 +42,11 @@ export function PermissionRow({ icon, title, description, status, isPending = fa
           <div className="text-sm text-muted-foreground">
             {isAuthorized ? (
               <span className="text-green-600 flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                Access Granted
+                <CheckCircle2 className="w-3.5 h-3.5" />{t("Access Granted")}
               </span>
             ) : isDenied ? (
               <span className="text-red-500 flex items-center gap-1">
-                <XCircle className="w-3.5 h-3.5" />
-                Access Denied - Please grant in System Settings
+                <XCircle className="w-3.5 h-3.5" />{t("Access Denied - Please grant in System Settings")}
               </span>
             ) : (
               <span>{description}</span>

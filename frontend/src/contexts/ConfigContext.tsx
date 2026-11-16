@@ -9,6 +9,7 @@ import Analytics from '@/lib/analytics';
 import { toast } from 'sonner';
 import { BetaFeatures, BetaFeatureKey, loadBetaFeatures, saveBetaFeatures } from '@/types/betaFeatures';
 
+import { t } from '@/i18n';
 export interface OllamaModel {
   name: string;
   id: string;
@@ -271,7 +272,7 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
         }
       } catch (error) {
         console.error('Failed to load device preferences:', error);
-        toast.error('Could not load saved recording devices', { description: String(error) });
+        toast.error(t("Could not load saved recording devices"), { description: String(error) });
       }
     };
     loadDevicePreferences();

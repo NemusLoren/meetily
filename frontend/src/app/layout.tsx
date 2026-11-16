@@ -27,6 +27,7 @@ import { ImportDialogProvider } from '@/contexts/ImportDialogContext'
 import { isAudioExtension, getAudioFormatsDisplayList } from '@/constants/audioFormats'
 
 
+import { t } from '@/i18n';
 const sourceSans3 = Source_Sans_3({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -124,8 +125,8 @@ export default function RootLayout({
       console.log('[Layout] Received request-recording-toggle from tray');
 
       if (showOnboarding) {
-        toast.error("Please complete setup first", {
-          description: "You need to finish onboarding before you can start recording."
+        toast.error(t("Please complete setup first"), {
+          description: t("You need to finish onboarding before you can start recording.")
         });
       } else {
         // If in main app, forward to useRecordingStart via window event
@@ -145,8 +146,8 @@ export default function RootLayout({
     const betaFeatures = loadBetaFeatures();
 
     if (!betaFeatures.importAndRetranscribe) {
-      toast.error('Beta feature disabled', {
-        description: 'Enable "Import Audio & Retranscribe" in Settings > Beta to use this feature.'
+      toast.error(t("Beta feature disabled"), {
+        description: t("Enable \"Import Audio & Retranscribe\" in Settings > Beta to use this feature.")
       });
       return;
     }
@@ -162,8 +163,8 @@ export default function RootLayout({
       setImportFilePath(audioFile);
       setShowImportDialog(true);
     } else if (paths.length > 0) {
-      toast.error('Please drop an audio file', {
-        description: `Supported formats: ${getAudioFormatsDisplayList()}`
+      toast.error(t("Please drop an audio file"), {
+        description: t("Supported formats: {v1}", { v1: getAudioFormatsDisplayList() })
       });
     }
   }, []);

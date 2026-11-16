@@ -11,6 +11,7 @@ import { useConfig } from "@/contexts/ConfigContext";
 import { usePaginatedTranscripts } from "@/hooks/usePaginatedTranscripts";
 import { parseSummaryContent } from "@/lib/summary-content";
 
+import { t } from '@/i18n';
 interface MeetingDetailsResponse {
   id: string;
   title: string;
@@ -179,7 +180,7 @@ function MeetingDetailsContent() {
 
     if (!meetingId || meetingId === 'intro-call') {
       console.warn('No valid meeting ID in URL - meetingId:', meetingId);
-      setError("No meeting selected");
+      setError(t("No meeting selected"));
       setIsLoading(false);
       Analytics.trackPageView('meeting_details');
       return;
@@ -255,8 +256,7 @@ function MeetingDetailsContent() {
           <button
             onClick={() => router.push('/')}
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Go Back
+          >{t("Go Back")}
           </button>
         </div>
       </div>

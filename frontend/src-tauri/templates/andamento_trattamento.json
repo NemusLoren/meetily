@@ -1,0 +1,36 @@
+{
+  "name": "Andamento del trattamento",
+  "description": "Verifica dei progressi rispetto agli obiettivi del percorso, utile per colloqui di revisione.",
+  "sections": [
+    {
+      "title": "Dati della seduta",
+      "instruction": "Data e durata approssimativa, solo se emergono dalla trascrizione.",
+      "format": "string"
+    },
+    {
+      "title": "Obiettivi discussi",
+      "instruction": "Elenca gli obiettivi del percorso richiamati nella seduta.",
+      "format": "list"
+    },
+    {
+      "title": "Progressi osservati",
+      "instruction": "Cambiamenti positivi riferiti dal paziente o rilevati dal terapeuta, con esempi concreti dalla seduta.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Difficoltà e ostacoli",
+      "instruction": "Ostacoli, ricadute, resistenze o fattori che rallentano il percorso, come emergono dal dialogo.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Modifiche al piano",
+      "instruction": "Eventuali cambi di frequenza, obiettivi o strategie concordati.",
+      "format": "list"
+    },
+    {
+      "title": "Prossimi passi",
+      "instruction": "Impegni e verifiche fino alla prossima seduta.",
+      "format": "list"
+    }
+  ]
+}

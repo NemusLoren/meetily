@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { getSummaryModelSizeLabel, getSummaryModelSizeMb } from '@/lib/onboarding-summary-model';
 import type { ParakeetDownloadProgressEvent } from '@/lib/parakeet';
 
+import { t } from '@/i18n';
 const PARAKEET_MODEL = 'parakeet-tdt-0.6b-v3-int8';
 
 type DownloadStatus = 'waiting' | 'downloading' | 'completed' | 'cancelled' | 'error';
@@ -92,8 +93,8 @@ export function DownloadProgressStep() {
         error: error instanceof Error ? error.message : 'Retry failed',
       }));
 
-      toast.error('Download retry failed', {
-        description: 'Please check your connection and try again.',
+      toast.error(t("Download retry failed"), {
+        description: t("Please check your connection and try again."),
       });
     } finally {
       // Allow retry again after 2 seconds
@@ -140,8 +141,8 @@ export function DownloadProgressStep() {
         error: error instanceof Error ? error.message : 'Retry failed',
       }));
 
-      toast.error('Summary model download retry failed', {
-        description: 'Please check your connection and try again.',
+      toast.error(t("Summary model download retry failed"), {
+        description: t("Please check your connection and try again."),
       });
     } finally {
       // Allow retry again after 2 seconds
@@ -355,8 +356,8 @@ export function DownloadProgressStep() {
         !actuallyAvailable &&
         (parakeetState.status === 'error' || parakeetState.status === 'cancelled')
       ) {
-        toast.error('Transcription engine required', {
-          description: 'Please retry the download before continuing.',
+        toast.error(t("Transcription engine required"), {
+          description: t("Please retry the download before continuing."),
         });
         return;
       }
@@ -370,8 +371,8 @@ export function DownloadProgressStep() {
 
     // Show toast if downloads still in progress
     if (!downloadsComplete) {
-      toast.info('Downloads will continue in the background', {
-        description: 'You can start using the app. Recording will be available once speech recognition is ready.',
+      toast.info(t("Downloads will continue in the background"), {
+        description: t("You can start using the app. Recording will be available once speech recognition is ready."),
         duration: 5000,
       });
     }
@@ -391,8 +392,8 @@ export function DownloadProgressStep() {
         window.location.reload();
       } catch (error) {
         console.error('Failed to complete onboarding:', error);
-        toast.error('Failed to complete setup', {
-          description: 'Please try again.',
+        toast.error(t("Failed to complete setup"), {
+          description: t("Please try again."),
         });
         setIsCompleting(false);
       }
@@ -419,7 +420,7 @@ export function DownloadProgressStep() {
         </div>
         <div>
           {state.status === 'waiting' && (
-            <span className="text-sm text-gray-500">Waiting...</span>
+            <span className="text-sm text-gray-500">{t("Waiting...")}</span>
           )}
           {state.status === 'downloading' && (
             <Loader2 className="w-5 h-5 text-gray-700 animate-spin" />
@@ -430,10 +431,10 @@ export function DownloadProgressStep() {
             </div>
           )}
           {state.status === 'error' && (
-            <span className="text-sm text-red-500">Failed</span>
+            <span className="text-sm text-red-500">{t("Failed")}</span>
           )}
           {state.status === 'cancelled' && (
-            <span className="text-sm text-gray-500">Cancelled</span>
+            <span className="text-sm text-gray-500">{t("Cancelled")}</span>
           )}
         </div>
       </div>
@@ -468,7 +469,7 @@ export function DownloadProgressStep() {
       {(state.status === 'error' || state.status === 'cancelled') && (
         <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-md">
           <p className="text-sm text-red-600 font-medium">
-            {state.status === 'cancelled' ? 'Download cancelled' : 'Download Error'}
+            {state.status === 'cancelled' ? t("Download cancelled") : t("Download Error")}
           </p>
           {state.error && <p className="text-xs text-red-500 mt-1">{state.error}</p>}
           {(title === 'Transcription Engine' || title === 'Summary Engine') && (
@@ -479,8 +480,7 @@ export function DownloadProgressStep() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                       d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              Try Again
+              </svg>{t("Try Again")}
             </button>
           )}
         </div>
@@ -490,8 +490,8 @@ export function DownloadProgressStep() {
 
   return (
     <OnboardingContainer
-      title="Getting things ready"
-      description="You can start using Trascrivi Seduta after downloading the Transcription Engine."
+      title={t("Getting things ready")}
+      description={t("You can start using Trascrivi Seduta after downloading the Transcription Engine.")}
       step={3}
       totalSteps={isMac ? 4 : 3}
     >
@@ -527,9 +527,8 @@ export function DownloadProgressStep() {
               <div className="flex items-start gap-3">
                 <Download className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-medium">You can continue while this finishes</p>
-                  <p className="text-gray-700 mt-1">
-                    Download will continue in the background.
+                  <p className="font-medium">{t("You can continue while this finishes")}</p>
+                  <p className="text-gray-700 mt-1">{t("Download will continue in the background.")}
                   </p>
                 </div>
               </div>

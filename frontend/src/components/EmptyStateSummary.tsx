@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
+import { t } from '@/i18n';
 interface EmptyStateSummaryProps {
   onGenerate: () => void;
   hasModel: boolean;
@@ -31,11 +32,9 @@ export function EmptyStateSummary({
       className="flex flex-col items-center justify-center h-full p-8 text-center"
     >
       <FileQuestion className="w-16 h-16 text-gray-300 mb-4" />
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-        No Summary Generated Yet
+      <h3 className="text-lg font-semibold text-gray-900 mb-2">{t("No Summary Generated Yet")}
       </h3>
-      <p className="text-sm text-gray-500 mb-6 max-w-md">
-        Generate an AI-powered summary of your meeting transcript to get key points, action items, and decisions.
+      <p className="text-sm text-gray-500 mb-6 max-w-md">{t("Generate an AI-powered summary of your meeting transcript to get key points, action items, and decisions.")}
       </p>
 
       {error && (
@@ -54,21 +53,20 @@ export function EmptyStateSummary({
                 className="gap-2"
               >
                 <Sparkles className="w-4 h-4" />
-                {isGenerating ? 'Generating...' : error ? 'Retry summary' : 'Generate Summary'}
+                {isGenerating ? t("Generating...") : error ? t("Retry summary") : t("Generate Summary")}
               </Button>
             </div>
           </TooltipTrigger>
           {!hasModel && (
             <TooltipContent>
-              <p>Please select a model in Settings first</p>
+              <p>{t("Please select a model in Settings first")}</p>
             </TooltipContent>
           )}
         </Tooltip>
       </TooltipProvider>
 
       {!hasModel && (
-        <p className="text-xs text-amber-600 mt-3">
-          Please select a model in Settings first
+        <p className="text-xs text-amber-600 mt-3">{t("Please select a model in Settings first")}
         </p>
       )}
     </motion.div>

@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+import { t } from '@/i18n';
 export function SetupOverviewStep() {
   const { goNext } = useOnboarding();
   const [isMac, setIsMac] = useState(false);
@@ -30,12 +31,12 @@ export function SetupOverviewStep() {
     {
       number: 1,
       type: 'transcription',
-      title: 'Download Transcription Engine',
+      title: t("Download Transcription Engine"),
     },
     {
       number: 2,
       type: 'summarization',
-      title: 'Download Summarization Engine',
+      title: t("Download Summarization Engine"),
     },
   ];
 
@@ -45,8 +46,8 @@ export function SetupOverviewStep() {
 
   return (
     <OnboardingContainer
-      title="Setup Overview"
-      description="Trascrivi Seduta requires that you download the Transcription & Summarization AI models for the software to work."
+      title={t("Setup Overview")}
+      description={t("Trascrivi Seduta requires that you download the Transcription & Summarization AI models for the software to work.")}
       step={2}
       totalSteps={isMac ? 4 : 3}
     >
@@ -61,8 +62,7 @@ export function SetupOverviewStep() {
                   className={`flex items-start gap-4 p-1`}
                 >
                   <div className="flex-1 ml-1">
-                    <h3 className="font-medium text-gray-900 flex items-center gap-2">
-                        Step {step.number} :  {step.title}
+                    <h3 className="font-medium text-gray-900 flex items-center gap-2">{t("Step")} {step.number} :  {step.title}
 
                         {step.type === "summarization" && (
                             <TooltipProvider>
@@ -72,8 +72,7 @@ export function SetupOverviewStep() {
                                     <Info className="w-4 h-4" />
                                 </button>
                                 </TooltipTrigger>
-                                <TooltipContent className="max-w-xs text-sm">
-                                Puoi anche usare Ollama per generare i riassunti, dalle impostazioni.
+                                <TooltipContent className="max-w-xs text-sm">{t("You can also use Ollama to generate summaries, from the settings.")}
                                 </TooltipContent>
                             </Tooltip>
                             </TooltipProvider>
@@ -92,8 +91,7 @@ export function SetupOverviewStep() {
           <Button
             onClick={handleContinue}
             className="w-full h-11 bg-gray-900 hover:bg-gray-800 text-white"
-          >
-            Let's Go
+          >{t("Let's Go")}
           </Button>
           <div className="text-center">
             <a
@@ -101,8 +99,7 @@ export function SetupOverviewStep() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-gray-600 hover:underline"
-            >
-              Report issues on GitHub
+            >{t("Report issues on GitHub")}
             </a>
           </div>
         </div>

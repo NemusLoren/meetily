@@ -7,6 +7,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 import { RecordingStatusBar } from './RecordingStatusBar';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { t } from '@/i18n';
 interface TranscriptViewProps {
   transcripts: Transcript[];
   isRecording?: boolean;
@@ -343,7 +344,7 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({ transcripts, isR
           className="flex items-center gap-2 mt-4 text-gray-500"
         >
           <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-          <span className="text-sm">Listening...</span>
+          <span className="text-sm">{t("Listening...")}</span>
         </motion.div>
       )}
 
@@ -360,18 +361,18 @@ export const TranscriptView: React.FC<TranscriptViewProps> = ({ transcripts, isR
                 <div className={`w-3 h-3 rounded-full ${isPaused ? 'bg-orange-500' : 'bg-blue-500 animate-pulse'}`}></div>
               </div>
               <p className="text-sm text-gray-600">
-                {isPaused ? 'Recording paused' : 'Listening for speech...'}
+                {isPaused ? t("Recording paused") : t("Listening for speech...")}
               </p>
               <p className="text-xs mt-1 text-gray-400">
                 {isPaused
-                  ? 'Click resume to continue recording'
-                  : 'Speak to see live transcription'}
+                  ? t("Click resume to continue recording")
+                  : t("Speak to see live transcription")}
               </p>
             </>
           ) : (
             <>
-              <p className="text-lg font-semibold">Benvenuto in Trascrivi Seduta!</p>
-              <p className="text-xs mt-1">Start recording to see live transcription</p>
+              <p className="text-lg font-semibold">{t("Welcome to Trascrivi Seduta!")}</p>
+              <p className="text-xs mt-1">{t("Start recording to see live transcription")}</p>
             </>
           )}
         </motion.div>

@@ -16,6 +16,8 @@ const nextConfig = {
 
   // Add webpack configuration for Tauri
   webpack: (config, { isServer }) => {
+    // File di traduzione .po caricati come testo
+    config.module.rules.push({ test: /\.po$/, type: 'asset/source' });
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,

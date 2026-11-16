@@ -1,0 +1,3057 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: \n"
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:223
+msgid " (saved on this device)"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:306
+#: src/components/DeviceSelection.tsx:393
+msgid "— Unavailable — choose a device"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:75
+msgid ": also turn on FileVault (Mac) or BitLocker (Windows)."
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:75
+msgid ". In this version the session and recording files"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:241
+msgid "... and"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:750
+msgid "\". Try a different search term."
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:362
+#: src/components/WhisperModelManager.tsx:428
+msgid "{displayName} deleted"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:227
+msgid "{errorMessage}. Your previous summary has been restored."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:371
+msgid "{recommendedModel} is already downloading"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:173
+#: src/components/WhisperModelManager.tsx:254
+msgid "{v1} {displayName} ready!"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:117
+msgid "{v1} download cancelled"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:352
+msgid "{v1} summary..."
+msgstr ""
+
+#: src/hooks/useRecordingStop.ts:328
+msgid "{v1} transcript segments saved."
+msgstr ""
+
+#: src/components/ModelDownloadProgress.tsx:39
+msgid "% complete"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:175
+msgid "• Backend selection only affects system audio capture"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:177
+msgid "• Changes apply to new recording sessions"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:176
+msgid "• Microphone always uses the default method"
+msgstr ""
+
+#: src/components/SummaryLanguageSettings.tsx:75
+msgid "＋ Add language"
+msgstr ""
+
+#: src/components/Sidebar/SidebarProvider.tsx:80
+#: src/components/Sidebar/SidebarProvider.tsx:147
+#: src/components/Sidebar/index.tsx:347
+msgid "+ New Call"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:216
+msgid "⚠️ Auto Detect may produce incorrect results"
+msgstr ""
+
+#: src/components/TranscriptSettings.tsx:117
+msgid "⚡ Parakeet (Recommended - Real-time / Accurate)"
+msgstr ""
+
+#: src/components/ModelDownloadProgress.tsx:47
+msgid "✓ Download completed, loading model..."
+msgstr ""
+
+#: src/components/ModelDownloadProgress.tsx:124
+msgid "✓ Models run locally - no internet required for transcription"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:222
+msgid "🌐 Translation Mode Active"
+msgstr ""
+
+#: src/components/TranscriptSettings.tsx:118
+msgid "🏠 Local Whisper (High Accuracy)"
+msgstr ""
+
+#: src/components/About.tsx:60
+msgid "A library of on-device AI agents-automating follow-ups, action tracking, and more."
+msgstr ""
+
+#: src/components/SettingTabs.tsx:40
+msgid "About"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:283
+msgid "About microphone selection"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:369
+msgid "About system audio selection"
+msgstr ""
+
+#: src/components/Logo.tsx:22
+#: src/components/Logo.tsx:40
+#: src/components/Logo.tsx:48
+msgid "About Trascrivi Seduta"
+msgstr ""
+
+#: src/components/onboarding/shared/PermissionRow.tsx:49
+msgid "Access Denied - Please grant in System Settings"
+msgstr ""
+
+#: src/components/onboarding/shared/PermissionRow.tsx:45
+msgid "Access Granted"
+msgstr ""
+
+#: src/components/AISummary/index.tsx:59
+msgid "Action Items"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:159
+#: src/components/AudioLevelMeter.tsx:69
+msgid "Active"
+msgstr ""
+
+#: src/components/MeetingDetails/TranscriptPanel.tsx:105
+msgid "Add context for AI summary. For example people involved, meeting overview, objective etc..."
+msgstr ""
+
+#: src/components/WhisperModelManager.tsx:521
+msgid "Advanced Models"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:329
+msgid "Advanced Options"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:85
+msgid "Afrikaans"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:691
+msgid "After installing Ollama, restart this application and click \"Fetch Models\" to continue."
+msgstr ""
+
+#: src/components/AISummary/index.tsx:57
+msgid "Agenda"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:142
+msgid "AI Model"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:89
+msgid "AI Model Configuration"
+msgstr ""
+
+#: src/components/SettingTabs.tsx:38
+msgid "Ai Summary"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:75
+msgid "Albanian"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:342
+msgid "All associated data has been removed"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:223
+msgid "All audio will be automatically translated to English. Best for multilingual meetings where you need English output."
+msgstr ""
+
+#: src/components/LanguagePickerPopover.tsx:148
+msgid "All Languages"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:92
+msgid "Amharic"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:436
+msgid "An error occurred"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:259
+msgid "An error occurred during import"
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:295
+msgid "An error occurred during retranscription"
+msgstr ""
+
+#: src/components/AISummary/index.tsx:630
+msgid "Analyzing your transcript..."
+msgstr ""
+
+#: src/components/LockScreen.tsx:139
+#: src/components/onboarding/steps/SecurityStep.tsx:127
+msgid "Answer"
+msgstr ""
+
+#: src/components/LockScreen.tsx:86
+msgid "Answer the secret question and choose a new password. Your data is not touched."
+msgstr ""
+
+#: src/components/LockScreen.tsx:142
+#: src/components/onboarding/steps/SecurityStep.tsx:131
+msgid "Answer to the secret question"
+msgstr ""
+
+#: src/components/TranscriptSettings.tsx:149
+msgid "API Key"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:30
+msgid "Arabic"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:75
+msgid "are not encrypted yet"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:70
+msgid "Armenian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:108
+msgid "Assamese"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:157
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:190
+msgid "Audio available"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:108
+msgid "Audio Capture Methods:"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:169
+msgid "Audio Device Settings"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:241
+msgid "Audio Devices"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:227
+msgid "Audio recording is disabled. Enable \"Save Audio Recordings\" to automatically save your meeting audio."
+msgstr ""
+
+#: src/components/LanguagePickerPopover.tsx:137
+msgid "Auto"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:15
+msgid "Auto Detect (Original Language)"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:16
+msgid "Auto Detect (Translate to English)"
+msgstr ""
+
+#: src/components/SummaryModelSettings.tsx:113
+msgid "Auto Generating summary after meeting completion(Stopping)"
+msgstr ""
+
+#: src/components/SummaryModelSettings.tsx:112
+msgid "Auto Summary"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:188
+msgid "Automatically save audio files when recording stops"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:126
+#: src/components/ModelSettingsModal.tsx:650
+msgid "Available Ollama Models"
+msgstr ""
+
+#: src/components/About.tsx:48
+msgid "Avoid pay-per-minute bills by running models locally (or pay only for the calls you choose)."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:62
+msgid "Azerbaijani"
+msgstr ""
+
+#: src/app/feedback/page.tsx:31
+#: src/app/settings/page.tsx:77
+msgid "Back"
+msgstr ""
+
+#: src/components/About.tsx:66
+msgid "Based on Meetily (Zackriya Solutions), MIT license"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:113
+msgid "Bashkir"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:68
+msgid "Basque"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:88
+msgid "Belarusian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:60
+msgid "Bengali"
+msgstr ""
+
+#: src/app/settings/page.tsx:23
+msgid "Beta"
+msgstr ""
+
+#: src/components/BetaSettings.tsx:44
+msgid "BETA"
+msgstr ""
+
+#: src/app/layout.tsx:149
+#: src/contexts/ImportDialogContext.tsx:31
+msgid "Beta feature disabled"
+msgstr ""
+
+#: src/components/BetaSettings.tsx:25
+msgid "Beta Features"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:50
+msgid "Big section heading"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:47
+msgid "Bilingual transcript detected"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:75
+msgid "blocks opening the app"
+msgstr ""
+
+#: src/components/BluetoothPlaybackWarning.tsx:75
+msgid "Bluetooth Playback Detected"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:73
+msgid "Bosnian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:67
+msgid "Breton"
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:153
+msgid "Browse for Database"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:107
+msgid "Built-in AI"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:520
+msgid "Built-in AI (Offline, No API needed)"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:280
+msgid "Built-in AI Models"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:50
+msgid "Bulgarian"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:40
+msgid "Bullet List"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:289
+#: src/components/BuiltInModelManager.tsx:369
+#: src/components/ChunkProgressDisplay.tsx:123
+msgid "Cancel"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:659
+#: src/components/WhisperModelManager.tsx:777
+msgid "Cancel download"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:650
+#: src/components/WhisperModelManager.tsx:768
+msgid "Cancellation requested"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:437
+msgid "Cancelled"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:279
+#: src/components/WhisperModelManager.tsx:341
+msgid "Cancelling {displayName}..."
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:641
+#: src/components/WhisperModelManager.tsx:761
+msgid "Cancelling…"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:28
+msgid "Catalan"
+msgstr ""
+
+#: src/hooks/meeting-details/useMeetingData.ts:68
+msgid "Changes saved successfully"
+msgstr ""
+
+#: src/components/LockScreen.tsx:117
+#: src/components/LockScreen.tsx:170
+msgid "Checking..."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:18
+msgid "Chinese"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:289
+msgid "Choose a mic to record. Default follows your system’s selected microphone."
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:353
+msgid "Choose a transcription model"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:375
+msgid "Choose audio to record. Default follows your system’s selected output."
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:301
+msgid "Choose Different File"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:67
+msgid "Choose whether to lock the app with a master password. It is optional."
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:206
+msgid "Chunk"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:132
+msgid "chunks completed"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:242
+msgid "chunks have been transcribed."
+msgstr ""
+
+#: src/components/SummaryLanguageSettings.tsx:95
+msgid "Click any language to set it as your default. Max 5 quick-switch options."
+msgstr ""
+
+#: src/components/onboarding/steps/PermissionsStep.tsx:141
+msgid "Click Enable to grant Audio Capture permission"
+msgstr ""
+
+#: src/components/TranscriptView.tsx:368
+#: src/components/VirtualizedTranscriptView.tsx:256
+msgid "Click resume to continue recording"
+msgstr ""
+
+#: src/components/SummaryLanguageSettings.tsx:44
+msgid "Click to set as default"
+msgstr ""
+
+#: src/components/SummaryLanguageSettings.tsx:44
+msgid "Click to unset as default"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:453
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:406
+msgid "Close"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:503
+msgid "Close alert"
+msgstr ""
+
+#: src/components/AISummary/index.tsx:60
+msgid "Closing Remarks"
+msgstr ""
+
+#: src/components/About.tsx:60
+msgid "Coming soon:"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:153
+msgid "Completed"
+msgstr ""
+
+#: src/components/BluetoothPlaybackWarning.tsx:77
+msgid "computer speakers"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:180
+msgid "Configure how your audio recordings are saved during meetings."
+msgstr ""
+
+#: src/components/SummaryModelSettings.tsx:123
+msgid "Configure the AI model used for generating meeting summaries."
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:125
+msgid "Configure your audio routing in Audio MIDI Setup"
+msgstr ""
+
+#: src/components/ConfirmationModel/confirmation-modal.tsx:17
+msgid "Confirm Delete"
+msgstr ""
+
+#: src/app/_components/TranscriptPanel.tsx:69
+#: src/components/AISummary/index.tsx:689
+#: src/components/MeetingDetails/SummaryUpdaterButtonGroup.tsx:61
+msgid "Copy"
+msgstr ""
+
+#: src/app/feedback/page.tsx:51
+msgid "Copy address"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryUpdaterButtonGroup.tsx:53
+msgid "Copy Summary"
+msgstr ""
+
+#: src/app/_components/TranscriptPanel.tsx:66
+#: src/components/MeetingDetails/TranscriptButtonGroup.tsx:53
+msgid "Copy Transcript"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:335
+msgid "Corrupted"
+msgstr ""
+
+#: src/components/About.tsx:47
+msgid "Cost-Smart"
+msgstr ""
+
+#: src/hooks/useImportAudio.ts:118
+#: src/hooks/useRecordingStop.ts:274
+#: src/hooks/useTranscriptRecovery.ts:192
+msgid "Could not apply default summary language"
+msgstr ""
+
+#: src/app/feedback/page.tsx:16
+msgid "Could not copy. Write to {FEEDBACK_EMAIL}"
+msgstr ""
+
+#: src/hooks/useRecordingStop.ts:287
+msgid "Could not detect summary language"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:49
+msgid "Could not load recording preferences"
+msgstr ""
+
+#: src/contexts/ConfigContext.tsx:275
+msgid "Could not load saved recording devices"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:128
+#: src/hooks/meeting-details/useSummaryGeneration.ts:32
+msgid "Could not load saved summary language"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:62
+msgid "Could not open this link. Please check your default browser and try again."
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:43
+msgid "Create a bulleted list"
+msgstr ""
+
+#: src/components/AISummary/index.tsx:631
+msgid "Creating a detailed summary of your meeting..."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:49
+msgid "Croatian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:212
+msgid "Current:"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:579
+msgid "Custom Endpoint (optional)"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:41
+msgid "Czech"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:43
+msgid "Danish"
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:164
+msgid "Data Storage Locations"
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:216
+msgid "Database and models are stored together in your application data directory for unified management."
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:165
+msgid "Database found!"
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:65
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:70
+msgid "Database imported successfully! Reloading..."
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:92
+msgid "Database initialized successfully! Starting app..."
+msgstr ""
+
+#: src/components/AISummary/index.tsx:58
+msgid "Decisions"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:248
+msgid "Default Audio Devices"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:204
+msgid "Default folder"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:302
+msgid "Default Microphone"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:389
+msgid "Default System Audio"
+msgstr ""
+
+#: src/components/AISummary/Section.tsx:80
+#: src/components/AISummary/index.tsx:696
+#: src/components/BuiltInModelManager.tsx:407
+msgid "Delete"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:638
+msgid "Delete meeting"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:419
+msgid "Delete model"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:574
+#: src/components/WhisperModelManager.tsx:694
+msgid "Delete model to free up space"
+msgstr ""
+
+#: src/components/EditableTitle.tsx:91
+msgid "Delete section"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:273
+msgid "Deleting..."
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:148
+msgid "Detecting database..."
+msgstr ""
+
+#: src/components/ConsoleToggle.tsx:62
+msgid "Developer Console"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:154
+msgid "Device preferences saved"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:257
+msgid "Device selection is locked while a recording is in progress. Connecting a new device mid-recording will not switch to it. Stop the current meeting to change devices."
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:191
+msgid "Devices selected"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:163
+msgid "Disabled"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:306
+#: src/app/_components/SettingsModal.tsx:323
+msgid "Dismiss"
+msgstr ""
+
+#: src/components/BluetoothPlaybackWarning.tsx:94
+msgid "Dismiss warning"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:281
+msgid "Display colored dots showing transcription confidence quality"
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:124
+msgid "Do you have data from a previous Meetily installation?"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:157
+#: src/app/_components/SettingsModal.tsx:197
+#: src/app/_components/SettingsModal.tsx:231
+msgid "Done"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:356
+#: src/components/ModelSettingsModal.tsx:402
+#: src/components/ParakeetModelManager.tsx:592
+msgid "Download"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:472
+#: src/components/shared/DownloadProgressToast.tsx:95
+msgid "Download cancelled"
+msgstr ""
+
+#: src/components/shared/DownloadProgressToast.tsx:93
+msgid "Download complete"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:472
+msgid "Download Error"
+msgstr ""
+
+#: src/components/shared/DownloadProgressToast.tsx:91
+msgid "Download failed"
+msgstr ""
+
+#: src/contexts/OllamaDownloadContext.tsx:110
+msgid "Download failed: {modelName}"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:719
+msgid "Download gemma3:1b (Recommended, ~800MB)"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:236
+msgid "Download of {modelName} cancelled"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:689
+msgid "Download Ollama"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:96
+msgid "Download retry failed"
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:39
+msgid "Download Summarization Engine"
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:34
+msgid "Download Transcription Engine"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:531
+msgid "Download will continue in the background."
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:312
+#: src/components/WhisperModelManager.tsx:378
+msgid "Downloading {displayName}..."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:728
+msgid "Downloading gemma3:1b"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:715
+msgid "Downloading gemma3:1b..."
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:449
+#: src/components/ModelDownloadProgress.tsx:41
+#: src/components/ModelSettingsModal.tsx:785
+msgid "Downloading..."
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:374
+msgid "Downloads will continue in the background"
+msgstr ""
+
+#: src/components/ImportAudio/ImportDropOverlay.tsx:23
+msgid "Drop audio file to import"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:29
+msgid "Dutch"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:628
+msgid "Edit meeting title"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:835
+#: src/components/Sidebar/index.tsx:838
+msgid "Edit Meeting Title"
+msgstr ""
+
+#: src/components/EditableTitle.tsx:71
+msgid "Edit section title"
+msgstr ""
+
+#: src/components/BlockNoteEditor/BasicBlockNoteTest.tsx:48
+msgid "Editor Output"
+msgstr ""
+
+#: src/app/feedback/page.tsx:13
+msgid "Email address copied"
+msgstr ""
+
+#: src/app/layout.tsx:150
+#: src/contexts/ImportDialogContext.tsx:32
+msgid "Enable \"Import Audio & Retranscribe\" in Settings > Beta to use this feature."
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:156
+msgid "Enable or disable notifications of start and end of meeting"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:700
+msgid "Endpoint changed. Click \"Fetch Models\" to load models from the new endpoint."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:638
+msgid "Endpoint changed. Please click \"Fetch Models\" to load models from the new endpoint before saving."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:17
+msgid "English"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:258
+msgid "English normalization failed, so the original sanitized summary was kept."
+msgstr ""
+
+#: src/components/MeetingDetails/TranscriptButtonGroup.tsx:85
+msgid "Enhance"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:297
+#: src/components/Sidebar/index.tsx:856
+msgid "Enter meeting title"
+msgstr ""
+
+#: src/components/LockScreen.tsx:85
+msgid "Enter the master password to open the app."
+msgstr ""
+
+#: src/components/TranscriptSettings.tsx:160
+msgid "Enter your API key"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:339
+msgid "Error"
+msgstr ""
+
+#: src/components/AISummary/index.tsx:613
+msgid "Error Generating Summary"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:229
+msgid "Error:"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:183
+msgid "Estimated time remaining:"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:65
+msgid "Estonian"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:174
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:434
+msgid "Failed"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:165
+msgid "Failed to {v1} summary"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:287
+#: src/components/WhisperModelManager.tsx:353
+msgid "Failed to cancel download"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:73
+msgid "Failed to change backend. Please try again."
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:395
+msgid "Failed to complete setup"
+msgstr ""
+
+#: src/hooks/meeting-details/useCopyOperations.ts:194
+msgid "Failed to copy summary"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:373
+#: src/components/WhisperModelManager.tsx:439
+msgid "Failed to delete {displayName}"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:254
+msgid "Failed to delete {modelName}"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:352
+msgid "Failed to delete meeting"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:213
+#: src/components/WhisperModelManager.tsx:295
+msgid "Failed to download {displayName}"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:220
+msgid "Failed to download {modelName}"
+msgstr ""
+
+#: src/hooks/meeting-details/useCopyOperations.ts:56
+msgid "Failed to fetch transcripts for copying"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:432
+msgid "Failed to fetch transcripts for summary generation"
+msgstr ""
+
+#: src/hooks/useAudioPlayer.ts:39
+msgid "Failed to initialize audio"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:66
+msgid "Failed to load audio devices. Please check your system audio settings."
+msgstr ""
+
+#: src/hooks/useAudioPlayer.ts:126
+msgid "Failed to load audio file"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:49
+msgid "Failed to load backend options"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:323
+msgid "Failed to load Built-in AI models"
+msgstr ""
+
+#: src/hooks/usePaginatedTranscripts.ts:96
+msgid "Failed to load meeting details"
+msgstr ""
+
+#: src/components/SummaryModelSettings.tsx:47
+msgid "Failed to load model settings"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:66
+#: src/components/ParakeetModelManager.tsx:394
+#: src/components/WhisperModelManager.tsx:477
+msgid "Failed to load models"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:76
+#: src/components/WhisperModelManager.tsx:178
+msgid "Failed to load transcription models"
+msgstr ""
+
+#: src/hooks/usePaginatedTranscripts.ts:145
+msgid "Failed to load transcripts"
+msgstr ""
+
+#: src/hooks/useAudioPlayer.ts:236
+msgid "Failed to play audio"
+msgstr ""
+
+#: src/app/page.tsx:156
+msgid "Failed to recover meeting"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:226
+msgid "Failed to regenerate summary"
+msgstr ""
+
+#: src/hooks/meeting-details/useMeetingData.ts:71
+msgid "Failed to save changes"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:159
+msgid "Failed to save device preferences"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:164
+msgid "Failed to save language preference"
+msgstr ""
+
+#: src/hooks/useRecordingStop.ts:352
+msgid "Failed to save meeting"
+msgstr ""
+
+#: src/hooks/meeting-details/useModelConfiguration.ts:134
+msgid "Failed to save model config: Unknown error"
+msgstr ""
+
+#: src/app/meeting-details/page-content.tsx:116
+#: src/components/SummaryModelSettings.tsx:103
+msgid "Failed to save model settings"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:138
+msgid "Failed to save preference"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:179
+msgid "Failed to save summary language"
+msgstr ""
+
+#: src/hooks/meeting-details/useModelConfiguration.ts:130
+msgid "Failed to save summary settings"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:201
+msgid "Failed to start audio level monitoring"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:581
+msgid "Failed to stop summary generation"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:414
+msgid "Failed to update meeting title"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:96
+msgid "Faroese"
+msgstr ""
+
+#: src/components/FeedbackLink.tsx:16
+#: src/components/FeedbackLink.tsx:29
+#: src/components/FeedbackLink.tsx:38
+msgid "Feedback"
+msgstr ""
+
+#: src/app/feedback/page.tsx:33
+msgid "Feedback and collaboration"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:631
+msgid "Fetch Models"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:627
+msgid "Fetching..."
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:216
+msgid "File Format:"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:435
+msgid "File is corrupted. Retry download or delete."
+msgstr ""
+
+#: src/components/ModelDownloadProgress.tsx:26
+msgid "Finalizing..."
+msgstr ""
+
+#: src/components/onboarding/steps/PermissionsStep.tsx:150
+msgid "Finish Setup"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:35
+msgid "Finnish"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:217
+msgid "For best accuracy, select your specific language (e.g., English, Spanish, etc.)"
+msgstr ""
+
+#: src/components/BluetoothPlaybackWarning.tsx:77
+msgid "for playback. Recordings may sound distorted or sped up through Bluetooth devices. For accurate review, please use"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:458
+#: src/components/WhisperModelManager.tsx:556
+msgid "for transcription"
+msgstr ""
+
+#: src/components/LockScreen.tsx:123
+msgid "Forgot your password?"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:23
+msgid "French"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:77
+msgid "Galician"
+msgstr ""
+
+#: src/app/settings/page.tsx:19
+msgid "General"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:114
+msgid "Generate AI Summary"
+msgstr ""
+
+#: src/components/EmptyStateSummary.tsx:37
+msgid "Generate an AI-powered summary of your meeting transcript to get key points, action items, and decisions."
+msgstr ""
+
+#: src/components/EmptyStateSummary.tsx:56
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:125
+msgid "Generate Summary"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:287
+msgid "Generating AI Summary..."
+msgstr ""
+
+#: src/components/AISummary/index.tsx:626
+msgid "Generating Summary"
+msgstr ""
+
+#: src/components/EmptyStateSummary.tsx:56
+msgid "Generating..."
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:582
+msgid "Generation is still running; waiting for its latest status."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:87
+msgid "Georgian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:19
+msgid "German"
+msgstr ""
+
+#: src/components/onboarding/steps/WelcomeStep.tsx:59
+msgid "Get Started"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:493
+msgid "Getting things ready"
+msgstr ""
+
+#: src/components/LockScreen.tsx:179
+msgid "Go back"
+msgstr ""
+
+#: src/app/meeting-details/page.tsx:259
+msgid "Go Back"
+msgstr ""
+
+#: src/components/About.tsx:52
+msgid "Google Meet, Zoom, Teams-online or offline."
+msgstr ""
+
+#: src/components/onboarding/steps/PermissionsStep.tsx:117
+msgid "Grant Permissions"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:124
+msgid "Grant Screen Recording permission to Trascrivi Seduta"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:39
+msgid "Greek"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:91
+msgid "Gujarati"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:97
+msgid "Haitian Creole"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:112
+msgid "Hausa"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:110
+msgid "Hawaiian"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:47
+msgid "Heading 1"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:54
+msgid "Heading 2"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:37
+msgid "Hebrew"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:100
+msgid "Hide password"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:34
+msgid "Hindi"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:471
+#: src/components/Sidebar/index.tsx:732
+msgid "Home"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:44
+msgid "Hungarian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:204
+msgid "ℹ️ Parakeet Language Support"
+msgstr ""
+
+#: src/components/onboarding/steps/PermissionsStep.tsx:156
+msgid "I'll do this later"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:69
+msgid "Icelandic"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:442
+msgid "Import"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:260
+msgid "Import an audio file to create a new meeting with transcripts"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:505
+#: src/components/Sidebar/index.tsx:802
+msgid "Import Audio"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:251
+msgid "Import Audio File"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:203
+msgid "Import cancelled"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:247
+msgid "Import Complete"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:99
+msgid "Import complete! {v1} segments created."
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:204
+msgid "Import Database"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:109
+msgid "Import failed"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:243
+msgid "Import Failed"
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:73
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:80
+msgid "Import failed: {error}"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:239
+msgid "Importing Audio..."
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:125
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:194
+msgid "Importing..."
+msgstr ""
+
+#: src/components/AudioLevelMeter.tsx:69
+msgid "Inactive"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:33
+msgid "Indonesian"
+msgstr ""
+
+#: src/components/ComplianceNotification.tsx:93
+msgid "Inform participants about recording."
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:102
+msgid "Initialization failed: {error}"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:123
+msgid "Install a virtual audio device (e.g., BlackHole 2ch)"
+msgstr ""
+
+#: src/components/onboarding/steps/WelcomeStep.tsx:18
+msgid "Intelligent summaries & insights"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:130
+msgid "Interrupted Meetings"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:123
+msgid "interrupted. Select a meeting to preview and recover it."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:32
+msgid "Italian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:24
+msgid "Japanese"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:114
+msgid "Javanese"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:36
+msgid "Just start writing with plain text"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:64
+msgid "Kannada"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:74
+msgid "Kazakh"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:81
+msgid "Khmer"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:22
+msgid "Korean"
+msgstr ""
+
+#: src/app/_components/TranscriptPanel.tsx:78
+#: src/app/_components/TranscriptPanel.tsx:81
+#: src/components/ImportAudio/ImportAudioDialog.tsx:344
+msgid "Language"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:159
+msgid "Language preference saved"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:365
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:329
+msgid "Language selection isn't supported for Parakeet. It always uses automatic detection."
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:209
+msgid "Language Settings"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:94
+msgid "Lao"
+msgstr ""
+
+#: src/components/ComplianceNotification.tsx:108
+msgid "Later"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:52
+msgid "Latin"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:59
+msgid "Latvian"
+msgstr ""
+
+#: src/components/BluetoothPlaybackWarning.tsx:85
+msgid "Learn why this happens →"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:589
+msgid "Leave empty or enter a custom endpoint (e.g., http://x.yy.zz:11434)"
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:94
+msgid "Let's Go"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:111
+msgid "Lingala"
+msgstr ""
+
+#: src/components/TranscriptView.tsx:364
+#: src/components/VirtualizedTranscriptView.tsx:253
+msgid "Listening for speech..."
+msgstr ""
+
+#: src/components/TranscriptView.tsx:347
+#: src/components/VirtualizedTranscriptView.tsx:330
+#: src/components/VirtualizedTranscriptView.tsx:385
+msgid "Listening..."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:51
+msgid "Lithuanian"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:462
+msgid "Loading model configuration, please wait..."
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:113
+msgid "Loading model configuration..."
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:262
+#: src/components/ImportAudio/ImportAudioDialog.tsx:383
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:343
+msgid "Loading models..."
+msgstr ""
+
+#: src/components/VirtualizedTranscriptView.tsx:312
+#: src/components/VirtualizedTranscriptView.tsx:367
+msgid "Loading more..."
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:138
+#: src/components/PreferenceSettings.tsx:143
+msgid "Loading Preferences..."
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:203
+msgid "Loading preview..."
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:203
+msgid "Loading..."
+msgstr ""
+
+#: src/components/TranscriptSettings.tsx:176
+msgid "Lock to prevent editing"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:103
+msgid "Luxembourgish"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:66
+msgid "Macedonian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:107
+msgid "Malagasy"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:40
+msgid "Malay"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:54
+msgid "Malayalam"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:101
+msgid "Maltese"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:53
+msgid "Maori"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:78
+msgid "Marathi"
+msgstr ""
+
+#: src/components/BlockNoteEditor/BasicBlockNoteTest.tsx:37
+msgid "Markdown Input"
+msgstr ""
+
+#: src/components/LockScreen.tsx:102
+#: src/components/LockScreen.tsx:105
+#: src/components/onboarding/steps/SecurityStep.tsx:90
+msgid "Master password"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:649
+msgid "Match:"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:391
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:348
+msgid "MB)"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:57
+msgid "Medium section heading"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:341
+msgid "Meeting deleted successfully"
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:202
+msgid "Meeting folder path not available"
+msgstr ""
+
+#: src/components/Sidebar/SidebarProvider.tsx:131
+#: src/components/Sidebar/index.tsx:524
+msgid "Meeting Notes"
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:201
+msgid "Meeting Recordings"
+msgstr ""
+
+#: src/app/page.tsx:127
+msgid "Meeting recovered successfully!"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:290
+#: src/components/Sidebar/index.tsx:841
+msgid "Meeting Title"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:383
+msgid "Meeting title cannot be empty"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:407
+msgid "Meeting title updated successfully"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:457
+msgid "MiB"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:457
+msgid "MiB /"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:460
+msgid "MiB/s)"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:277
+#: src/components/onboarding/steps/PermissionsStep.tsx:130
+msgid "Microphone"
+msgstr ""
+
+#: src/contexts/RecordingStateContext.tsx:334
+msgid "Microphone '{label}' could not be recovered — recording continues without a microphone. Stop and restart to fix."
+msgstr ""
+
+#: src/contexts/RecordingStateContext.tsx:307
+msgid "Microphone fallback failed for {label}: {error}"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:326
+msgid "Microphone Levels:"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:126
+msgid "Microphone Not Available"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:104
+msgid "Microphone permission is granted in System Settings"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:65
+msgid "Microphone Permission Required"
+msgstr ""
+
+#: src/contexts/RecordingStateContext.tsx:292
+msgid "Microphone switched to {label} for this meeting."
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:422
+msgid "Microphone:"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:192
+#: src/components/RecordingSettings.tsx:155
+msgid "Microphone: {micDevice}, System Audio: {systemDevice}"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:375
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:339
+msgid "Model"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:131
+msgid "Model {model} downloaded successfully"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:250
+#: src/components/ModelSettingsModal.tsx:422
+msgid "Model {modelName} deleted"
+msgstr ""
+
+#: src/contexts/OllamaDownloadContext.tsx:82
+msgid "Model {modelName} downloaded!"
+msgstr ""
+
+#: src/hooks/useRecordingStart.ts:134
+#: src/hooks/useRecordingStart.ts:226
+#: src/hooks/useRecordingStart.ts:325
+msgid "Model download in progress"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:174
+#: src/components/WhisperModelManager.tsx:255
+msgid "Model downloaded and ready to use"
+msgstr ""
+
+#: src/contexts/OllamaDownloadContext.tsx:83
+msgid "Model is now ready to use"
+msgstr ""
+
+#: src/hooks/useModalState.ts:180
+msgid "Model ready! Closing window..."
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:363
+#: src/components/WhisperModelManager.tsx:429
+msgid "Model removed to free up space"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:149
+#: src/components/ModelSettingsModal.tsx:471
+msgid "Model Settings"
+msgstr ""
+
+#: src/app/meeting-details/page-content.tsx:113
+#: src/components/SummaryModelSettings.tsx:100
+msgid "Model settings saved successfully"
+msgstr ""
+
+#: src/components/ModelDownloadProgress.tsx:117
+msgid "models available"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:142
+msgid "Modified:"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:72
+msgid "Mongolian"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:241
+msgid "more transcript"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:318
+msgid "MP4, WAV, MP3, FLAC, OGG, MKV, WebM, WMA"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:104
+msgid "Myanmar"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:71
+msgid "Nepali"
+msgstr ""
+
+#: src/components/LockScreen.tsx:147
+#: src/components/LockScreen.tsx:150
+msgid "New password"
+msgstr ""
+
+#: src/components/AISummary/index.tsx:545
+msgid "New Section"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:161
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:194
+msgid "No audio"
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:46
+msgid "No database found at selected location. Please select the Meetily folder, backend folder, or the database file directly."
+msgstr ""
+
+#: src/components/LanguagePickerPopover.tsx:171
+msgid "No matches"
+msgstr ""
+
+#: src/app/meeting-details/page.tsx:183
+msgid "No meeting selected"
+msgstr ""
+
+#: src/contexts/RecordingStateContext.tsx:320
+msgid "No microphone available — recording system audio only."
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:320
+msgid "No microphone devices found"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:191
+msgid "No microphone devices found to monitor"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:750
+msgid "No models found matching \""
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:544
+msgid "No models found."
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:271
+msgid "No models found. Download a model to get started with Built-in AI."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:701
+msgid "No models found. Download a recommended model or click \"Fetch Models\" to load available Ollama models."
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:105
+msgid "No other app is exclusively using the microphone"
+msgstr ""
+
+#: src/hooks/meeting-details/useCopyOperations.ts:112
+#: src/hooks/meeting-details/useCopyOperations.ts:161
+msgid "No summary content available to copy"
+msgstr ""
+
+#: src/components/AISummary/index.tsx:653
+msgid "No summary content available."
+msgstr ""
+
+#: src/components/EmptyStateSummary.tsx:35
+msgid "No Summary Generated Yet"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:408
+msgid "No system audio devices found"
+msgstr ""
+
+#: src/components/MeetingDetails/TranscriptButtonGroup.tsx:53
+msgid "No transcript available"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:524
+msgid "No transcripts available for summary regeneration"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:246
+msgid "No transcripts to preview"
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:139
+msgid "No, Browse Manually"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:46
+msgid "Norwegian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:100
+msgid "Norwegian Nynorsk"
+msgstr ""
+
+#: src/components/BetaSettings.tsx:65
+#: src/components/PreferenceSettings.tsx:216
+msgid "Note:"
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:155
+msgid "Notifications"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:86
+msgid "Occitan"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:108
+#: src/components/ModelSettingsModal.tsx:521
+msgid "Ollama"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:398
+msgid "Ollama is not installed"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:680
+msgid "Ollama is not installed or not running. Please download and install Ollama to use local models."
+msgstr ""
+
+#: src/components/LockScreen.tsx:117
+msgid "Open"
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:209
+#: src/components/RecordingSettings.tsx:210
+msgid "Open Folder"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:75
+msgid "Open Microphone Settings"
+msgstr ""
+
+#: src/components/MeetingDetails/TranscriptButtonGroup.tsx:67
+msgid "Open Recording Folder"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:83
+msgid "Open Screen Recording Settings"
+msgstr ""
+
+#: src/services/appLockService.ts:16
+msgid "Operation failed. Please try again."
+msgstr ""
+
+#: src/components/LanguagePickerPopover.tsx:148
+msgid "Other Languages"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:205
+msgid "Parakeet currently only supports automatic language detection. Manual language selection is not available. Use Whisper if you need to specify a particular language."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:98
+msgid "Pashto"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:110
+msgid "Pause"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:442
+msgid "Pause recording"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:99
+#: src/components/RecordingStatusBar.tsx:44
+msgid "Paused"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:436
+msgid "Pausing..."
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:167
+msgid "Pending"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:136
+msgid "Permission Required"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:65
+msgid "Permissions Required"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:58
+msgid "Persian"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:48
+msgid "Pick a summary language manually if Auto chooses the wrong fallback."
+msgstr ""
+
+#: src/components/LanguagePickerPopover.tsx:87
+msgid "Pick summary language"
+msgstr ""
+
+#: src/components/SummaryLanguageSettings.tsx:25
+msgid "Pin one language as the default for new meetings. Unpinned languages remain as quick-switch options in the summary generator. Auto uses the dominant transcript language."
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:97
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:145
+msgid "Please check your connection and try again."
+msgstr ""
+
+#: src/components/AISummary/index.tsx:616
+msgid "Please check your model configuration and API keys, or try again."
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:101
+msgid "Please check:"
+msgstr ""
+
+#: src/app/layout.tsx:128
+msgid "Please complete setup first"
+msgstr ""
+
+#: src/hooks/useRecordingStart.ts:141
+#: src/hooks/useRecordingStart.ts:233
+#: src/hooks/useRecordingStart.ts:332
+msgid "Please download a transcription model before recording."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:399
+msgid "Please download and install Ollama before downloading models."
+msgstr ""
+
+#: src/app/layout.tsx:166
+msgid "Please drop an audio file"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:360
+msgid "Please retry the download before continuing."
+msgstr ""
+
+#: src/components/EmptyStateSummary.tsx:62
+#: src/components/EmptyStateSummary.tsx:69
+msgid "Please select a model in Settings first"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:396
+msgid "Please try again."
+msgstr ""
+
+#: src/hooks/useRecordingStart.ts:135
+#: src/hooks/useRecordingStart.ts:227
+#: src/hooks/useRecordingStart.ts:326
+msgid "Please wait for the transcription model to finish downloading before recording."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:27
+msgid "Polish"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:25
+msgid "Portuguese"
+msgstr ""
+
+#: src/components/About.tsx:44
+msgid "Prefer local open-source model? Great. Want to plug in an external API? Also fine. No lock-in."
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:132
+msgid "Preference saved"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:70
+#: src/components/SettingTabs.tsx:39
+msgid "Preferences"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:174
+msgid "Preview"
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:100
+msgid "Previous Meetily Installation Detected!"
+msgstr ""
+
+#: src/components/About.tsx:39
+msgid "Privacy-first"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:160
+#: src/components/ChunkProgressDisplay.tsx:260
+msgid "Processing"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:257
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:293
+msgid "Processing audio..."
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:242
+msgid "Processing completed! All"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:96
+msgid "Processing Progress"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:347
+msgid "Processing recording..."
+msgstr ""
+
+#: src/components/AISummary/index.tsx:626
+msgid "Processing Transcript"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:120
+msgid "Processing..."
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:278
+msgid "processing)"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:372
+msgid "Progress: {v1}%"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:66
+msgid "Protect access"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:79
+msgid "Punjabi"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:623
+#: src/components/WhisperModelManager.tsx:743
+msgid "Re-download"
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:296
+msgid "Re-process the audio with different language settings"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:325
+#: src/components/ParakeetModelManager.tsx:560
+#: src/components/WhisperModelManager.tsx:680
+msgid "Ready"
+msgstr ""
+
+#: src/components/About.tsx:30
+msgid "Real-time notes and summaries that never leave your machine."
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:191
+msgid "Recent Chunks ("
+msgstr ""
+
+#: src/components/LanguagePickerPopover.tsx:104
+msgid "Recently Used"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:91
+msgid "Recheck"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:528
+#: src/components/WhisperModelManager.tsx:623
+msgid "Recommended"
+msgstr ""
+
+#: src/components/onboarding/steps/WelcomeStep.tsx:29
+msgid "Record. Transcribe. Summarize. All on your device."
+msgstr ""
+
+#: src/components/MeetingDetails/TranscriptButtonGroup.tsx:70
+#: src/components/RecordingStatusBar.tsx:44
+msgid "Recording"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:141
+msgid "Recording Failed"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:490
+#: src/components/Sidebar/index.tsx:786
+msgid "Recording in progress..."
+msgstr ""
+
+#: src/components/ComplianceNotification.tsx:80
+msgid "Recording Notice"
+msgstr ""
+
+#: src/components/TranscriptView.tsx:364
+#: src/components/VirtualizedTranscriptView.tsx:253
+msgid "Recording paused"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:137
+msgid "Recording permissions are required. Please:\n• Grant microphone access in System Settings\n• Grant screen recording access for system audio (macOS)\n• Restart the app after granting permissions"
+msgstr ""
+
+#: src/hooks/useRecordingStop.ts:327
+msgid "Recording saved successfully!"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:179
+msgid "Recording Settings"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:235
+msgid "Recording Start Notification"
+msgstr ""
+
+#: src/hooks/useRecordingStart.ts:195
+msgid "Recording start timed out — please try again"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:300
+msgid "Recording Stopped"
+msgstr ""
+
+#: src/components/onboarding/steps/PermissionsStep.tsx:160
+msgid "Recording won't work without permissions. You can grant them later in settings."
+msgstr ""
+
+#: src/app/settings/page.tsx:20
+msgid "Recordings"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:218
+msgid "Recordings are saved with timestamp: recording_YYYYMMDD_HHMMSS."
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:423
+msgid "Records computer audio (music, calls, etc.)"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:422
+msgid "Records your voice and ambient sound"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:291
+msgid "Recover"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:122
+msgid "Recover Interrupted Meetings"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:287
+msgid "Recovering..."
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:114
+msgid "Regenerate AI Summary"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:125
+msgid "Regenerate Summary"
+msgstr ""
+
+#: src/components/LockScreen.tsx:155
+#: src/components/LockScreen.tsx:158
+msgid "Repeat the new password"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:107
+#: src/components/onboarding/steps/SecurityStep.tsx:111
+msgid "Repeat the password"
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:102
+msgid "Report issues on GitHub"
+msgstr ""
+
+#: src/components/onboarding/steps/PermissionsStep.tsx:131
+msgid "Required to capture your voice during meetings"
+msgstr ""
+
+#: src/components/LockScreen.tsx:170
+msgid "Reset and open"
+msgstr ""
+
+#: src/components/MeetingDetails/MeetingDetailsSplitView.tsx:157
+msgid "Resize transcript and summary"
+msgstr ""
+
+#: src/components/ChunkProgressDisplay.tsx:116
+msgid "Resume"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:442
+msgid "Resume recording"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:436
+msgid "Resuming..."
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:287
+msgid "Retranscribe Meeting"
+msgstr ""
+
+#: src/components/MeetingDetails/TranscriptButtonGroup.tsx:82
+msgid "Retranscribe to enhance your recorded audio"
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:279
+msgid "Retranscribing..."
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:240
+msgid "Retranscription cancelled"
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:158
+msgid "Retranscription complete! {v1} segments created."
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:283
+msgid "Retranscription Failed"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:383
+#: src/components/BuiltInModelManager.tsx:397
+#: src/components/ParakeetModelManager.tsx:217
+msgid "Retry"
+msgstr ""
+
+#: src/components/EmptyStateSummary.tsx:56
+msgid "Retry summary"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:42
+msgid "Romanian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:21
+msgid "Russian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:102
+msgid "Sanskrit"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryUpdaterButtonGroup.tsx:44
+#: src/components/ModelSettingsModal.tsx:847
+#: src/components/Sidebar/index.tsx:871
+msgid "Save"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:187
+msgid "Save Audio Recordings"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryUpdaterButtonGroup.tsx:29
+msgid "Save Changes"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:202
+msgid "Save Location"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryUpdaterButtonGroup.tsx:29
+msgid "Saving"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryUpdaterButtonGroup.tsx:39
+#: src/components/onboarding/steps/SecurityStep.tsx:146
+msgid "Saving..."
+msgstr ""
+
+#: src/components/LanguagePickerPopover.tsx:96
+msgid "Search language..."
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:700
+msgid "Search meeting content..."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:542
+#: src/components/ModelSettingsModal.tsx:663
+msgid "Search models..."
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:604
+#: src/components/Sidebar/index.tsx:751
+msgid "Searching..."
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:119
+#: src/components/onboarding/steps/SecurityStep.tsx:122
+msgid "Secret question"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:115
+msgid "Secret question to reset the password if you forget it. Choose an answer nobody else can guess."
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:252
+msgid "Select a meeting to preview"
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:320
+msgid "Select a specific language to improve accuracy, or use auto-detect"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:314
+msgid "Select Audio File"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:348
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:310
+msgid "Select language"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:299
+msgid "Select Microphone"
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:383
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:343
+msgid "Select model"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:535
+msgid "Select model..."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:517
+#: src/components/TranscriptSettings.tsx:114
+msgid "Select provider"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:171
+msgid "Select summary template"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:386
+msgid "Select System Audio"
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:137
+msgid "Select your previous Meetily folder, backend directory, or database file:"
+msgstr ""
+
+#: src/components/BuiltInModelManager.tsx:328
+msgid "Selected"
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:148
+msgid "Selecting..."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:61
+msgid "Serbian"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:146
+msgid "Set password"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:224
+msgid "Set summary language"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:249
+msgid "Set your preferred microphone and system audio devices for recording. These will be automatically selected when starting new recordings."
+msgstr ""
+
+#: src/app/settings/page.tsx:79
+#: src/components/Sidebar/index.tsx:539
+#: src/components/Sidebar/index.tsx:811
+msgid "Settings"
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:49
+msgid "Setup Overview"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:82
+msgid "Shona"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:280
+msgid "Show Confidence Indicators"
+msgstr ""
+
+#: src/components/ConsoleToggle.tsx:86
+msgid "Show or hide the developer console window. On Windows, this controls the console window. On macOS, this opens Terminal with app logs."
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:100
+msgid "Show password"
+msgstr ""
+
+#: src/components/RecordingSettings.tsx:236
+msgid "Show reminder to inform participants when recording starts"
+msgstr ""
+
+#: src/components/VirtualizedTranscriptView.tsx:315
+#: src/components/VirtualizedTranscriptView.tsx:370
+msgid "Showing"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:208
+msgid "Showing first"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:90
+msgid "Sindhi"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:80
+msgid "Sinhala"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:141
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:109
+msgid "Size:"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:153
+msgid "Skip for now"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:56
+msgid "Slovak"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:63
+msgid "Slovenian"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:84
+msgid "Somali"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:20
+msgid "Spanish"
+msgstr ""
+
+#: src/components/TranscriptView.tsx:369
+#: src/components/VirtualizedTranscriptView.tsx:256
+msgid "Speak to see live transcription"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:245
+msgid "Speech Recognition Setup Required"
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:222
+msgid "Start Fresh (No Import)"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:409
+msgid "Start recording"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:490
+#: src/components/Sidebar/index.tsx:791
+msgid "Start Recording"
+msgstr ""
+
+#: src/components/TranscriptView.tsx:375
+#: src/components/VirtualizedTranscriptView.tsx:262
+msgid "Start recording to see live transcription"
+msgstr ""
+
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:395
+msgid "Start Retranscription"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:181
+msgid "Started"
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:65
+msgid "Step"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:99
+msgid "Stop"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:465
+msgid "Stop recording"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:96
+msgid "Stop summary generation"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:459
+msgid "Stopping..."
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:199
+msgid "Success!"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:92
+#: src/components/ModelSettingsModal.tsx:476
+msgid "Summarization Model"
+msgstr ""
+
+#: src/app/settings/page.tsx:22
+#: src/components/MeetingDetails/MeetingDetailsSplitView.tsx:14
+msgid "Summary"
+msgstr ""
+
+#: src/hooks/meeting-details/useCopyOperations.ts:185
+msgid "Summary copied to clipboard"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:261
+msgid "Summary generated successfully!"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:257
+msgid "Summary generated with fallback"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:544
+#: src/hooks/meeting-details/useSummaryGeneration.ts:566
+msgid "Summary generation stopped"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:571
+msgid "Summary is already finishing"
+msgstr ""
+
+#: src/components/SummaryLanguageSettings.tsx:23
+msgid "Summary Language"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:161
+msgid "Summary language saved on this device"
+msgstr ""
+
+#: src/components/SummaryModelSettings.tsx:122
+msgid "Summary Model Configuration"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:144
+msgid "Summary model download retry failed"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:139
+msgid "Summary Settings"
+msgstr ""
+
+#: src/hooks/meeting-details/useModelConfiguration.ts:125
+msgid "Summary settings Saved successfully"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:115
+msgid "Sundanese"
+msgstr ""
+
+#: src/app/layout.tsx:167
+msgid "Supported formats: {v1}"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:76
+msgid "Swahili"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:31
+msgid "Swedish"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:346
+#: src/components/WhisperModelManager.tsx:413
+msgid "Switched to {displayName}"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:363
+#: src/components/onboarding/steps/PermissionsStep.tsx:140
+msgid "System Audio"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:95
+msgid "System Audio Backend"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:117
+msgid "System audio capture is also not available."
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:116
+msgid "System audio capture is not available. You can still record with your microphone, but computer audio won't be captured."
+msgstr ""
+
+#: src/components/RecordingControls.tsx:131
+msgid "System Audio Not Available"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:65
+msgid "System Audio Permission Required"
+msgstr ""
+
+#: src/components/DeviceSelection.tsx:423
+msgid "System Audio:"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:106
+msgid "Tagalog"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:89
+msgid "Tajik"
+msgstr ""
+
+#: src/components/onboarding/steps/WelcomeStep.tsx:61
+msgid "Takes less than 3 minutes"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:45
+msgid "Tamil"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:109
+msgid "Tatar"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:57
+msgid "Telugu"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryGeneratorButtonGroup.tsx:174
+msgid "Template"
+msgstr ""
+
+#: src/hooks/meeting-details/useTemplates.ts:36
+msgid "Template selected"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:33
+msgid "Text"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:47
+msgid "Thai"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:280
+#: src/components/WhisperModelManager.tsx:342
+msgid "The download is still shutting down. Retry will be available when cleanup completes."
+msgstr ""
+
+#: src/hooks/useImportAudio.ts:119
+msgid "The imported meeting was saved, but the default summary language was not applied."
+msgstr ""
+
+#: src/hooks/useRecordingStop.ts:288
+msgid "The meeting was saved, but Auto could not detect the summary language."
+msgstr ""
+
+#: src/hooks/useRecordingStop.ts:275
+msgid "The meeting was saved, but the default summary language was not applied."
+msgstr ""
+
+#: src/components/LockScreen.tsx:55
+msgid "The new password must have at least {MIN_PASSWORD_LENGTH} characters."
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:75
+msgid "The password"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:38
+msgid "The password must have at least {MIN_PASSWORD_LENGTH} characters."
+msgstr ""
+
+#: src/hooks/useTranscriptRecovery.ts:193
+msgid "The recovered meeting was saved, but the default summary language was not applied."
+msgstr ""
+
+#: src/components/LockScreen.tsx:59
+#: src/components/onboarding/steps/SecurityStep.tsx:40
+msgid "The two passwords do not match."
+msgstr ""
+
+#: src/components/BetaSettings.tsx:26
+msgid "These features are still being tested. You may encounter issues, and we appreciate your feedback."
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:313
+#: src/components/WhisperModelManager.tsx:379
+msgid "This may take a few minutes"
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:162
+msgid "This meeting has no recording folder, so the preference cannot be written to meeting metadata."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:105
+msgid "Tibetan"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:121
+msgid "To enable system audio on macOS:"
+msgstr ""
+
+#: src/app/feedback/page.tsx:55
+msgid "To protect your patients' privacy, never attach recordings, transcripts or identifying data to reports."
+msgstr ""
+
+#: src/components/ConsoleToggle.tsx:83
+msgid "Toggle Console"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:208
+msgid "total)"
+msgstr ""
+
+#: src/components/MeetingDetails/MeetingDetailsSplitView.tsx:13
+#: src/components/SettingTabs.tsx:37
+msgid "Transcript"
+msgstr ""
+
+#: src/contexts/TranscriptContext.tsx:473
+#: src/hooks/meeting-details/useCopyOperations.ts:95
+msgid "Transcript copied to clipboard"
+msgstr ""
+
+#: src/components/TranscriptSettings.tsx:103
+msgid "Transcript Model"
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:208
+msgid "transcript segments (of"
+msgstr ""
+
+#: src/app/settings/page.tsx:21
+msgid "Transcription"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:359
+msgid "Transcription engine required"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:182
+msgid "Transcription Language"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:160
+msgid "Transcription language set to {languageName}"
+msgstr ""
+
+#: src/hooks/useRecordingStart.ts:140
+#: src/hooks/useRecordingStart.ts:232
+#: src/hooks/useRecordingStart.ts:331
+msgid "Transcription model not ready"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:245
+msgid "Transcription Model Settings"
+msgstr ""
+
+#: src/app/_components/SettingsModal.tsx:317
+msgid "Transcription Performance Warning"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:227
+msgid "Transcription will be optimized for"
+msgstr ""
+
+#: src/components/About.tsx:22
+#: src/components/LockScreen.tsx:82
+#: src/components/Logo.tsx:26
+msgid "Trascrivi Seduta"
+msgstr ""
+
+#: src/app/feedback/page.tsx:36
+msgid "Trascrivi Seduta is made for fellow psychologists and psychotherapists and grows thanks to their contribution. If you found a problem, have an idea to improve it, or simply want to tell us how you are using it, we would love to hear from you."
+msgstr ""
+
+#: src/components/onboarding/steps/PermissionsStep.tsx:118
+msgid "Trascrivi Seduta needs access to your microphone and system audio to record meetings"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:98
+msgid "Trascrivi Seduta needs access to your microphone to record meetings. No microphone devices were detected."
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:50
+msgid "Trascrivi Seduta requires that you download the Transcription & Summarization AI models for the software to work."
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:455
+#: src/components/MeetingDetails/RetranscribeDialog.tsx:414
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:483
+msgid "Try Again"
+msgstr ""
+
+#: src/components/AudioBackendSelector.tsx:116
+msgid "Try different backends to find which works best for your system."
+msgstr ""
+
+#: src/components/AISummary/index.tsx:654
+msgid "Try generating a new summary."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:26
+msgid "Turkish"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:99
+msgid "Turkmen"
+msgstr ""
+
+#: src/components/AISummary/Block.tsx:254
+msgid "Type '/' for commands..."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:38
+msgid "Ukrainian"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:127
+msgid "Unable to access your microphone. Please check that:\n• Your microphone is connected\n• The app has microphone permissions\n• No other app is using the microphone"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:132
+msgid "Unable to capture system audio. Please check that:\n• A virtual audio device (like BlackHole) is installed\n• The app has screen recording permissions (macOS)\n• System audio is properly configured"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:142
+msgid "Unable to start recording. Please check your audio device settings and try again."
+msgstr ""
+
+#: src/components/TranscriptSettings.tsx:176
+msgid "Unlock to edit"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:123
+msgid "Update Audio Device Selection"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:48
+msgid "Urdu"
+msgstr ""
+
+#: src/components/ComplianceNotification.tsx:96
+msgid "US compliance required"
+msgstr ""
+
+#: src/components/About.tsx:43
+msgid "Use Any Model"
+msgstr ""
+
+#: src/components/ParakeetModelManager.tsx:458
+#: src/components/WhisperModelManager.tsx:556
+msgid "Using"
+msgstr ""
+
+#: src/hooks/meeting-details/useTemplates.ts:37
+msgid "Using \"{templateName}\" template for summary generation"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:353
+msgid "Using {v1}/{v2}"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:33
+msgid "Using Auto for this generation."
+msgstr ""
+
+#: src/components/MeetingDetails/SummaryPanel.tsx:129
+msgid "Using Auto until meeting metadata can be read."
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:653
+msgid "Using:"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:95
+msgid "Uzbek"
+msgstr ""
+
+#: src/components/RecordingControls.tsx:492
+msgid "Validating speech recognition..."
+msgstr ""
+
+#: src/components/ImportAudio/ImportAudioDialog.tsx:310
+msgid "Validating..."
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:36
+msgid "Vietnamese"
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:165
+msgid "View and access where Trascrivi Seduta stores your data"
+msgstr ""
+
+#: src/app/page.tsx:132
+msgid "View Meeting"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:572
+msgid "Waiting for the latest result."
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:423
+msgid "Waiting..."
+msgstr ""
+
+#: src/components/TranscriptRecovery/TranscriptRecovery.tsx:123
+msgid "We found"
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:103
+msgid "We found an existing database from your previous Meetily installation (Python backend version)."
+msgstr ""
+
+#: src/app/feedback/page.tsx:38
+msgid "We kindly invite you to take part and collaborate: every suggestion, report or translation proposal is valuable."
+msgstr ""
+
+#: src/components/DatabaseImport/LegacyDatabaseImport.tsx:123
+msgid "Welcome to Meetily!"
+msgstr ""
+
+#: src/components/onboarding/steps/WelcomeStep.tsx:28
+msgid "Welcome to Trascrivi Seduta"
+msgstr ""
+
+#: src/components/TranscriptView.tsx:374
+#: src/components/VirtualizedTranscriptView.tsx:261
+msgid "Welcome to Trascrivi Seduta!"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:55
+msgid "Welsh"
+msgstr ""
+
+#: src/components/About.tsx:36
+msgid "What makes Trascrivi Seduta different"
+msgstr ""
+
+#: src/components/BetaSettings.tsx:65
+msgid "When disabled, beta features will be hidden. Your existing meetings remain unaffected."
+msgstr ""
+
+#: src/components/BluetoothPlaybackWarning.tsx:78
+msgid "wired headphones"
+msgstr ""
+
+#: src/components/ModelSettingsModal.tsx:777
+msgid "with a size of"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:155
+msgid "Without a password the app opens directly. If you forget it and also lose the secret answer, you will no longer be able to unlock the app."
+msgstr ""
+
+#: src/components/About.tsx:51
+msgid "Works everywhere"
+msgstr ""
+
+#: src/components/onboarding/steps/WelcomeStep.tsx:22
+msgid "Works offline, no cloud required"
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:112
+msgid "Would you like to import your previous meetings, transcripts, and summaries?"
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:41
+msgid "Write a secret question (at least 5 characters)."
+msgstr ""
+
+#: src/components/onboarding/steps/SecurityStep.tsx:42
+msgid "Write the answer to the secret question."
+msgstr ""
+
+#: src/components/LockScreen.tsx:67
+msgid "Wrong answer."
+msgstr ""
+
+#: src/components/LockScreen.tsx:34
+msgid "Wrong password. After a few mistakes the wait gets longer."
+msgstr ""
+
+#: src/components/DatabaseImport/HomebrewDatabaseDetector.tsx:130
+msgid "Yes, Import"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:93
+msgid "Yiddish"
+msgstr ""
+
+#: src/components/LanguageSelection.tsx:83
+msgid "Yoruba"
+msgstr ""
+
+#: src/components/onboarding/steps/SetupOverviewStep.tsx:75
+msgid "You can also use Ollama to generate summaries, from the settings."
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:530
+msgid "You can continue while this finishes"
+msgstr ""
+
+#: src/hooks/meeting-details/useSummaryGeneration.ts:545
+#: src/hooks/meeting-details/useSummaryGeneration.ts:567
+msgid "You can generate a new summary anytime"
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:375
+msgid "You can start using the app. Recording will be available once speech recognition is ready."
+msgstr ""
+
+#: src/components/onboarding/steps/DownloadProgressStep.tsx:494
+msgid "You can start using Trascrivi Seduta after downloading the Transcription Engine."
+msgstr ""
+
+#: src/app/layout.tsx:129
+msgid "You need to finish onboarding before you can start recording."
+msgstr ""
+
+#: src/components/BluetoothPlaybackWarning.tsx:77
+msgid "You're using"
+msgstr ""
+
+#: src/components/About.tsx:40
+msgid "Your data & AI processing workflow can now stay within your premise. No cloud, no leaks."
+msgstr ""
+
+#: src/components/onboarding/steps/WelcomeStep.tsx:14
+msgid "Your data never leaves your device"
+msgstr ""
+
+#: src/components/PermissionWarning.tsx:103
+msgid "Your microphone is connected and powered on"
+msgstr ""
+

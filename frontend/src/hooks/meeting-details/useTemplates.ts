@@ -3,13 +3,14 @@ import { invoke as invokeTauri } from '@tauri-apps/api/core';
 import { toast } from 'sonner';
 import Analytics from '@/lib/analytics';
 
+import { t } from '@/i18n';
 export function useTemplates() {
   const [availableTemplates, setAvailableTemplates] = useState<Array<{
     id: string;
     name: string;
     description: string;
   }>>([]);
-  const [selectedTemplate, setSelectedTemplate] = useState<string>('standard_meeting');
+  const [selectedTemplate, setSelectedTemplate] = useState<string>('nota_di_seduta');
 
   // Fetch available templates on mount
   useEffect(() => {
@@ -32,8 +33,8 @@ export function useTemplates() {
   // Handle template selection
   const handleTemplateSelection = useCallback((templateId: string, templateName: string) => {
     setSelectedTemplate(templateId);
-    toast.success('Template selected', {
-      description: `Using "${templateName}" template for summary generation`,
+    toast.success(t("Template selected"), {
+      description: t("Using \"{templateName}\" template for summary generation", { templateName }),
     });
     Analytics.trackFeatureUsed('template_selected');
   }, []);

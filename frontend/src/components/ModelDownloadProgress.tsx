@@ -2,6 +2,7 @@ import React from 'react';
 import { ModelStatus } from '../lib/whisper';
 import { Button } from './ui/button';
 
+import { t } from '@/i18n';
 interface ModelDownloadProgressProps {
   status: ModelStatus;
   modelName: string;
@@ -22,7 +23,7 @@ export function ModelDownloadProgress({ status, modelName, onCancel }: ModelDown
         <div className="flex items-center space-x-2">
           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
           <span className="text-sm font-medium text-blue-900">
-            {isCompleted ? 'Finalizing...' : `Downloading ${modelName}`}
+            {isCompleted ? t("Finalizing...") : `Downloading ${modelName}`}
           </span>
         </div>
       </div>
@@ -35,16 +36,15 @@ export function ModelDownloadProgress({ status, modelName, onCancel }: ModelDown
           />
         </div>
         <div className="flex justify-between text-xs text-blue-700 mt-1">
-          <span>{Math.round(progress)}% complete</span>
+          <span>{Math.round(progress)}{t("% complete")}</span>
           {!isCompleted && (
-            <span className="animate-pulse">Downloading...</span>
+            <span className="animate-pulse">{t("Downloading...")}</span>
           )}
         </div>
       </div>
       
       {isCompleted && (
-        <div className="mt-2 text-xs text-green-700">
-          ✓ Download completed, loading model...
+        <div className="mt-2 text-xs text-green-700">{t("✓ Download completed, loading model...")}
         </div>
       )}
     </div>
@@ -114,15 +114,14 @@ export function DownloadSummary({ totalModels, downloadedModels, totalSizeMb }: 
     <div className="bg-gray-50 rounded-lg p-3 text-sm">
       <div className="flex items-center justify-between">
         <span className="text-gray-700">
-          📦 {downloadedModels} of {totalModels} models available
+          📦 {downloadedModels} of {totalModels}{t("models available")}
         </span>
         <span className="text-gray-600">
           💾 {formatSize(totalSizeMb)} total
         </span>
       </div>
       {downloadedModels > 0 && (
-        <div className="mt-1 text-xs text-green-600">
-          ✓ Models run locally - no internet required for transcription
+        <div className="mt-1 text-xs text-green-600">{t("✓ Models run locally - no internet required for transcription")}
         </div>
       )}
     </div>

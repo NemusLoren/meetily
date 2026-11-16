@@ -6,6 +6,7 @@ import { invoke as invokeTauri } from '@tauri-apps/api/core';
 import { toast } from 'sonner';
 import { hasVisibleSummaryContent } from '@/lib/summary-content';
 
+import { t } from '@/i18n';
 interface UseMeetingDataProps {
   meeting: any;
   summaryData: MeetingSummary | null;
@@ -64,10 +65,10 @@ export function useMeetingData({ meeting, summaryData, onMeetingUpdated }: UseMe
         await handleSaveSummary(aiSummary);
       }
 
-      toast.success("Changes saved successfully");
+      toast.success(t("Changes saved successfully"));
     } catch (error) {
       console.error('Failed to save changes:', error);
-      toast.error("Failed to save changes", { description: String(error) });
+      toast.error(t("Failed to save changes"), { description: String(error) });
     } finally {
       setIsSaving(false);
     }

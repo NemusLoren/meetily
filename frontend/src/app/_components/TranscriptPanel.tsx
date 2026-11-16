@@ -11,6 +11,7 @@ import { ModalType } from '@/hooks/useModalState';
 import { useIsLinux } from '@/hooks/usePlatform';
 import { useMemo } from 'react';
 
+import { t } from '@/i18n';
 /**
  * TranscriptPanel Component
  *
@@ -62,11 +63,10 @@ export function TranscriptPanel({
                     variant="outline"
                     size="sm"
                     onClick={copyTranscript}
-                    title="Copy Transcript"
+                    title={t("Copy Transcript")}
                   >
                     <Copy />
-                    <span className='hidden md:inline'>
-                      Copy
+                    <span className='hidden md:inline'>{t("Copy")}
                     </span>
                   </Button>
                 )}
@@ -75,11 +75,10 @@ export function TranscriptPanel({
                     variant="outline"
                     size="sm"
                     onClick={() => showModal('languageSettings')}
-                    title="Language"
+                    title={t("Language")}
                   >
                     <GlobeIcon />
-                    <span className='hidden md:inline'>
-                      Language
+                    <span className='hidden md:inline'>{t("Language")}
                     </span>
                   </Button>
                 }

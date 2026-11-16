@@ -1,0 +1,46 @@
+{
+  "name": "Nota di seduta",
+  "description": "Nota clinica generale di una seduta: temi, osservazioni, interventi e punti per la prossima seduta.",
+  "sections": [
+    {
+      "title": "Dati della seduta",
+      "instruction": "Riporta solo ciò che emerge dalla trascrizione: data, durata approssimativa, modalità (in presenza o online). Non inventare nomi: usa sigle o iniziali solo se pronunciate.",
+      "format": "string"
+    },
+    {
+      "title": "Sintesi della seduta",
+      "instruction": "Un paragrafo breve e neutro che riassume il contenuto della seduta.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Temi emersi",
+      "instruction": "Elenca i temi principali portati dal paziente, con una frase di contesto per ciascuno.",
+      "format": "list"
+    },
+    {
+      "title": "Stato emotivo e osservazioni",
+      "instruction": "Descrivi l'umore, gli stati emotivi e i comportamenti comunicativi che emergono dal dialogo (tono, esitazioni, pianto, silenzi), senza formulare diagnosi.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Interventi del terapeuta",
+      "instruction": "Riassumi gli interventi, le tecniche o le domande significative del terapeuta e le reazioni del paziente.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Compiti e prossimi passi",
+      "instruction": "Elenca compiti, impegni o indicazioni concordati per il periodo fino alla prossima seduta.",
+      "format": "list"
+    },
+    {
+      "title": "Rischio e sicurezza",
+      "instruction": "Segnala SOLO se nella trascrizione emergono idee di autolesionismo, rischio per sé o per altri, o situazioni di emergenza. Altrimenti scrivi che non emergono elementi di rischio dalla trascrizione.",
+      "format": "paragraph"
+    },
+    {
+      "title": "Spunti per la prossima seduta",
+      "instruction": "Argomenti lasciati aperti o da riprendere, senza aggiungere ipotesi non presenti nel testo.",
+      "format": "list"
+    }
+  ]
+}

@@ -9,6 +9,7 @@ import { RetranscribeDialog } from './RetranscribeDialog';
 import { useConfig } from '@/contexts/ConfigContext';
 
 
+import { t } from '@/i18n';
 interface TranscriptButtonGroupProps {
   transcriptCount: number;
   onCopyTranscript: () => void;
@@ -49,10 +50,10 @@ export function TranscriptButtonGroup({
             onCopyTranscript();
           }}
           disabled={transcriptCount === 0}
-          title={transcriptCount === 0 ? 'No transcript available' : 'Copy Transcript'}
+          title={transcriptCount === 0 ? t("No transcript available") : t("Copy Transcript")}
         >
           <Copy />
-          <span className="hidden @[22rem]:inline">Copy</span>
+          <span className="hidden @[22rem]:inline">{t("Copy")}</span>
         </Button>
 
         <Button
@@ -63,10 +64,10 @@ export function TranscriptButtonGroup({
             Analytics.trackButtonClick('open_recording_folder', 'meeting_details');
             onOpenMeetingFolder();
           }}
-          title="Open Recording Folder"
+          title={t("Open Recording Folder")}
         >
           <FolderOpen className="@[22rem]:mr-2" size={18} />
-          <span className="hidden @[22rem]:inline">Recording</span>
+          <span className="hidden @[22rem]:inline">{t("Recording")}</span>
         </Button>
 
         {betaFeatures.importAndRetranscribe && meetingId && meetingFolderPath && (
@@ -78,10 +79,10 @@ export function TranscriptButtonGroup({
               Analytics.trackButtonClick('enhance_transcript', 'meeting_details');
               setShowRetranscribeDialog(true);
             }}
-            title="Retranscribe to enhance your recorded audio"
+            title={t("Retranscribe to enhance your recorded audio")}
           >
             <RefreshCw className="@[22rem]:mr-2" size={18} />
-            <span className="hidden @[22rem]:inline">Enhance</span>
+            <span className="hidden @[22rem]:inline">{t("Enhance")}</span>
           </Button>
         )}
       </ButtonGroup>

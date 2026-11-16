@@ -4,6 +4,7 @@ import { toast } from 'sonner';
 import { TranscriptModelProps } from '@/components/TranscriptSettings';
 import type { TranscriptionErrorPayload } from '@/services/transcriptService';
 
+import { t } from '@/i18n';
 export type ModalType =
   | 'modelSettings'
   | 'deviceSettings'
@@ -176,7 +177,7 @@ export function useModalState(transcriptModelConfig?: TranscriptModelProps): Use
 
         // Auto-close modal if the downloaded model matches the selected one
         if (transcriptModelConfig?.provider === 'localWhisper' && transcriptModelConfig?.model === modelName) {
-          toast.success('Model ready! Closing window...', { duration: 1500 });
+          toast.success(t("Model ready! Closing window..."), { duration: 1500 });
           setTimeout(() => hideModal('modelSelector'), 1500);
         }
       });

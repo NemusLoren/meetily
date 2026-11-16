@@ -6,6 +6,7 @@ import { EditableTitle } from '../EditableTitle';
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
+import { t } from '@/i18n';
 interface SectionProps {
   section: SectionType;
   sectionKey: string;
@@ -76,8 +77,7 @@ export const Section: React.FC<SectionProps> = ({
           <button
             onClick={() => onSectionDelete(sectionKey)}
             className="text-gray-400 hover:text-gray-600"
-          >
-            Delete
+          >{t("Delete")}
           </button>
         )}
       </div>

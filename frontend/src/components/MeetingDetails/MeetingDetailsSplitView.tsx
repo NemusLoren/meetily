@@ -3,14 +3,15 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { FileText, Sparkles } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { t } from '@/i18n';
 const STORAGE_KEY = 'meetily.meetingDetails.transcriptPaneRatio';
 const DEFAULT_RATIO = 0.3;
 const MIN_RATIO = 0.3;
 const MAX_RATIO = 0.5;
 
 const TABS = [
-  { value: 'transcript' as const, label: 'Transcript', icon: FileText },
-  { value: 'summary' as const, label: 'Summary', icon: Sparkles },
+  { value: 'transcript' as const, label: t("Transcript"), icon: FileText },
+  { value: 'summary' as const, label: t("Summary"), icon: Sparkles },
 ];
 
 function readStoredRatio(): number {
@@ -153,7 +154,7 @@ export function MeetingDetailsSplitView({
           aria-valuemin={Math.round(MIN_RATIO * 100)}
           aria-valuemax={Math.round(MAX_RATIO * 100)}
           aria-valuetext={`Transcript panel ${Math.round(ratio * 100)} percent`}
-          aria-label="Resize transcript and summary"
+          aria-label={t("Resize transcript and summary")}
           tabIndex={0}
           className="group relative z-10 hidden w-2 flex-shrink-0 cursor-col-resize items-stretch justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-inset md:flex"
           onPointerDown={onPointerDown}
