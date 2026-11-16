@@ -154,6 +154,28 @@ fn register_success(state: &AppLockState) {
     *state.unlocked.lock().unwrap_or_else(|e| e.into_inner()) = true;
 }
 
+/// Controlla la password master per operazioni sensibili (per esempio il backup cifrato).
+/// Errori: `MASTER_PASSWORD_REQUIRED` (non impostata) e `WRONG_PASSWORD`.
+pub async fn require_master_password<R: Runtime>(
+    app: &AppHandle<R>,
+    state: &AppLockState,
+    password: &str,
+) -> Result<(), String> {
+    let lock = read_lock(app)?.ok_or_else(|| "MASTER_PASSWORD_REQUIRED".to_string())?;
+    throttle(state).await;
+    let password = password.to_string();
+    let ok = tokio::task::spawn_blocking(move || verify_secret(&password, &lock.password_hash))
+        .await
+        .map_err(|_| "Errore interno durante la verifica.".to_string())?;
+    if ok {
+        *state.failed_attempts.lock().unwrap_or_else(|e| e.into_inner()) = 0;
+        Ok(())
+    } else {
+        register_failure(state);
+        Err("WRONG_PASSWORD".to_string())
+    }
+}
+
 #[tauri::command]
 pub async fn app_lock_status<R: Runtime>(
     app: AppHandle<R>,

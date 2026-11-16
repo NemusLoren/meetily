@@ -45,6 +45,7 @@ pub mod notifications;
 pub mod ollama;
 pub mod onboarding;
 pub mod app_lock;
+pub mod backup;
 pub mod parakeet_engine;
 pub mod state;
 pub mod summary;
@@ -900,6 +901,12 @@ pub fn run() {
             app_lock::app_lock_setup,
             app_lock::app_lock_verify,
             app_lock::app_lock_reset,
+            backup::backup_list_meetings,
+            backup::backup_pick_save_path,
+            backup::backup_pick_open_path,
+            backup::backup_create,
+            backup::backup_inspect,
+            backup::backup_restore,
             onboarding::get_onboarding_status,
             onboarding::save_onboarding_status_cmd,
             onboarding::reset_onboarding_status_cmd,

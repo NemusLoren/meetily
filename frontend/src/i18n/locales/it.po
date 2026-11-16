@@ -28,6 +28,10 @@ msgstr "... e"
 msgid "\". Try a different search term."
 msgstr "\". Prova con un altro termine di ricerca."
 
+#: src/components/BackupSettings.tsx:243
+msgid "{count} sessions, {audio} audio files, {size}"
+msgstr "{count} sedute, {audio} file audio, {size}"
+
 #: src/components/ParakeetModelManager.tsx:362
 #: src/components/WhisperModelManager.tsx:428
 msgid "{displayName} deleted"
@@ -40,6 +44,10 @@ msgstr "{errorMessage}. Il riassunto precedente è stato ripristinato."
 #: src/components/ModelSettingsModal.tsx:371
 msgid "{recommendedModel} is already downloading"
 msgstr "{recommendedModel} è già in download"
+
+#: src/components/BackupSettings.tsx:404
+msgid "{restored} sessions restored, {audio} audio files, {skipped} already present and left untouched."
+msgstr "{restored} sedute ripristinate, {audio} file audio; {skipped} erano già presenti e non sono state toccate."
 
 #: src/components/ParakeetModelManager.tsx:173
 #: src/components/WhisperModelManager.tsx:254
@@ -107,9 +115,17 @@ msgstr "🌐 Modalità traduzione attiva"
 msgid "🏠 Local Whisper (High Accuracy)"
 msgstr "🏠 Whisper locale (Alta precisione)"
 
+#: src/components/BackupSettings.tsx:268
+msgid "A backup is always encrypted with your master password. Create one now to continue."
+msgstr "Il backup è sempre cifrato con la tua password master. Creane una ora per continuare."
+
 #: src/components/About.tsx:60
 msgid "A library of on-device AI agents-automating follow-ups, action tracking, and more."
 msgstr "Una libreria di agenti AI sul dispositivo per automatizzare follow-up, monitoraggio dei compiti e altro."
+
+#: src/components/BackupSettings.tsx:62
+msgid "A master password is required to create backups."
+msgstr "Per creare i backup serve una password master."
 
 #: src/components/SettingTabs.tsx:40
 msgid "About"
@@ -148,6 +164,10 @@ msgstr "Attivo"
 #: src/components/MeetingDetails/TranscriptPanel.tsx:105
 msgid "Add context for AI summary. For example people involved, meeting overview, objective etc..."
 msgstr "Aggiungi un contesto per il riassunto AI, per esempio le persone coinvolte, il quadro della seduta, gli obiettivi..."
+
+#: src/components/BackupSettings.tsx:79
+msgid "Adding audio {done} of {total}..."
+msgstr "Aggiunta dell'audio {done} di {total}..."
 
 #: src/components/WhisperModelManager.tsx:521
 msgid "Advanced Models"
@@ -197,6 +217,10 @@ msgstr "Tutto l'audio verrà tradotto automaticamente in inglese. Adatto a sedut
 msgid "All Languages"
 msgstr "Tutte le lingue"
 
+#: src/components/BackupSettings.tsx:304
+msgid "All sessions ({count})"
+msgstr "Tutte le sedute ({count})"
+
 #: src/components/LanguageSelection.tsx:92
 msgid "Amharic"
 msgstr "Amarico"
@@ -217,8 +241,8 @@ msgstr "Si è verificato un errore durante la ritrascrizione"
 msgid "Analyzing your transcript..."
 msgstr "Analisi della trascrizione..."
 
+#: src/components/BackupSettings.tsx:274
 #: src/components/LockScreen.tsx:139
-#: src/components/onboarding/steps/SecurityStep.tsx:127
 msgid "Answer"
 msgstr "Risposta"
 
@@ -226,8 +250,8 @@ msgstr "Risposta"
 msgid "Answer the secret question and choose a new password. Your data is not touched."
 msgstr "Rispondi alla domanda segreta e scegli una nuova password. I tuoi dati non vengono toccati."
 
+#: src/components/BackupSettings.tsx:274
 #: src/components/LockScreen.tsx:142
-#: src/components/onboarding/steps/SecurityStep.tsx:131
 msgid "Answer to the secret question"
 msgstr "Risposta alla domanda segreta"
 
@@ -272,6 +296,10 @@ msgstr "Dispositivi audio"
 msgid "Audio recording is disabled. Enable \"Save Audio Recordings\" to automatically save your meeting audio."
 msgstr "Il salvataggio dell'audio è disattivato. Attiva \"Salva le registrazioni audio\" per conservare automaticamente l'audio delle sedute."
 
+#: src/components/BackupSettings.tsx:289
+msgid "Audio recordings"
+msgstr "Registrazioni audio"
+
 #: src/components/LanguagePickerPopover.tsx:137
 msgid "Auto"
 msgstr "Automatico"
@@ -310,9 +338,31 @@ msgid "Azerbaijani"
 msgstr "Azero"
 
 #: src/app/feedback/page.tsx:31
-#: src/app/settings/page.tsx:77
+#: src/app/settings/page.tsx:79
 msgid "Back"
 msgstr "Indietro"
+
+#: src/app/settings/page.tsx:24
+msgid "Backup"
+msgstr "Backup"
+
+#: src/components/BackupSettings.tsx:226
+#: src/components/BackupSettings.tsx:240
+msgid "Backup created"
+msgstr "Backup creato"
+
+#: src/components/BackupSettings.tsx:445
+msgid "Backup created on {date}, with {count} sessions."
+msgstr "Backup creato il {date}, con {count} sedute."
+
+#: src/components/BackupSettings.tsx:390
+#: src/components/BackupSettings.tsx:402
+msgid "Backup restored"
+msgstr "Backup ripristinato"
+
+#: src/components/BackupSettings.tsx:477
+msgid "Backups are encrypted with your master password. Save them where you like: only someone who knows the password can open them."
+msgstr "I backup sono cifrati con la tua password master. Salvali dove vuoi: solo chi conosce la password può aprirli."
 
 #: src/components/About.tsx:66
 msgid "Based on Meetily (Zackriya Solutions), MIT license"
@@ -334,7 +384,7 @@ msgstr "Bielorusso"
 msgid "Bengali"
 msgstr "Bengalese"
 
-#: src/app/settings/page.tsx:23
+#: src/app/settings/page.tsx:25
 msgid "Beta"
 msgstr "Beta"
 
@@ -457,9 +507,25 @@ msgstr "Scegli un modello di trascrizione"
 msgid "Choose audio to record. Default follows your system’s selected output."
 msgstr "Scegli l'audio da registrare. \"Predefinito\" segue l'uscita selezionata nel sistema."
 
+#: src/components/BackupSettings.tsx:428
+msgid "Choose backup file"
+msgstr "Scegli il file di backup"
+
 #: src/components/ImportAudio/ImportAudioDialog.tsx:301
 msgid "Choose Different File"
 msgstr "Scegli un altro file"
+
+#: src/components/BackupSettings.tsx:308
+msgid "Choose sessions"
+msgstr "Scegli le sedute"
+
+#: src/components/BackupSettings.tsx:489
+msgid "Choose what to include: everything, only some sessions, or only some types of files."
+msgstr "Scegli cosa includere: tutto, solo alcune sedute o solo alcuni tipi di file."
+
+#: src/components/BackupSettings.tsx:339
+msgid "Choose where to save and create backup"
+msgstr "Scegli dove salvare e crea il backup"
 
 #: src/components/onboarding/steps/SecurityStep.tsx:67
 msgid "Choose whether to lock the app with a master password. It is optional."
@@ -510,6 +576,10 @@ msgstr "Chiudi l'avviso"
 #: src/components/AISummary/index.tsx:60
 msgid "Closing Remarks"
 msgstr "Osservazioni finali"
+
+#: src/components/BackupSettings.tsx:78
+msgid "Collecting sessions and transcripts..."
+msgstr "Raccolta di sedute e trascrizioni..."
 
 #: src/components/About.tsx:60
 msgid "Coming soon:"
@@ -599,9 +669,18 @@ msgstr "Impossibile aprire il link. Controlla il browser predefinito e riprova."
 msgid "Create a bulleted list"
 msgstr "Crea un elenco puntato"
 
+#: src/components/BackupSettings.tsx:263
+#: src/components/BackupSettings.tsx:488
+msgid "Create encrypted backup"
+msgstr "Crea un backup cifrato"
+
 #: src/components/AISummary/index.tsx:631
 msgid "Creating a detailed summary of your meeting..."
 msgstr "Creazione di un riassunto dettagliato della seduta..."
+
+#: src/components/BackupSettings.tsx:339
+msgid "Creating backup..."
+msgstr "Creazione del backup..."
 
 #: src/components/LanguageSelection.tsx:49
 msgid "Croatian"
@@ -850,6 +929,10 @@ msgstr "Attiva \"Importa audio e ritrascrivi\" in Impostazioni > Beta per usare 
 msgid "Enable or disable notifications of start and end of meeting"
 msgstr "Attiva o disattiva le notifiche di inizio e fine seduta"
 
+#: src/components/BackupSettings.tsx:80
+msgid "Encrypting and saving..."
+msgstr "Cifratura e salvataggio..."
+
 #: src/components/ModelSettingsModal.tsx:700
 msgid "Endpoint changed. Click \"Fetch Models\" to load models from the new endpoint."
 msgstr "L'endpoint è cambiato. Premi \"Recupera modelli\" per caricare i modelli dal nuovo endpoint."
@@ -875,6 +958,10 @@ msgstr "Migliora"
 msgid "Enter meeting title"
 msgstr "Inserisci il titolo della seduta"
 
+#: src/components/BackupSettings.tsx:433
+msgid "Enter the master password that was in use when the backup was made."
+msgstr "Inserisci la password master che usavi quando è stato fatto il backup."
+
 #: src/components/LockScreen.tsx:85
 msgid "Enter the master password to open the app."
 msgstr "Inserisci la password master per aprire l'app."
@@ -882,6 +969,10 @@ msgstr "Inserisci la password master per aprire l'app."
 #: src/components/TranscriptSettings.tsx:160
 msgid "Enter your API key"
 msgstr "Inserisci la tua chiave API"
+
+#: src/components/BackupSettings.tsx:318
+msgid "Enter your master password: it encrypts the backup."
+msgstr "Inserisci la tua password master: serve a cifrare il backup."
 
 #: src/components/BuiltInModelManager.tsx:339
 msgid "Error"
@@ -1128,7 +1219,7 @@ msgstr "Francese"
 msgid "Galician"
 msgstr "Galiziano"
 
-#: src/app/settings/page.tsx:19
+#: src/app/settings/page.tsx:20
 msgid "General"
 msgstr "Generali"
 
@@ -1521,8 +1612,8 @@ msgstr "Marathi"
 msgid "Markdown Input"
 msgstr "Input Markdown"
 
-#: src/components/LockScreen.tsx:102
-#: src/components/LockScreen.tsx:105
+#: src/components/BackupSettings.tsx:271
+#: src/components/BackupSettings.tsx:317
 msgid "Master password"
 msgstr "Password master"
 
@@ -1724,6 +1815,10 @@ msgstr "Nessun audio"
 msgid "No database found at selected location. Please select the Meetily folder, backend folder, or the database file directly."
 msgstr "Nessun database trovato nella posizione scelta. Seleziona la cartella di Meetily, la cartella backend o direttamente il file del database."
 
+#: src/components/BackupSettings.tsx:429
+msgid "No file chosen"
+msgstr "Nessun file scelto"
+
 #: src/components/LanguagePickerPopover.tsx:171
 msgid "No matches"
 msgstr "Nessuna corrispondenza"
@@ -1763,6 +1858,10 @@ msgstr "Nessun modello trovato. Scarica un modello consigliato oppure premi \"Re
 #: src/components/PermissionWarning.tsx:105
 msgid "No other app is exclusively using the microphone"
 msgstr "Nessun'altra app sta usando il microfono in esclusiva"
+
+#: src/components/BackupSettings.tsx:140
+msgid "No sessions found."
+msgstr "Nessuna seduta trovata."
 
 #: src/hooks/meeting-details/useCopyOperations.ts:112
 #: src/hooks/meeting-details/useCopyOperations.ts:161
@@ -1810,6 +1909,10 @@ msgstr "Norvegese nynorsk"
 msgid "Note:"
 msgstr "Nota:"
 
+#: src/components/BackupSettings.tsx:288
+msgid "Notes"
+msgstr "Appunti"
+
 #: src/components/PreferenceSettings.tsx:177
 msgid "Notifications"
 msgstr "Notifiche"
@@ -1835,6 +1938,14 @@ msgstr "Ollama non è installato o non è in esecuzione. Scarica e installa Olla
 msgid "Open"
 msgstr "Apri"
 
+#: src/components/BackupSettings.tsx:498
+msgid "Open a backup file and bring back the sessions you choose."
+msgstr "Apri un file di backup e recupera le sedute che scegli."
+
+#: src/components/BackupSettings.tsx:436
+msgid "Open backup"
+msgstr "Apri il backup"
+
 #: src/components/PreferenceSettings.tsx:231
 #: src/components/RecordingSettings.tsx:210
 msgid "Open Folder"
@@ -1851,6 +1962,10 @@ msgstr "Apri la cartella delle registrazioni"
 #: src/components/PermissionWarning.tsx:83
 msgid "Open Screen Recording Settings"
 msgstr "Apri le impostazioni di registrazione dello schermo"
+
+#: src/components/BackupSettings.tsx:436
+msgid "Opening..."
+msgstr "Apertura..."
 
 #: src/services/appLockService.ts:16
 msgid "Operation failed. Please try again."
@@ -1981,6 +2096,10 @@ msgstr "Preferenza salvata"
 #: src/components/SettingTabs.tsx:39
 msgid "Preferences"
 msgstr "Preferenze"
+
+#: src/components/BackupSettings.tsx:77
+msgid "Preparing..."
+msgstr "Preparazione..."
 
 #: src/components/TranscriptRecovery/TranscriptRecovery.tsx:174
 msgid "Preview"
@@ -2130,7 +2249,7 @@ msgstr "Registrazione fermata"
 msgid "Recording won't work without permissions. You can grant them later in settings."
 msgstr "Senza i permessi la registrazione non funziona. Puoi concederli più tardi nelle impostazioni."
 
-#: src/app/settings/page.tsx:20
+#: src/app/settings/page.tsx:21
 msgid "Recordings"
 msgstr "Registrazioni"
 
@@ -2166,13 +2285,17 @@ msgstr "Rigenera il riassunto AI"
 msgid "Regenerate Summary"
 msgstr "Rigenera il riassunto"
 
+#: src/components/BackupSettings.tsx:412
+msgid "Reload the app"
+msgstr "Ricarica l'app"
+
 #: src/components/LockScreen.tsx:155
 #: src/components/LockScreen.tsx:158
 msgid "Repeat the new password"
 msgstr "Ripeti la nuova password"
 
+#: src/components/BackupSettings.tsx:272
 #: src/components/onboarding/steps/SecurityStep.tsx:107
-#: src/components/onboarding/steps/SecurityStep.tsx:111
 msgid "Repeat the password"
 msgstr "Ripeti la password"
 
@@ -2191,6 +2314,23 @@ msgstr "Reimposta e apri"
 #: src/components/MeetingDetails/MeetingDetailsSplitView.tsx:157
 msgid "Resize transcript and summary"
 msgstr "Ridimensiona trascrizione e riassunto"
+
+#: src/components/BackupSettings.tsx:453
+msgid "Restore {count} sessions"
+msgstr "Ripristina {count} sedute"
+
+#: src/components/BackupSettings.tsx:424
+#: src/components/BackupSettings.tsx:497
+msgid "Restore from a backup"
+msgstr "Ripristina da un backup"
+
+#: src/components/BackupSettings.tsx:79
+msgid "Restoring audio {done}..."
+msgstr "Ripristino dell'audio {done}..."
+
+#: src/components/BackupSettings.tsx:453
+msgid "Restoring..."
+msgstr "Ripristino..."
 
 #: src/components/ChunkProgressDisplay.tsx:116
 msgid "Resume"
@@ -2288,13 +2428,18 @@ msgstr "Cerca nel contenuto delle sedute..."
 msgid "Search models..."
 msgstr "Cerca modelli..."
 
+#: src/components/BackupSettings.tsx:120
+#: src/components/BackupSettings.tsx:121
+msgid "Search sessions..."
+msgstr "Cerca nelle sedute..."
+
 #: src/components/Sidebar/index.tsx:604
 #: src/components/Sidebar/index.tsx:751
 msgid "Searching..."
 msgstr "Ricerca in corso..."
 
+#: src/components/BackupSettings.tsx:273
 #: src/components/onboarding/steps/SecurityStep.tsx:119
-#: src/components/onboarding/steps/SecurityStep.tsx:122
 msgid "Secret question"
 msgstr "Domanda segreta"
 
@@ -2309,6 +2454,10 @@ msgstr "Seleziona una seduta per l'anteprima"
 #: src/components/MeetingDetails/RetranscribeDialog.tsx:320
 msgid "Select a specific language to improve accuracy, or use auto-detect"
 msgstr "Scegli una lingua specifica per migliorare la precisione, oppure usa il rilevamento automatico"
+
+#: src/components/BackupSettings.tsx:129
+msgid "Select all"
+msgstr "Seleziona tutte"
 
 #: src/components/ImportAudio/ImportAudioDialog.tsx:314
 msgid "Select Audio File"
@@ -2331,6 +2480,10 @@ msgstr "Seleziona il modello"
 #: src/components/ModelSettingsModal.tsx:535
 msgid "Select model..."
 msgstr "Seleziona il modello..."
+
+#: src/components/BackupSettings.tsx:136
+msgid "Select none"
+msgstr "Deseleziona tutte"
 
 #: src/components/ModelSettingsModal.tsx:517
 #: src/components/TranscriptSettings.tsx:114
@@ -2361,6 +2514,11 @@ msgstr "Selezione..."
 msgid "Serbian"
 msgstr "Serbo"
 
+#: src/components/BackupSettings.tsx:448
+msgid "Sessions already in the app are never overwritten."
+msgstr "Le sedute già presenti nell'app non vengono mai sovrascritte."
+
+#: src/components/BackupSettings.tsx:275
 #: src/components/onboarding/steps/SecurityStep.tsx:146
 msgid "Set password"
 msgstr "Imposta la password"
@@ -2373,7 +2531,7 @@ msgstr "Imposta la lingua del riassunto"
 msgid "Set your preferred microphone and system audio devices for recording. These will be automatically selected when starting new recordings."
 msgstr "Scegli i dispositivi preferiti per microfono e audio di sistema. Verranno selezionati automaticamente all'avvio di una nuova registrazione."
 
-#: src/app/settings/page.tsx:79
+#: src/app/settings/page.tsx:81
 #: src/components/Sidebar/index.tsx:539
 msgid "Settings"
 msgstr "Impostazioni"
@@ -2503,12 +2661,16 @@ msgstr "Arresto in corso..."
 msgid "Success!"
 msgstr "Fatto!"
 
+#: src/components/BackupSettings.tsx:287
+msgid "Summaries"
+msgstr "Riassunti"
+
 #: src/app/_components/SettingsModal.tsx:92
 #: src/components/ModelSettingsModal.tsx:476
 msgid "Summarization Model"
 msgstr "Modello di riassunto"
 
-#: src/app/settings/page.tsx:22
+#: src/app/settings/page.tsx:23
 #: src/components/MeetingDetails/MeetingDetailsSplitView.tsx:14
 msgid "Summary"
 msgstr "Riassunto"
@@ -2653,6 +2815,10 @@ msgstr "Tailandese"
 msgid "The download is still shutting down. Retry will be available when cleanup completes."
 msgstr "Il download si sta ancora chiudendo. Potrai riprovare al termine della pulizia."
 
+#: src/components/BackupSettings.tsx:325
+msgid "The file can be saved anywhere (computer, USB drive, Dropbox, Google Drive...). It stays unreadable without your master password, and the app never connects to those services."
+msgstr "Il file si può salvare ovunque (computer, chiavetta USB, Dropbox, Google Drive...). Resta illeggibile senza la tua password master, e l'app non si collega mai a quei servizi."
+
 #: src/hooks/useImportAudio.ts:119
 msgid "The imported meeting was saved, but the default summary language was not applied."
 msgstr "La seduta importata è stata salvata, ma la lingua predefinita del riassunto non è stata applicata."
@@ -2673,6 +2839,7 @@ msgstr "La nuova password deve avere almeno {MIN_PASSWORD_LENGTH} caratteri."
 msgid "The password"
 msgstr "La password"
 
+#: src/components/BackupSettings.tsx:188
 #: src/components/onboarding/steps/SecurityStep.tsx:38
 msgid "The password must have at least {MIN_PASSWORD_LENGTH} characters."
 msgstr "La password deve avere almeno {MIN_PASSWORD_LENGTH} caratteri."
@@ -2681,8 +2848,8 @@ msgstr "La password deve avere almeno {MIN_PASSWORD_LENGTH} caratteri."
 msgid "The recovered meeting was saved, but the default summary language was not applied."
 msgstr "La seduta recuperata è stata salvata, ma la lingua predefinita del riassunto non è stata applicata."
 
+#: src/components/BackupSettings.tsx:192
 #: src/components/LockScreen.tsx:59
-#: src/components/onboarding/steps/SecurityStep.tsx:40
 msgid "The two passwords do not match."
 msgstr "Le due password non coincidono."
 
@@ -2706,6 +2873,10 @@ msgstr "Tibetano"
 #: src/components/PermissionWarning.tsx:121
 msgid "To enable system audio on macOS:"
 msgstr "Per attivare l'audio di sistema su macOS:"
+
+#: src/components/BackupSettings.tsx:251
+msgid "To open this backup you will need the master password you used today. Keep it in a safe place: without it the backup cannot be recovered."
+msgstr "Per aprire questo backup servirà la password master che hai usato oggi. Conservala in un posto sicuro: senza di essa il backup non si può recuperare."
 
 #: src/app/feedback/page.tsx:55
 msgid "To protect your patients' privacy, never attach recordings, transcripts or identifying data to reports."
@@ -2737,7 +2908,7 @@ msgstr "Modello di trascrizione"
 msgid "transcript segments (of"
 msgstr "segmenti di trascrizione (di"
 
-#: src/app/settings/page.tsx:21
+#: src/app/settings/page.tsx:22
 msgid "Transcription"
 msgstr "Trascrizione"
 
@@ -2769,6 +2940,10 @@ msgstr "Avviso sulle prestazioni di trascrizione"
 #: src/components/LanguageSelection.tsx:227
 msgid "Transcription will be optimized for"
 msgstr "La trascrizione sarà ottimizzata per"
+
+#: src/components/BackupSettings.tsx:286
+msgid "Transcripts"
+msgstr "Trascrizioni"
 
 #: src/components/About.tsx:22
 #: src/components/LockScreen.tsx:82
@@ -2942,9 +3117,17 @@ msgstr "Gallese"
 msgid "What makes Trascrivi Seduta different"
 msgstr "Cosa rende diverso Trascrivi Seduta"
 
+#: src/components/BackupSettings.tsx:283
+msgid "What to include"
+msgstr "Cosa includere"
+
 #: src/components/BetaSettings.tsx:65
 msgid "When disabled, beta features will be hidden. Your existing meetings remain unaffected."
 msgstr "Se disattivate, le funzioni beta saranno nascoste. Le sedute esistenti non cambiano."
+
+#: src/components/BackupSettings.tsx:300
+msgid "Which sessions"
+msgstr "Quali sedute"
 
 #: src/components/BluetoothPlaybackWarning.tsx:78
 msgid "wired headphones"
@@ -2981,6 +3164,10 @@ msgstr "Scrivi la risposta alla domanda segreta."
 #: src/components/LockScreen.tsx:67
 msgid "Wrong answer."
 msgstr "Risposta errata."
+
+#: src/components/BackupSettings.tsx:61
+msgid "Wrong password."
+msgstr "Password errata."
 
 #: src/components/LockScreen.tsx:34
 msgid "Wrong password. After a few mistakes the wait gets longer."

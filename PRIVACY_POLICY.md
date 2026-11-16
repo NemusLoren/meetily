@@ -24,6 +24,10 @@ Non ci sono aggiornamenti automatici: nessuna verifica periodica di nuove versio
 
 **Attenzione: nella versione attuale i dati NON sono cifrati dall'app.** La password master (facoltativa) blocca l'apertura dell'app, ma non protegge i file sul disco: chi accede direttamente alla cartella dei dati può leggerli. La cifratura dell'archivio è in sviluppo. Nel frattempo attiva la cifratura del disco (FileVault su Mac, BitLocker su Windows) e proteggi l'accesso al computer.
 
+## Backup
+
+Il backup crea un file `.tsbackup` **cifrato** (XChaCha20-Poly1305, chiave derivata dalla password master con Argon2id). Puoi salvarlo dove vuoi, anche in una cartella sincronizzata con Dropbox o Google Drive: l'app non si collega a quei servizi e il file è illeggibile senza la password. L'intestazione in chiaro contiene solo versione, data e parametri tecnici, nessun dato clinico. Senza la password un backup **non si può recuperare**.
+
 ## Le tue responsabilità di professionista
 
 Le sedute sono **dati relativi alla salute** (art. 9 GDPR). Resta a te, come titolare del trattamento, garantire base giuridica, consenso informato del paziente alla registrazione, misure di sicurezza adeguate, tempi di conservazione e cancellazione, e il rispetto del segreto professionale.
