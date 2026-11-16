@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getVersion } from '@tauri-apps/api/app';
 import Image from 'next/image';
-import AnalyticsConsentSwitch from "./AnalyticsConsentSwitch";
 
 
 export function About() {
@@ -68,7 +67,6 @@ export function About() {
                     Basato su Meetily (Zackriya Solutions), licenza MIT
                 </p>
             </div>
-            <AnalyticsConsentSwitch />
 
         </div>
 

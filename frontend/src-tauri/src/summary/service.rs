@@ -360,25 +360,8 @@ impl SummaryService {
             }
         };
 
-        // Validate and setup api_key, Flexible for Ollama, BuiltInAI, and CustomOpenAI
-        let api_key = if provider == LLMProvider::Ollama || provider == LLMProvider::BuiltInAI || provider == LLMProvider::CustomOpenAI {
-            // These providers don't require API keys from the standard database column
-            String::new()
-        } else {
-            match SettingsRepository::get_api_key(&pool, &model_provider).await {
-                Ok(Some(key)) if !key.is_empty() => key,
-                Ok(None) | Ok(Some(_)) => {
-                    let err_msg = format!("API key not found for {}", &model_provider);
-                    Self::fail_and_cleanup(&pool, &meeting_id, started_at, &err_msg).await;
-                    return;
-                }
-                Err(e) => {
-                    let err_msg = format!("Failed to retrieve API key for {}: {}", &model_provider, e);
-                    Self::fail_and_cleanup(&pool, &meeting_id, started_at, &err_msg).await;
-                    return;
-                }
-            }
-        };
+        // I provider supportati sono solo locali: nessuna chiave API.
+        let final_api_key = String::new();
 
         // Get Ollama endpoint if provider is Ollama
         let ollama_endpoint = if provider == LLMProvider::Ollama {
@@ -394,44 +377,11 @@ impl SummaryService {
             None
         };
 
-        // Get CustomOpenAI config if provider is CustomOpenAI
-        let (custom_openai_endpoint, custom_openai_api_key, custom_openai_max_tokens, custom_openai_temperature, custom_openai_top_p) =
-            if provider == LLMProvider::CustomOpenAI {
-                match SettingsRepository::get_custom_openai_config(&pool).await {
-                    Ok(Some(config)) => {
-                        info!(
-                            "✓ Using custom OpenAI endpoint_origin={}",
-                            url_origin_for_log(&config.endpoint)
-                        );
-                        (
-                            Some(config.endpoint),
-                            config.api_key,
-                            config.max_tokens.map(|t| t as u32),
-                            config.temperature,
-                            config.top_p,
-                        )
-                    }
-                    Ok(None) => {
-                        let err_msg = "Custom OpenAI provider selected but no configuration found";
-                        Self::fail_and_cleanup(&pool, &meeting_id, started_at, err_msg).await;
-                        return;
-                    }
-                    Err(e) => {
-                        let err_msg = format!("Failed to retrieve custom OpenAI config: {}", e);
-                        Self::fail_and_cleanup(&pool, &meeting_id, started_at, &err_msg).await;
-                        return;
-                    }
-                }
-            } else {
-                (None, None, None, None, None)
-            };
-
-        // For CustomOpenAI, use its API key (if any) instead of the empty string
-        let final_api_key = if provider == LLMProvider::CustomOpenAI {
-            custom_openai_api_key.unwrap_or_default()
-        } else {
-            api_key
-        };
+        // Nessun endpoint remoto o parametro di campionamento personalizzato.
+        let custom_openai_endpoint: Option<String> = None;
+        let custom_openai_max_tokens: Option<u32> = None;
+        let custom_openai_temperature: Option<f32> = None;
+        let custom_openai_top_p: Option<f32> = None;
 
         // Dynamically fetch context size based on provider and model
         let token_threshold = if provider == LLMProvider::Ollama {
@@ -475,7 +425,7 @@ impl SummaryService {
                 }
             }
         } else {
-            // Cloud providers (OpenAI, Claude, Groq, CustomOpenAI) handle large contexts automatically
+            // Il modello integrato gestisce da sé la finestra di contesto
             100000  // Effectively unlimited for single-pass processing
         };
 

@@ -47,8 +47,6 @@ const Sidebar: React.FC = () => {
     setCurrentMeeting,
     sidebarItems,
     isCollapsed,
-    doodlePath,
-    doodleDate,
     toggleCollapse,
     handleRecordingToggle,
     searchTranscripts,
@@ -456,7 +454,7 @@ const Sidebar: React.FC = () => {
     return (
       <TooltipProvider>
         <div className="flex flex-col items-center space-y-4 mt-4">
-          <Logo isCollapsed={isCollapsed} doodlePath={doodlePath} doodleDate={doodleDate} />
+          <Logo isCollapsed={isCollapsed} />
 
           <Tooltip>
             <TooltipTrigger asChild>

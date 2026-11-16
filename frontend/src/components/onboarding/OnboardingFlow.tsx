@@ -5,6 +5,7 @@ import {
   PermissionsStep,
   DownloadProgressStep,
   SetupOverviewStep,
+  SecurityStep,
 } from './steps';
 
 interface OnboardingFlowProps {
@@ -14,6 +15,9 @@ interface OnboardingFlowProps {
 export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   const { currentStep } = useOnboarding();
   const [isMac, setIsMac] = React.useState(false);
+  // Passo facoltativo "password master": non è numerato, si inserisce tra Benvenuto e Impostazione.
+  const [securityHandled, setSecurityHandled] = React.useState(false);
+  const handleSecurityDone = React.useCallback(() => setSecurityHandled(true), []);
 
   useEffect(() => {
     // Check if running on macOS
@@ -32,7 +36,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   }, []);
 
   // 4-Step Onboarding Flow (System-Recommended Models):
-  // Step 1: Welcome - Introduce Meetily features
+  // Step 1: Welcome - Introduce Trascrivi Seduta
   // Step 2: Setup Overview - Database initialization + show recommended downloads
   // Step 3: Download Progress - Download Parakeet + Summary Model (auto-selected based on platform/RAM)
   // Step 4: Permissions - Request mic + system audio (macOS only)
@@ -40,7 +44,8 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   return (
     <div className="onboarding-flow">
       {currentStep === 1 && <WelcomeStep />}
-      {currentStep === 2 && <SetupOverviewStep />}
+      {currentStep === 2 && !securityHandled && <SecurityStep onDone={handleSecurityDone} />}
+      {currentStep === 2 && securityHandled && <SetupOverviewStep />}
       {currentStep === 3 && <DownloadProgressStep />}
       {currentStep === 4 && isMac && <PermissionsStep />}
     </div>

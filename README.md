@@ -24,13 +24,14 @@ A chi fa colloqui clinici e vuole smettere di prendere appunti a mano senza affi
 | Riassunti con modelli locali | ✅ disponibile |
 | Interfaccia in italiano | 🚧 in corso (oggi in gran parte in inglese) |
 | Altre lingue tramite file `.po` | 🚧 pianificato |
-| Password master all'avvio e archivio cifrato | 🚧 pianificato: **oggi i dati NON sono cifrati** |
+| Password master facoltativa all'avvio, con domanda segreta per reimpostarla | ✅ disponibile: blocca l'apertura dell'app (password protetta con Argon2id) |
+| Cifratura dei dati (database e audio) | 🚧 pianificato: **oggi i dati NON sono cifrati**, la password non protegge i file sul disco |
 | Cartelle per paziente, con password facoltativa, e sottocartelle per giorno di seduta | 🚧 pianificato |
-| Rimozione dei provider di riassunto in cloud | 🚧 pianificato |
-| Rimozione della statistica d'uso opzionale | 🚧 pianificato |
+| Riassunti solo con modelli locali (provider cloud rimossi) | ✅ fatto: restano Ollama e il modello integrato |
+| Nessuna statistica d'uso né icona scaricata da internet | ✅ fatto: rimosse del tutto |
 | Aggiornamenti automatici | ❌ non previsti per ora: si scarica la nuova versione a mano |
 
-Finché password master e cifratura non sono pronte, **non usare l'app con dati reali di pazienti** su un computer non protetto (almeno cifratura del disco attiva: FileVault su Mac, BitLocker su Windows).
+Finché la cifratura dei dati non è pronta, **non usare l'app con dati reali di pazienti** su un computer non protetto (almeno cifratura del disco attiva: FileVault su Mac, BitLocker su Windows).
 
 ## Requisiti
 

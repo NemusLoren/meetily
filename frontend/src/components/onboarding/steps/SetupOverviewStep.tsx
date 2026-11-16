@@ -73,8 +73,7 @@ export function SetupOverviewStep() {
                                 </button>
                                 </TooltipTrigger>
                                 <TooltipContent className="max-w-xs text-sm">
-                                You can also select external AI providers like OpenAI, Claude, or
-                                Ollama for summary generation in settings.
+                                Puoi anche usare Ollama per generare i riassunti, dalle impostazioni.
                                 </TooltipContent>
                             </Tooltip>
                             </TooltipProvider>

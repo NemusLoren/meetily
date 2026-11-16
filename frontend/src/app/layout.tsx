@@ -5,7 +5,6 @@ import { Source_Sans_3 } from 'next/font/google'
 import Sidebar from '@/components/Sidebar'
 import { SidebarProvider } from '@/components/Sidebar/SidebarProvider'
 import MainContent from '@/components/MainContent'
-import AnalyticsProvider from '@/components/AnalyticsProvider'
 import { Toaster, toast } from 'sonner'
 import "sonner/dist/styles.css"
 import { useState, useEffect, useCallback } from 'react'
@@ -18,6 +17,8 @@ import { TranscriptProvider } from '@/contexts/TranscriptContext'
 import { ConfigProvider, useConfig } from '@/contexts/ConfigContext'
 import { OnboardingProvider } from '@/contexts/OnboardingContext'
 import { OnboardingFlow } from '@/components/onboarding'
+import { LockScreen } from '@/components/LockScreen'
+import { appLockService } from '@/services/appLockService'
 import { loadBetaFeatures } from '@/types/betaFeatures'
 import { DownloadProgressToastProvider } from '@/components/shared/DownloadProgressToast'
 import { RecordingPostProcessingProvider } from '@/contexts/RecordingPostProcessingProvider'
@@ -69,6 +70,18 @@ export default function RootLayout({
 }) {
   const [showOnboarding, setShowOnboarding] = useState(false)
   const [onboardingCompleted, setOnboardingCompleted] = useState(false)
+  // Blocco con password master: 'checking' finché non sappiamo se serve la password
+  const [lockState, setLockState] = useState<'checking' | 'locked' | 'open'>('checking')
+
+  useEffect(() => {
+    appLockService
+      .status()
+      .then((s) => setLockState(s.configured && !s.unlocked ? 'locked' : 'open'))
+      .catch((error) => {
+        console.error('[Layout] Failed to read lock status:', error)
+        setLockState('open')
+      })
+  }, [])
 
   // Import audio state
   const [showDropOverlay, setShowDropOverlay] = useState(false)
@@ -230,9 +243,13 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang="it">
       <body className={`${sourceSans3.variable} font-sans antialiased`}>
-        <AnalyticsProvider>
+        {/* Con la password master impostata l'app non viene nemmeno montata finché non si sblocca */}
+        {lockState === 'locked' ? (
+          <LockScreen onUnlocked={() => setLockState('open')} />
+        ) : lockState === 'open' ? (
+        <>
           <RecordingStateProvider>
             <TranscriptProvider>
               <ConfigProvider>
@@ -271,7 +288,8 @@ export default function RootLayout({
               </ConfigProvider>
             </TranscriptProvider>
           </RecordingStateProvider>
-        </AnalyticsProvider>
+        </>
+        ) : null}
 
         <Toaster position="bottom-center" richColors closeButton />
       </body>

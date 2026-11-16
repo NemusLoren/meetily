@@ -15,14 +15,14 @@ Registrazioni, trascrizioni e riassunti sono salvati in locale. Trascrizione e r
 Il software può collegarsi a internet nei casi seguenti:
 
 - **Scaricare i modelli** di trascrizione e di riassunto, la prima volta o quando li scegli.
-- **Provider di riassunto in cloud** ereditati da Meetily (se presenti nella tua versione): inviano il testo della seduta a terzi. **Sconsigliati per uso clinico**; ne è prevista la rimozione.
-- **Statistiche d'uso**: funzione opzionale ereditata da Meetily, **disattivata finché non la attivi tu**. Se non l'hai attivata nulla viene inviato. Ne è prevista la rimozione.
+- **Ollama (facoltativo)**: se lo usi per i riassunti, il testo va al server Ollama indicato nelle impostazioni, di norma sul tuo stesso computer. Non indicare server di altre persone.
+- **Nessuna statistica d'uso**, nessun provider di riassunto o trascrizione in cloud, nessuna icona scaricata da internet.
 
 Non ci sono aggiornamenti automatici: nessuna verifica periodica di nuove versioni.
 
 ## Cifratura e protezione
 
-**Attenzione: nella versione attuale i dati NON sono cifrati dall'app.** Password master e cifratura dell'archivio sono in sviluppo. Nel frattempo attiva la cifratura del disco (FileVault su Mac, BitLocker su Windows) e proteggi l'accesso al computer.
+**Attenzione: nella versione attuale i dati NON sono cifrati dall'app.** La password master (facoltativa) blocca l'apertura dell'app, ma non protegge i file sul disco: chi accede direttamente alla cartella dei dati può leggerli. La cifratura dell'archivio è in sviluppo. Nel frattempo attiva la cifratura del disco (FileVault su Mac, BitLocker su Windows) e proteggi l'accesso al computer.
 
 ## Le tue responsabilità di professionista
 

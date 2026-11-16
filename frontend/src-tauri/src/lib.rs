@@ -36,20 +36,15 @@ pub(crate) use perf_trace;
 // Re-export async logging macros for external use (removed due to macro conflicts)
 
 // Declare audio module
-pub mod analytics;
 pub mod api;
 pub mod audio;
 pub mod config;
 pub mod console_utils;
 pub mod database;
-pub mod doodle;
 pub mod notifications;
 pub mod ollama;
 pub mod onboarding;
-pub mod openai;
-pub mod anthropic;
-pub mod groq;
-pub mod openrouter;
+pub mod app_lock;
 pub mod parakeet_engine;
 pub mod state;
 pub mod summary;
@@ -453,7 +448,6 @@ async fn is_audio_level_monitoring() -> bool {
     audio::simple_level_monitor::is_monitoring()
 }
 
-// Analytics commands are now handled by analytics::commands module
 
 // Whisper commands are now handled by whisper_engine::commands module
 
@@ -577,6 +571,7 @@ pub fn run() {
             None::<notifications::manager::NotificationManager<tauri::Wry>>,
         )) as NotificationManagerState<tauri::Wry>)
         .manage(audio::init_system_audio_state())
+        .manage(app_lock::AppLockState::default())
         .manage(summary::summary_engine::ModelManagerState(Arc::new(tokio::sync::Mutex::new(None))))
         .setup(|_app| {
             let verbose = cfg!(debug_assertions)
@@ -735,32 +730,6 @@ pub fn run() {
             get_transcription_status,
             read_audio_file,
             save_transcript,
-            doodle::doodle_sync,
-            analytics::commands::init_analytics,
-            analytics::commands::disable_analytics,
-            analytics::commands::track_event,
-            analytics::commands::identify_user,
-            analytics::commands::track_meeting_started,
-            analytics::commands::track_recording_started,
-            analytics::commands::track_recording_stopped,
-            analytics::commands::track_meeting_deleted,
-            analytics::commands::track_settings_changed,
-            analytics::commands::track_feature_used,
-            analytics::commands::is_analytics_enabled,
-            analytics::commands::start_analytics_session,
-            analytics::commands::end_analytics_session,
-            analytics::commands::track_daily_active_user,
-            analytics::commands::track_user_first_launch,
-            analytics::commands::is_analytics_session_active,
-            analytics::commands::track_summary_generation_started,
-            analytics::commands::track_summary_generation_completed,
-            analytics::commands::track_summary_regenerated,
-            analytics::commands::track_model_changed,
-            analytics::commands::track_custom_prompt_used,
-            analytics::commands::track_meeting_ended,
-            analytics::commands::track_analytics_enabled,
-            analytics::commands::track_analytics_disabled,
-            analytics::commands::track_analytics_transparency_viewed,
             whisper_engine::commands::whisper_init,
             whisper_engine::commands::whisper_get_available_models,
             whisper_engine::commands::whisper_load_model,
@@ -829,9 +798,6 @@ pub fn run() {
             ollama::pull_ollama_model,
             ollama::delete_ollama_model,
             ollama::get_ollama_model_context,
-            openai::openai::get_openai_models,
-            anthropic::anthropic::get_anthropic_models,
-            groq::groq::get_groq_models,
             api::api_get_meetings,
             api::api_search_transcripts,
             api::api_get_profile,
@@ -856,9 +822,6 @@ pub fn run() {
             api::debug_backend_connection,
             api::open_external_url,
             // Custom OpenAI commands
-            api::api_save_custom_openai_config,
-            api::api_get_custom_openai_config,
-            api::api_test_custom_openai_connection,
             // Summary commands
             summary::commands::api_process_transcript,
             summary::commands::api_get_summary,
@@ -882,7 +845,6 @@ pub fn run() {
             summary::summary_engine::commands::builtin_ai_is_model_ready,
             summary::summary_engine::commands::builtin_ai_get_available_summary_model,
             summary::summary_engine::commands::builtin_ai_get_recommended_model,
-            openrouter::get_openrouter_models,
             audio::recording_preferences::get_recording_preferences,
             audio::recording_preferences::set_recording_preferences,
             audio::recording_preferences::get_default_recordings_folder_path,
@@ -933,6 +895,11 @@ pub fn run() {
             database::commands::open_database_folder,
             whisper_engine::commands::open_models_folder,
             // Onboarding commands
+            app_lock::app_lock_status,
+            app_lock::app_lock_question,
+            app_lock::app_lock_setup,
+            app_lock::app_lock_verify,
+            app_lock::app_lock_reset,
             onboarding::get_onboarding_status,
             onboarding::save_onboarding_status_cmd,
             onboarding::reset_onboarding_status_cmd,
