@@ -1,0 +1,18 @@
+name: Traduzione o testo da correggere
+description: Un testo sbagliato, poco chiaro o una lingua da aggiungere.
+title: "[TESTO] "
+labels: [documentation, i18n]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Dove l'hai visto
+      placeholder: "Per esempio: Impostazioni → Registrazione"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Testo attuale e proposta
+    validations:
+      required: true

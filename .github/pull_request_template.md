@@ -1,34 +1,20 @@
-> Use synthetic or redacted examples in screenshots, recordings, transcripts, and logs. Do not include private meeting content or credentials.
+> Non includere registrazioni, trascrizioni, credenziali o dati di pazienti, nemmeno in schermate o log. Usa solo esempi inventati.
 
-## What and why
+## Cosa cambia e perché
 
-<!-- Describe the problem and the focused change.
-Call out breaking changes, stored-data migrations, or privacy/permission changes when applicable. -->
+<!-- Descrivi il problema e la modifica. Segnala se cambia come vengono salvati i dati, la privacy o i permessi. -->
 
-## Related work
+## Come l'ho verificato
 
-<!-- Link existing issues/discussions and any overlapping PRs. If none apply, say so.
-Explain what differs if a related PR exists. Do not create an issue just to fill this section. -->
+<!-- Indica solo ciò che hai davvero provato. -->
 
-- [ ] I searched open and closed issues and PRs for the same problem or change.
+- Sistema (macOS/Windows e versione):
+- Passi eseguiti:
+- Risultato osservato:
+- Non provato, e perché:
 
-## Verification
+## Prima della revisione
 
-<!-- Report only checks you actually ran. Provide evidence relevant to the change:
-- UI: screenshots or a short demonstration.
-- Bug fix: reproduction and fixed behavior, with regression coverage where practical.
-- Audio/transcription: relevant device, model, and platform details plus observed output.
-- Performance: reproducible before/after measurements.
-- Docs/configuration: relevant link, instruction, or configuration checks; no app recording required.
--->
-
-- Environment/platform:
-- Commands or manual steps:
-- Observed results:
-- Not tested and why:
-
-## Before review
-
-- [ ] I reviewed and understand the submitted changes.
-- [ ] This PR follows the [contribution guide](https://github.com/Zackriya-Solutions/meetily/blob/main/CONTRIBUTING.md) and targets `devtest`.
-- [ ] Related documentation is updated, or I explained why none is needed.
+- [ ] Ho riletto e capisco le modifiche inviate.
+- [ ] La PR è diretta a `main` e segue la [guida per contribuire](../CONTRIBUTING.md).
+- [ ] Ho aggiornato la documentazione, oppure non serviva.

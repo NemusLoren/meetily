@@ -1,41 +1,31 @@
-name: Feature request
-description: Suggest an improvement to Meetily.
-title: "[FEATURE] "
+name: Proponi una funzione
+description: Un'idea per rendere Trascrivi Seduta più utile nel lavoro clinico.
+title: "[IDEA] "
 labels: [enhancement]
 body:
   - type: markdown
     attributes:
       value: |
-        Search [issues](https://github.com/Zackriya-Solutions/meetily/issues?q=is%3Aissue) and [PRs](https://github.com/Zackriya-Solutions/meetily/pulls?q=is%3Apr) before proposing new work. If an existing request covers your idea, add useful context there instead.
-        Discuss substantial features before implementing them. No implementation plan or code is required to explain a user need.
-  - type: checkboxes
-    id: duplicate-search
+        Le idee dei colleghi sono il motore del progetto. Non indicare dati reali dei pazienti.
+  - type: textarea
+    id: need
     attributes:
-      label: Existing requests and implementations
+      label: Che cosa ti serve
+      description: Descrivi la situazione di lavoro in cui oggi ti manca qualcosa.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Come lo immagini
+      description: Come dovrebbe funzionare, secondo te.
+  - type: dropdown
+    id: privacy
+    attributes:
+      label: Riguarda la privacy o la sicurezza dei dati?
       options:
-        - label: I searched open and closed issues and PRs for this improvement.
-          required: true
-  - type: textarea
-    id: problem
-    attributes:
-      label: Problem or user need
-      description: What are you trying to accomplish, and what limitation do you encounter in Meetily?
+        - "No"
+        - "Sì"
+        - "Non so"
     validations:
       required: true
-  - type: textarea
-    id: outcome
-    attributes:
-      label: Desired outcome
-      description: Describe the improvement and how you would know it solves the problem.
-    validations:
-      required: true
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: Alternatives or additional context
-      description: Share workarounds, relevant platforms, or examples if useful. Do not include private meeting content or credentials.
-  - type: input
-    id: related-work
-    attributes:
-      label: Related issues or PRs
-      description: Link related requests or implementations and explain what differs. Leave blank if none apply.

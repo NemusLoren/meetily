@@ -4,7 +4,7 @@ These instructions apply to AI coding agents working in this repository.
 
 ## Project Overview
 
-- Meetily is a desktop application for recording meetings, transcribing audio, and generating summaries.
+- Trascrivi Seduta (fork of Meetily, for psychologists and psychotherapists; privacy-first, Italian-first) is a desktop application for recording meetings, transcribing audio, and generating summaries.
 - The supported app lives in `frontend/`: Next.js/React provides the UI, and the Rust/Tauri core handles native behavior, audio, persistence, transcription, and summary orchestration.
 - Local transcription uses Whisper or Parakeet. Summaries use the configured local or cloud provider; do not assume every provider runs locally.
 - Frontend code invokes Tauri commands; Rust emits events that update frontend state. Preserve existing command contracts, event payloads, and state ownership.

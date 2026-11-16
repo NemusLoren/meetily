@@ -1,32 +1,33 @@
-name: "Build Test"
+name: "Build di prova"
+
+# Compila macOS e Windows senza pubblicare nulla: gli installer restano
+# scaricabili come "artifact" della run (30 giorni).
 
 on: workflow_dispatch
 
 jobs:
   build-test:
+    name: Build ${{ matrix.name }}
     permissions:
-      contents: write
+      contents: read
     strategy:
       fail-fast: false
       matrix:
         include:
-          - platform: "macos-latest" # for Apple Silicon only (M1 and above)
+          - name: "macOS (Apple Silicon)"
+            platform: "macos-latest"
             args: "--target aarch64-apple-darwin"
             target: "aarch64-apple-darwin"
-          - platform: "ubuntu-22.04" # Build Linux release packages with Vulkan
-            args: "--bundles deb,appimage"
-            target: "x86_64-unknown-linux-gnu"
-          - platform: "windows-latest"
+          - name: "Windows"
+            platform: "windows-latest"
             args: ""
             target: "x86_64-pc-windows-msvc"
-
     uses: ./.github/workflows/build.yml
     with:
       platform: ${{ matrix.platform }}
       target: ${{ matrix.target }}
       build-args: ${{ matrix.args }}
-      sign-binaries: true
-      asset-prefix: "meetily-test"
+      sign-binaries: false
+      asset-prefix: "trascrivi-seduta-prova"
       upload-artifacts: true
-      is-debug-build: ${{ contains(matrix.args, '--debug') }}
     secrets: inherit

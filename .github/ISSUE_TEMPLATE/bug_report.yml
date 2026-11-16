@@ -1,65 +1,45 @@
-name: Bug report
-description: Report a problem with the Meetily desktop app.
-title: "[BUG] "
+name: Segnala un problema
+description: Qualcosa in Trascrivi Seduta non funziona come dovrebbe.
+title: "[PROBLEMA] "
 labels: [bug]
 body:
   - type: markdown
     attributes:
       value: |
-        Search [issues](https://github.com/Zackriya-Solutions/meetily/issues?q=is%3Aissue) and [PRs](https://github.com/Zackriya-Solutions/meetily/pulls?q=is%3Apr) first. If an existing report covers the problem, add useful reproduction details there instead.
-        Use synthetic examples or redact sensitive information. Do not attach private meeting recordings, transcripts, credentials, or unredacted logs.
-  - type: checkboxes
-    id: duplicate-search
-    attributes:
-      label: Existing reports and fixes
-      options:
-        - label: I searched open and closed issues and PRs for this problem.
-          required: true
+        Grazie per la segnalazione. **Privacy: non allegare né incollare registrazioni, trascrizioni, nomi o dati dei pazienti, né log non ripuliti.** Usa solo esempi inventati.
   - type: input
     id: version
     attributes:
-      label: Meetily version
-      description: App version or source commit. If the app cannot open, use the downloaded release tag, or write unknown.
+      label: Versione di Trascrivi Seduta
+      description: La trovi in Impostazioni → Informazioni. Se l'app non si apre, scrivi "non so".
     validations:
       required: true
   - type: input
     id: environment
     attributes:
-      label: OS version and CPU architecture
-      placeholder: "For example: Windows 11 x64, macOS 15 arm64, or Ubuntu 24.04 x86_64"
-    validations:
-      required: true
-  - type: dropdown
-    id: installation
-    attributes:
-      label: Installation method
-      options:
-        - Release installer
-        - Built from source
-        - Other / not sure
+      label: Computer e sistema operativo
+      placeholder: "Per esempio: Windows 11, oppure MacBook Air M2 con macOS 15"
     validations:
       required: true
   - type: textarea
-    id: behavior
+    id: what-happened
     attributes:
-      label: Actual and expected behavior
-      description: What happened, and what did you expect to happen?
+      label: Cosa è successo
+      description: Descrivi il problema e cosa ti aspettavi.
     validations:
       required: true
   - type: textarea
-    id: reproduction
+    id: steps
     attributes:
-      label: Steps to reproduce
-      description: Give numbered steps and say how often it happens. If intermittent, describe the last occurrence.
+      label: Come riprodurlo
+      placeholder: |
+        1. Ho aperto…
+        2. Ho premuto…
+        3. È comparso…
     validations:
       required: true
   - type: textarea
-    id: context
+    id: extra
     attributes:
-      label: Relevant settings, logs, or screenshots
-      description: Include only relevant details, such as devices, transcription model, AI provider, or GPU. For source-build failures, include the build command and relevant toolchain versions. Redact private data before attaching anything.
-  - type: input
-    id: related-work
-    attributes:
-      label: Related issues or PRs
-      description: Link similar reports or fixes and explain any difference. Leave blank if none apply.
+      label: Altro (facoltativo)
+      description: Messaggi di errore o schermate, solo se non contengono dati reali.
