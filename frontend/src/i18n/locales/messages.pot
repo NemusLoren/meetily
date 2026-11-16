@@ -344,7 +344,7 @@ msgstr ""
 msgid "BETA"
 msgstr ""
 
-#: src/app/layout.tsx:149
+#: src/app/layout.tsx:150
 #: src/contexts/ImportDialogContext.tsx:31
 msgid "Beta feature disabled"
 msgstr ""
@@ -628,11 +628,11 @@ msgstr ""
 msgid "Danish"
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:164
+#: src/components/PreferenceSettings.tsx:186
 msgid "Data Storage Locations"
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:216
+#: src/components/PreferenceSettings.tsx:238
 msgid "Database and models are stored together in your application data directory for unified management."
 msgstr ""
 
@@ -850,12 +850,12 @@ msgstr ""
 msgid "Email address copied"
 msgstr ""
 
-#: src/app/layout.tsx:150
+#: src/app/layout.tsx:151
 #: src/contexts/ImportDialogContext.tsx:32
 msgid "Enable \"Import Audio & Retranscribe\" in Settings > Beta to use this feature."
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:156
+#: src/components/PreferenceSettings.tsx:178
 msgid "Enable or disable notifications of start and end of meeting"
 msgstr ""
 
@@ -1348,6 +1348,11 @@ msgstr ""
 msgid "Intelligent summaries & insights"
 msgstr ""
 
+#: src/components/PreferenceSettings.tsx:155
+#: src/components/PreferenceSettings.tsx:161
+msgid "Interface language"
+msgstr ""
+
 #: src/components/TranscriptRecovery/TranscriptRecovery.tsx:130
 msgid "Interrupted Meetings"
 msgstr ""
@@ -1392,6 +1397,10 @@ msgstr ""
 #: src/app/_components/TranscriptPanel.tsx:81
 #: src/components/ImportAudio/ImportAudioDialog.tsx:344
 msgid "Language"
+msgstr ""
+
+#: src/components/PreferenceSettings.tsx:156
+msgid "Language of menus and messages. The app reloads to apply it."
 msgstr ""
 
 #: src/components/LanguageSelection.tsx:159
@@ -1482,7 +1491,7 @@ msgstr ""
 msgid "Loading preview..."
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:203
+#: src/components/PreferenceSettings.tsx:225
 msgid "Loading..."
 msgstr ""
 
@@ -1558,7 +1567,7 @@ msgstr ""
 msgid "Meeting Notes"
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:201
+#: src/components/PreferenceSettings.tsx:223
 msgid "Meeting Recordings"
 msgstr ""
 
@@ -1813,11 +1822,11 @@ msgid "Norwegian Nynorsk"
 msgstr ""
 
 #: src/components/BetaSettings.tsx:65
-#: src/components/PreferenceSettings.tsx:216
+#: src/components/PreferenceSettings.tsx:238
 msgid "Note:"
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:155
+#: src/components/PreferenceSettings.tsx:177
 msgid "Notifications"
 msgstr ""
 
@@ -1842,7 +1851,7 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:209
+#: src/components/PreferenceSettings.tsx:231
 #: src/components/RecordingSettings.tsx:210
 msgid "Open Folder"
 msgstr ""
@@ -1933,7 +1942,7 @@ msgstr ""
 msgid "Please check:"
 msgstr ""
 
-#: src/app/layout.tsx:128
+#: src/app/layout.tsx:129
 msgid "Please complete setup first"
 msgstr ""
 
@@ -1947,7 +1956,7 @@ msgstr ""
 msgid "Please download and install Ollama before downloading models."
 msgstr ""
 
-#: src/app/layout.tsx:166
+#: src/app/layout.tsx:167
 msgid "Please drop an audio file"
 msgstr ""
 
@@ -2575,7 +2584,7 @@ msgstr ""
 msgid "Sundanese"
 msgstr ""
 
-#: src/app/layout.tsx:167
+#: src/app/layout.tsx:168
 msgid "Supported formats: {v1}"
 msgstr ""
 
@@ -2909,7 +2918,7 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: src/components/PreferenceSettings.tsx:165
+#: src/components/PreferenceSettings.tsx:187
 msgid "View and access where Trascrivi Seduta stores your data"
 msgstr ""
 
@@ -3035,7 +3044,7 @@ msgstr ""
 msgid "You can start using Trascrivi Seduta after downloading the Transcription Engine."
 msgstr ""
 
-#: src/app/layout.tsx:129
+#: src/app/layout.tsx:130
 msgid "You need to finish onboarding before you can start recording."
 msgstr ""
 

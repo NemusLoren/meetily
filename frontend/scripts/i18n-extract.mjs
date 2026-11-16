@@ -87,3 +87,20 @@ for (const file of fs.readdirSync(localesDir).filter((f) => f.endsWith('.po'))) 
   report.push(`${file}: ${ids.length - missing}/${ids.length} tradotti (${missing} mancanti)`);
 }
 console.log(`Testi trovati: ${ids.length}\n${report.join('\n')}`);
+
+// Controllo (pnpm run i18n:check): nessun testo mancante e segnaposto {nome} coerenti
+if (process.argv.includes('--check')) {
+  let problems = 0;
+  for (const file of fs.readdirSync(localesDir).filter((f) => f.endsWith('.po') && f !== 'en.po')) {
+    const po = readPo(path.join(localesDir, file));
+    for (const id of ids) {
+      const tr = po.get(id) ?? '';
+      if (!tr) { console.error(`${file}: manca la traduzione di "${id}"`); problems++; continue; }
+      const a = [...id.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
+      const b = [...tr.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
+      if (a !== b) { console.error(`${file}: segnaposto diversi in "${id}"`); problems++; }
+    }
+  }
+  if (problems) { console.error(`${problems} problemi`); process.exit(1); }
+  console.log('Controllo traduzioni: OK');
+}

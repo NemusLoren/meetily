@@ -21,9 +21,9 @@ A chi fa colloqui clinici e vuole smettere di prendere appunti a mano senza affi
 | Funzione | Stato |
 | --- | --- |
 | Registrazione e trascrizione in locale | ✅ disponibile (ereditata da Meetily) |
-| Riassunti con modelli locali | ✅ disponibile |
-| Interfaccia in italiano | 🚧 in corso (oggi in gran parte in inglese) |
-| Altre lingue tramite file `.po` | 🚧 pianificato |
+| Riassunti con modelli locali, con modelli clinici in italiano (nota di seduta, SOAP, andamento, primo colloquio) | ✅ disponibile |
+| Interfaccia in italiano (lingua predefinita) | ✅ quasi tutta: restano alcuni messaggi dal nucleo nativo, da verificare nell'app |
+| Altre lingue tramite file `.po`, scelte in Impostazioni | ✅ disponibili italiano e inglese; altre si aggiungono con un file `.po` ([guida](docs/TRADUZIONI.md)) |
 | Password master facoltativa all'avvio, con domanda segreta per reimpostarla | ✅ disponibile: blocca l'apertura dell'app (password protetta con Argon2id) |
 | Cifratura dei dati (database e audio) | 🚧 pianificato: **oggi i dati NON sono cifrati**, la password non protegge i file sul disco |
 | Cartelle per paziente, con password facoltativa, e sottocartelle per giorno di seduta | 🚧 pianificato |

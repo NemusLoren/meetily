@@ -18,6 +18,7 @@ import { ConfigProvider, useConfig } from '@/contexts/ConfigContext'
 import { OnboardingProvider } from '@/contexts/OnboardingContext'
 import { OnboardingFlow } from '@/components/onboarding'
 import { LockScreen } from '@/components/LockScreen'
+import { getLocale } from '@/i18n'
 import { appLockService } from '@/services/appLockService'
 import { loadBetaFeatures } from '@/types/betaFeatures'
 import { DownloadProgressToastProvider } from '@/components/shared/DownloadProgressToast'
@@ -244,7 +245,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="it">
+    <html lang={getLocale()} suppressHydrationWarning>
       <body className={`${sourceSans3.variable} font-sans antialiased`}>
         {/* Con la password master impostata l'app non viene nemmeno montata finché non si sblocca */}
         {lockState === 'locked' ? (

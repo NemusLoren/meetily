@@ -7,7 +7,7 @@ import { invoke } from "@tauri-apps/api/core"
 import Analytics from "@/lib/analytics"
 import { useConfig, NotificationSettings } from "@/contexts/ConfigContext"
 
-import { t } from '@/i18n';
+import { t, getLocale, setLocale, LOCALES } from '@/i18n';
 export function PreferenceSettings() {
   const {
     notificationSettings,
@@ -148,6 +148,28 @@ export function PreferenceSettings() {
 
   return (
     <div className="space-y-6">
+      {/* Interface language */}
+      <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">{t("Interface language")}</h3>
+            <p className="text-sm text-gray-600">{t("Language of menus and messages. The app reloads to apply it.")}</p>
+          </div>
+          <select
+            value={getLocale()}
+            onChange={(e) => setLocale(e.target.value)}
+            aria-label={t("Interface language")}
+            className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          >
+            {LOCALES.map((locale) => (
+              <option key={locale.code} value={locale.code}>
+                {locale.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       {/* Notifications Section */}
       <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
         <div className="flex items-center justify-between">
