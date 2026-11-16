@@ -91,7 +91,7 @@ fn normalize_answer(answer: &str) -> String {
         .to_lowercase()
 }
 
-fn hash_secret(secret: &str) -> Result<String, String> {
+pub(crate) fn hash_secret(secret: &str) -> Result<String, String> {
     let salt = SaltString::generate(&mut OsRng);
     Argon2::default()
         .hash_password(secret.as_bytes(), &salt)
@@ -99,7 +99,7 @@ fn hash_secret(secret: &str) -> Result<String, String> {
         .map_err(|_| "Errore interno durante la protezione della password.".to_string())
 }
 
-fn verify_secret(secret: &str, phc: &str) -> bool {
+pub(crate) fn verify_secret(secret: &str, phc: &str) -> bool {
     match PasswordHash::new(phc) {
         Ok(parsed) => Argon2::default()
             .verify_password(secret.as_bytes(), &parsed)
@@ -108,7 +108,7 @@ fn verify_secret(secret: &str, phc: &str) -> bool {
     }
 }
 
-fn validate_password(password: &str) -> Result<(), String> {
+pub(crate) fn validate_password(password: &str) -> Result<(), String> {
     let n = password.chars().count();
     if n < MIN_PASSWORD_CHARS {
         return Err(format!(
@@ -138,6 +138,11 @@ fn validate_question_answer(question: &str, answer: &str) -> Result<(String, Str
 /// Rallenta i tentativi ripetuti: dal quarto errore consecutivo attende fino a 30 secondi.
 async fn throttle(state: &AppLockState) {
     let failed = *state.failed_attempts.lock().unwrap_or_else(|e| e.into_inner());
+    throttle_delay(failed).await;
+}
+
+/// Attesa in base ai tentativi falliti consecutivi (condivisa con le cartelle dei pazienti).
+pub(crate) async fn throttle_delay(failed: u32) {
     if failed >= 3 {
         let secs = u64::from((failed - 2).min(30));
         tokio::time::sleep(Duration::from_secs(secs)).await;

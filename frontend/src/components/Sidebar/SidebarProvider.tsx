@@ -6,6 +6,7 @@ import Analytics from '@/lib/analytics';
 import { invoke } from '@tauri-apps/api/core';
 import { useRecordingState } from '@/contexts/RecordingStateContext';
 import type { SummaryProcessResponse } from '@/types';
+import { patientService, type PatientsTree } from '@/services/patientService';
 
 
 
@@ -63,7 +64,11 @@ interface SidebarContextType {
   stopSummaryPolling: (meetingId: string, processId?: string) => void;
   // Refetch meetings from backend
   refetchMeetings: () => Promise<void>;
-
+  // Cartelle per paziente (pazienti > giorni > sedute)
+  patientsTree: PatientsTree | null;
+  showArchivedPatients: boolean;
+  setShowArchivedPatients: (show: boolean) => void;
+  refetchPatients: () => Promise<void>;
 }
 
 const SidebarContext = createContext<SidebarContextType | null>(null);
@@ -87,12 +92,26 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
   const [serverAddress, setServerAddress] = useState('');
   const [transcriptServerAddress, setTranscriptServerAddress] = useState('');
   const summaryPollsRef = React.useRef(new Map<string, SummaryPoll>());
+  const [patientsTree, setPatientsTree] = useState<PatientsTree | null>(null);
+  const [showArchivedPatients, setShowArchivedPatients] = useState(false);
 
   // Use recording state from RecordingStateContext (single source of truth)
   const { isRecording } = useRecordingState();
 
   const pathname = usePathname();
   const router = useRouter();
+
+  const refetchPatients = React.useCallback(async () => {
+    try {
+      setPatientsTree(await patientService.list(showArchivedPatients));
+    } catch (error) {
+      console.error('Error fetching patient folders:', error);
+    }
+  }, [showArchivedPatients]);
+
+  useEffect(() => {
+    void refetchPatients();
+  }, [refetchPatients]);
 
   // Extract fetchMeetings as a reusable function
   const fetchMeetings = React.useCallback(async () => {
@@ -104,6 +123,7 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
           title: meeting.title
         }));
         setMeetings(transformedMeetings);
+        void refetchPatients();
         Analytics.trackBackendConnection(true);
       } catch (error) {
         console.error('Error fetching meetings:', error);
@@ -111,7 +131,7 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
         Analytics.trackBackendConnection(false, error instanceof Error ? error.message : 'Unknown error');
       }
     }
-  }, [serverAddress]);
+  }, [serverAddress, refetchPatients]);
 
   useEffect(() => {
     fetchMeetings();
@@ -317,7 +337,10 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
       startSummaryPolling,
       stopSummaryPolling,
       refetchMeetings: fetchMeetings,
-
+      patientsTree,
+      showArchivedPatients,
+      setShowArchivedPatients,
+      refetchPatients,
     }}>
       {children}
     </SidebarContext.Provider>

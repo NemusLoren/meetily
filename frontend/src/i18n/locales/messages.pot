@@ -28,7 +28,15 @@ msgstr ""
 msgid "\". Try a different search term."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:243
+#: src/components/BackupSettings.tsx:530
+msgid "{count} patient folders restored."
+msgstr ""
+
+#: src/components/BackupSettings.tsx:214
+msgid "{count} sessions"
+msgstr ""
+
+#: src/components/BackupSettings.tsx:359
 msgid "{count} sessions, {audio} audio files, {size}"
 msgstr ""
 
@@ -45,7 +53,7 @@ msgstr ""
 msgid "{recommendedModel} is already downloading"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:404
+#: src/components/BackupSettings.tsx:524
 msgid "{restored} sessions restored, {audio} audio files, {skipped} already present and left untouched."
 msgstr ""
 
@@ -62,7 +70,7 @@ msgstr ""
 msgid "{v1} summary..."
 msgstr ""
 
-#: src/hooks/useRecordingStop.ts:328
+#: src/hooks/useRecordingStop.ts:340
 msgid "{v1} transcript segments saved."
 msgstr ""
 
@@ -86,9 +94,9 @@ msgstr ""
 msgid "＋ Add language"
 msgstr ""
 
-#: src/components/Sidebar/SidebarProvider.tsx:80
-#: src/components/Sidebar/SidebarProvider.tsx:147
-#: src/components/Sidebar/index.tsx:347
+#: src/components/Sidebar/SidebarProvider.tsx:85
+#: src/components/Sidebar/SidebarProvider.tsx:167
+#: src/components/Sidebar/index.tsx:355
 msgid "+ New Call"
 msgstr ""
 
@@ -116,7 +124,7 @@ msgstr ""
 msgid "🏠 Local Whisper (High Accuracy)"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:268
+#: src/components/BackupSettings.tsx:384
 msgid "A backup is always encrypted with your master password. Create one now to continue."
 msgstr ""
 
@@ -124,7 +132,7 @@ msgstr ""
 msgid "A library of on-device AI agents-automating follow-ups, action tracking, and more."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:62
+#: src/components/BackupSettings.tsx:76
 msgid "A master password is required to create backups."
 msgstr ""
 
@@ -167,7 +175,7 @@ msgstr ""
 msgid "Add context for AI summary. For example people involved, meeting overview, objective etc..."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:79
+#: src/components/BackupSettings.tsx:93
 msgid "Adding audio {done} of {total}..."
 msgstr ""
 
@@ -207,7 +215,7 @@ msgstr ""
 msgid "Albanian"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:342
+#: src/components/Sidebar/index.tsx:350
 msgid "All associated data has been removed"
 msgstr ""
 
@@ -219,8 +227,8 @@ msgstr ""
 msgid "All Languages"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:304
-msgid "All sessions ({count})"
+#: src/components/BackupSettings.tsx:254
+msgid "All patients and sessions ({count} sessions)"
 msgstr ""
 
 #: src/components/LanguageSelection.tsx:92
@@ -243,7 +251,7 @@ msgstr ""
 msgid "Analyzing your transcript..."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:274
+#: src/components/BackupSettings.tsx:390
 #: src/components/LockScreen.tsx:139
 #: src/components/onboarding/steps/SecurityStep.tsx:127
 msgid "Answer"
@@ -253,7 +261,7 @@ msgstr ""
 msgid "Answer the secret question and choose a new password. Your data is not touched."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:274
+#: src/components/BackupSettings.tsx:390
 #: src/components/LockScreen.tsx:142
 #: src/components/onboarding/steps/SecurityStep.tsx:131
 msgid "Answer to the secret question"
@@ -267,8 +275,21 @@ msgstr ""
 msgid "Arabic"
 msgstr ""
 
+#: src/components/Patients/PatientTree.tsx:213
+#: src/components/Patients/PatientTree.tsx:214
+msgid "Archive patient"
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:190
+msgid "archived"
+msgstr ""
+
 #: src/components/onboarding/steps/SecurityStep.tsx:75
 msgid "are not encrypted yet"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:858
+msgid "Are you sure you want to delete this meeting? This action cannot be undone."
 msgstr ""
 
 #: src/components/LanguageSelection.tsx:70
@@ -300,7 +321,7 @@ msgstr ""
 msgid "Audio recording is disabled. Enable \"Save Audio Recordings\" to automatically save your meeting audio."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:289
+#: src/components/BackupSettings.tsx:405
 msgid "Audio recordings"
 msgstr ""
 
@@ -342,8 +363,8 @@ msgid "Azerbaijani"
 msgstr ""
 
 #: src/app/feedback/page.tsx:31
+#: src/app/patients/page.tsx:37
 #: src/app/settings/page.tsx:79
-#: src/components/BackupSettings.tsx:261
 msgid "Back"
 msgstr ""
 
@@ -351,21 +372,21 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:226
-#: src/components/BackupSettings.tsx:240
+#: src/components/BackupSettings.tsx:342
+#: src/components/BackupSettings.tsx:356
 msgid "Backup created"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:445
+#: src/components/BackupSettings.tsx:567
 msgid "Backup created on {date}, with {count} sessions."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:390
-#: src/components/BackupSettings.tsx:402
+#: src/components/BackupSettings.tsx:510
+#: src/components/BackupSettings.tsx:522
 msgid "Backup restored"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:477
+#: src/components/BackupSettings.tsx:616
 msgid "Backups are encrypted with your master password. Save them where you like: only someone who knows the password can open them."
 msgstr ""
 
@@ -488,6 +509,10 @@ msgstr ""
 msgid "Catalan"
 msgstr ""
 
+#: src/components/Patients/PatientDialogs.tsx:193
+msgid "Change password"
+msgstr ""
+
 #: src/hooks/meeting-details/useMeetingData.ts:68
 msgid "Changes saved successfully"
 msgstr ""
@@ -513,7 +538,7 @@ msgstr ""
 msgid "Choose audio to record. Default follows your system’s selected output."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:428
+#: src/components/BackupSettings.tsx:550
 msgid "Choose backup file"
 msgstr ""
 
@@ -521,15 +546,15 @@ msgstr ""
 msgid "Choose Different File"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:308
-msgid "Choose sessions"
+#: src/components/Patients/PatientDialogs.tsx:377
+msgid "Choose the patient and the day of this session."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:489
-msgid "Choose what to include: everything, only some sessions, or only some types of files."
+#: src/components/BackupSettings.tsx:628
+msgid "Choose what to include: everything, only some patients, only some sessions, or only some types of files."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:339
+#: src/components/BackupSettings.tsx:449
 msgid "Choose where to save and create backup"
 msgstr ""
 
@@ -583,7 +608,7 @@ msgstr ""
 msgid "Closing Remarks"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:78
+#: src/components/BackupSettings.tsx:92
 msgid "Collecting sessions and transcripts..."
 msgstr ""
 
@@ -643,7 +668,7 @@ msgid "Cost-Smart"
 msgstr ""
 
 #: src/hooks/useImportAudio.ts:118
-#: src/hooks/useRecordingStop.ts:274
+#: src/hooks/useRecordingStop.ts:286
 #: src/hooks/useTranscriptRecovery.ts:192
 msgid "Could not apply default summary language"
 msgstr ""
@@ -652,7 +677,7 @@ msgstr ""
 msgid "Could not copy. Write to {FEEDBACK_EMAIL}"
 msgstr ""
 
-#: src/hooks/useRecordingStop.ts:287
+#: src/hooks/useRecordingStop.ts:299
 msgid "Could not detect summary language"
 msgstr ""
 
@@ -677,8 +702,8 @@ msgstr ""
 msgid "Create a bulleted list"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:263
-#: src/components/BackupSettings.tsx:488
+#: src/components/BackupSettings.tsx:379
+#: src/components/BackupSettings.tsx:627
 msgid "Create encrypted backup"
 msgstr ""
 
@@ -686,12 +711,16 @@ msgstr ""
 msgid "Creating a detailed summary of your meeting..."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:339
+#: src/components/BackupSettings.tsx:449
 msgid "Creating backup..."
 msgstr ""
 
 #: src/components/LanguageSelection.tsx:49
 msgid "Croatian"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:179
+msgid "Current password"
 msgstr ""
 
 #: src/components/LanguageSelection.tsx:212
@@ -757,7 +786,12 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:638
+#: src/components/Patients/PatientDialogs.tsx:318
+msgid "Delete folder"
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:161
+#: src/components/Sidebar/index.tsx:647
 msgid "Delete meeting"
 msgstr ""
 
@@ -770,8 +804,17 @@ msgstr ""
 msgid "Delete model to free up space"
 msgstr ""
 
+#: src/components/Patients/PatientDialogs.tsx:310
+#: src/components/Patients/PatientTree.tsx:219
+msgid "Delete patient folder"
+msgstr ""
+
 #: src/components/EditableTitle.tsx:91
 msgid "Delete section"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:312
+msgid "Delete the folder \"{name}\"? Its {count} sessions are NOT deleted: they move to \"No patient\". You can assign them to another patient later."
 msgstr ""
 
 #: src/components/TranscriptRecovery/TranscriptRecovery.tsx:273
@@ -911,12 +954,17 @@ msgstr ""
 msgid "Dutch"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:628
+#: src/app/patients/page.tsx:63
+msgid "Each patient has a folder, and inside it one subfolder per session day. A folder can have its own password: it locks the folder in the app, it does not yet encrypt files on disk."
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:156
+#: src/components/Sidebar/index.tsx:637
 msgid "Edit meeting title"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:835
-#: src/components/Sidebar/index.tsx:838
+#: src/components/Sidebar/index.tsx:869
+#: src/components/Sidebar/index.tsx:872
 msgid "Edit Meeting Title"
 msgstr ""
 
@@ -941,7 +989,7 @@ msgstr ""
 msgid "Enable or disable notifications of start and end of meeting"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:80
+#: src/components/BackupSettings.tsx:94
 msgid "Encrypting and saving..."
 msgstr ""
 
@@ -966,11 +1014,11 @@ msgid "Enhance"
 msgstr ""
 
 #: src/components/ImportAudio/ImportAudioDialog.tsx:297
-#: src/components/Sidebar/index.tsx:856
+#: src/components/Sidebar/index.tsx:890
 msgid "Enter meeting title"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:433
+#: src/components/BackupSettings.tsx:555
 msgid "Enter the master password that was in use when the backup was made."
 msgstr ""
 
@@ -978,11 +1026,15 @@ msgstr ""
 msgid "Enter the master password to open the app."
 msgstr ""
 
+#: src/components/Patients/PatientDialogs.tsx:249
+msgid "Enter the password of the folder \"{name}\"."
+msgstr ""
+
 #: src/components/TranscriptSettings.tsx:160
 msgid "Enter your API key"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:318
+#: src/components/BackupSettings.tsx:428
 msgid "Enter your master password: it encrypts the backup."
 msgstr ""
 
@@ -1041,7 +1093,7 @@ msgstr ""
 msgid "Failed to delete {modelName}"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:352
+#: src/components/Sidebar/index.tsx:360
 msgid "Failed to delete meeting"
 msgstr ""
 
@@ -1109,7 +1161,7 @@ msgstr ""
 msgid "Failed to play audio"
 msgstr ""
 
-#: src/app/page.tsx:156
+#: src/app/page.tsx:157
 msgid "Failed to recover meeting"
 msgstr ""
 
@@ -1129,7 +1181,7 @@ msgstr ""
 msgid "Failed to save language preference"
 msgstr ""
 
-#: src/hooks/useRecordingStop.ts:352
+#: src/hooks/useRecordingStop.ts:364
 msgid "Failed to save meeting"
 msgstr ""
 
@@ -1162,7 +1214,7 @@ msgstr ""
 msgid "Failed to stop summary generation"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:414
+#: src/components/Sidebar/index.tsx:423
 msgid "Failed to update meeting title"
 msgstr ""
 
@@ -1206,6 +1258,19 @@ msgstr ""
 
 #: src/components/LanguageSelection.tsx:35
 msgid "Finnish"
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:281
+msgid "Folder deleted. Its sessions are now under \"No patient\"."
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:173
+#: src/components/Patients/PatientTree.tsx:198
+msgid "Folder password"
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:271
+msgid "Folder password updated"
 msgstr ""
 
 #: src/components/LanguageSelection.tsx:217
@@ -1342,8 +1407,8 @@ msgstr ""
 msgid "Hindi"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:471
-#: src/components/Sidebar/index.tsx:732
+#: src/components/Sidebar/index.tsx:480
+#: src/components/Sidebar/index.tsx:741
 msgid "Home"
 msgstr ""
 
@@ -1371,8 +1436,8 @@ msgstr ""
 msgid "Import an audio file to create a new meeting with transcripts"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:505
-#: src/components/Sidebar/index.tsx:802
+#: src/components/Sidebar/index.tsx:514
+#: src/components/Sidebar/index.tsx:836
 msgid "Import Audio"
 msgstr ""
 
@@ -1589,8 +1654,17 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
+#: src/components/Patients/PatientTree.tsx:204
+#: src/components/Patients/PatientTree.tsx:205
+msgid "Lock folder now"
+msgstr ""
+
 #: src/components/TranscriptSettings.tsx:176
 msgid "Lock to prevent editing"
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:183
+msgid "Locked folder"
 msgstr ""
 
 #: src/components/LanguageSelection.tsx:103
@@ -1629,13 +1703,13 @@ msgstr ""
 msgid "Markdown Input"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:271
-#: src/components/BackupSettings.tsx:317
-#: src/components/BackupSettings.tsx:320
+#: src/components/BackupSettings.tsx:387
+#: src/components/BackupSettings.tsx:427
+#: src/components/BackupSettings.tsx:430
 msgid "Master password"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:649
+#: src/components/Sidebar/index.tsx:658
 msgid "Match:"
 msgstr ""
 
@@ -1648,7 +1722,7 @@ msgstr ""
 msgid "Medium section heading"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:341
+#: src/components/Sidebar/index.tsx:349
 msgid "Meeting deleted successfully"
 msgstr ""
 
@@ -1656,8 +1730,8 @@ msgstr ""
 msgid "Meeting folder path not available"
 msgstr ""
 
-#: src/components/Sidebar/SidebarProvider.tsx:131
-#: src/components/Sidebar/index.tsx:524
+#: src/components/Sidebar/SidebarProvider.tsx:151
+#: src/components/Sidebar/index.tsx:533
 msgid "Meeting Notes"
 msgstr ""
 
@@ -1665,20 +1739,20 @@ msgstr ""
 msgid "Meeting Recordings"
 msgstr ""
 
-#: src/app/page.tsx:127
+#: src/app/page.tsx:128
 msgid "Meeting recovered successfully!"
 msgstr ""
 
 #: src/components/ImportAudio/ImportAudioDialog.tsx:290
-#: src/components/Sidebar/index.tsx:841
+#: src/components/Sidebar/index.tsx:875
 msgid "Meeting Title"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:383
+#: src/components/Sidebar/index.tsx:391
 msgid "Meeting title cannot be empty"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:407
+#: src/components/Sidebar/index.tsx:416
 msgid "Meeting title updated successfully"
 msgstr ""
 
@@ -1804,6 +1878,16 @@ msgstr ""
 msgid "more transcript"
 msgstr ""
 
+#: src/components/Patients/PatientDialogs.tsx:405
+msgid "Move"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:376
+#: src/components/Patients/PatientTree.tsx:146
+#: src/components/Patients/PatientTree.tsx:147
+msgid "Move session"
+msgstr ""
+
 #: src/components/ImportAudio/ImportAudioDialog.tsx:318
 msgid "MP4, WAV, MP3, FLAC, OGG, MKV, WebM, WMA"
 msgstr ""
@@ -1812,13 +1896,25 @@ msgstr ""
 msgid "Myanmar"
 msgstr ""
 
+#: src/components/Patients/PatientDialogs.tsx:76
+#: src/components/Patients/PatientDialogs.tsx:77
+msgid "Name or initials"
+msgstr ""
+
 #: src/components/LanguageSelection.tsx:71
 msgid "Nepali"
 msgstr ""
 
 #: src/components/LockScreen.tsx:147
 #: src/components/LockScreen.tsx:150
+#: src/components/Patients/PatientDialogs.tsx:181
 msgid "New password"
+msgstr ""
+
+#: src/app/patients/page.tsx:43
+#: src/components/Patients/PatientDialogs.tsx:68
+#: src/components/Patients/PatientPicker.tsx:81
+msgid "New patient"
 msgstr ""
 
 #: src/components/AISummary/index.tsx:545
@@ -1834,7 +1930,7 @@ msgstr ""
 msgid "No database found at selected location. Please select the Meetily folder, backend folder, or the database file directly."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:429
+#: src/components/BackupSettings.tsx:551
 msgid "No file chosen"
 msgstr ""
 
@@ -1878,8 +1974,27 @@ msgstr ""
 msgid "No other app is exclusively using the microphone"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:140
+#: src/components/BackupSettings.tsx:187
+#: src/components/Patients/PatientDialogs.tsx:386
+#: src/components/Patients/PatientPicker.tsx:70
+msgid "No patient"
+msgstr ""
+
+#: src/components/BackupSettings.tsx:208
+msgid "No patients found."
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:256
+msgid "No patients or sessions yet."
+msgstr ""
+
+#: src/components/BackupSettings.tsx:154
+#: src/components/Patients/PatientTree.tsx:256
 msgid "No sessions found."
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:229
+msgid "No sessions yet."
 msgstr ""
 
 #: src/hooks/meeting-details/useCopyOperations.ts:112
@@ -1928,8 +2043,13 @@ msgstr ""
 msgid "Note:"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:288
+#: src/components/BackupSettings.tsx:404
 msgid "Notes"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:83
+#: src/components/Patients/PatientDialogs.tsx:84
+msgid "Notes (optional)"
 msgstr ""
 
 #: src/components/PreferenceSettings.tsx:177
@@ -1953,15 +2073,23 @@ msgstr ""
 msgid "Ollama is not installed or not running. Please download and install Ollama to use local models."
 msgstr ""
 
+#: src/components/BackupSettings.tsx:258
+msgid "Only some patients"
+msgstr ""
+
+#: src/components/BackupSettings.tsx:262
+msgid "Only some sessions"
+msgstr ""
+
 #: src/components/LockScreen.tsx:117
 msgid "Open"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:498
+#: src/components/BackupSettings.tsx:637
 msgid "Open a backup file and bring back the sessions you choose."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:436
+#: src/components/BackupSettings.tsx:558
 msgid "Open backup"
 msgstr ""
 
@@ -1982,11 +2110,12 @@ msgstr ""
 msgid "Open Screen Recording Settings"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:436
+#: src/components/BackupSettings.tsx:558
 msgid "Opening..."
 msgstr ""
 
 #: src/services/appLockService.ts:16
+#: src/services/patientService.ts:85
 msgid "Operation failed. Please try again."
 msgstr ""
 
@@ -2000,6 +2129,26 @@ msgstr ""
 
 #: src/components/LanguageSelection.tsx:98
 msgid "Pashto"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:181
+#: src/components/Patients/PatientDialogs.tsx:258
+#: src/components/Patients/PatientDialogs.tsx:259
+msgid "Password"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:380
+#: src/components/Patients/PatientPicker.tsx:67
+msgid "Patient"
+msgstr ""
+
+#: src/components/Sidebar/index.tsx:754
+msgid "Patients"
+msgstr ""
+
+#: src/app/patients/page.tsx:40
+#: src/components/Sidebar/index.tsx:827
+msgid "Patients and sessions"
 msgstr ""
 
 #: src/components/ChunkProgressDisplay.tsx:110
@@ -2118,7 +2267,7 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:77
+#: src/components/BackupSettings.tsx:91
 msgid "Preparing..."
 msgstr ""
 
@@ -2176,6 +2325,10 @@ msgstr ""
 msgid "Protect access"
 msgstr ""
 
+#: src/components/Patients/PatientDialogs.tsx:173
+msgid "Protect folder with a password"
+msgstr ""
+
 #: src/components/LanguageSelection.tsx:79
 msgid "Punjabi"
 msgstr ""
@@ -2229,8 +2382,8 @@ msgstr ""
 msgid "Recording Failed"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:490
-#: src/components/Sidebar/index.tsx:786
+#: src/components/Sidebar/index.tsx:499
+#: src/components/Sidebar/index.tsx:812
 msgid "Recording in progress..."
 msgstr ""
 
@@ -2247,7 +2400,7 @@ msgstr ""
 msgid "Recording permissions are required. Please:\n• Grant microphone access in System Settings\n• Grant screen recording access for system audio (macOS)\n• Restart the app after granting permissions"
 msgstr ""
 
-#: src/hooks/useRecordingStop.ts:327
+#: src/hooks/useRecordingStop.ts:339
 msgid "Recording saved successfully!"
 msgstr ""
 
@@ -2307,8 +2460,17 @@ msgstr ""
 msgid "Regenerate Summary"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:412
+#: src/components/BackupSettings.tsx:534
 msgid "Reload the app"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:189
+msgid "Remove password"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:68
+#: src/components/Patients/PatientTree.tsx:195
+msgid "Rename patient"
 msgstr ""
 
 #: src/components/LockScreen.tsx:155
@@ -2316,9 +2478,9 @@ msgstr ""
 msgid "Repeat the new password"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:272
+#: src/components/BackupSettings.tsx:388
+#: src/components/Patients/PatientDialogs.tsx:182
 #: src/components/onboarding/steps/SecurityStep.tsx:107
-#: src/components/onboarding/steps/SecurityStep.tsx:111
 msgid "Repeat the password"
 msgstr ""
 
@@ -2338,20 +2500,27 @@ msgstr ""
 msgid "Resize transcript and summary"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:453
+#: src/components/BackupSettings.tsx:589
+#: src/components/BackupSettings.tsx:591
+#: src/components/BackupSettings.tsx:592
 msgid "Restore {count} sessions"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:424
-#: src/components/BackupSettings.tsx:497
+#: src/components/BackupSettings.tsx:546
+#: src/components/BackupSettings.tsx:636
 msgid "Restore from a backup"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:79
+#: src/components/Patients/PatientTree.tsx:213
+#: src/components/Patients/PatientTree.tsx:214
+msgid "Restore patient"
+msgstr ""
+
+#: src/components/BackupSettings.tsx:93
 msgid "Restoring audio {done}..."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:453
+#: src/components/BackupSettings.tsx:587
 msgid "Restoring..."
 msgstr ""
 
@@ -2415,7 +2584,7 @@ msgstr ""
 
 #: src/components/MeetingDetails/SummaryUpdaterButtonGroup.tsx:44
 #: src/components/ModelSettingsModal.tsx:847
-#: src/components/Sidebar/index.tsx:871
+#: src/components/Patients/PatientDialogs.tsx:93
 msgid "Save"
 msgstr ""
 
@@ -2444,26 +2613,32 @@ msgstr ""
 msgid "Search language..."
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:700
-msgid "Search meeting content..."
-msgstr ""
-
 #: src/components/ModelSettingsModal.tsx:542
 #: src/components/ModelSettingsModal.tsx:663
 msgid "Search models..."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:120
-#: src/components/BackupSettings.tsx:121
+#: src/app/patients/page.tsx:52
+#: src/app/patients/page.tsx:53
+#: src/components/Sidebar/index.tsx:709
+msgid "Search patients and sessions..."
+msgstr ""
+
+#: src/components/BackupSettings.tsx:199
+msgid "Search patients..."
+msgstr ""
+
+#: src/components/BackupSettings.tsx:134
+#: src/components/BackupSettings.tsx:135
 msgid "Search sessions..."
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:604
-#: src/components/Sidebar/index.tsx:751
+#: src/components/Sidebar/index.tsx:613
+#: src/components/Sidebar/index.tsx:756
 msgid "Searching..."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:273
+#: src/components/BackupSettings.tsx:389
 #: src/components/onboarding/steps/SecurityStep.tsx:119
 #: src/components/onboarding/steps/SecurityStep.tsx:122
 msgid "Secret question"
@@ -2481,7 +2656,8 @@ msgstr ""
 msgid "Select a specific language to improve accuracy, or use auto-detect"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:129
+#: src/components/BackupSettings.tsx:143
+#: src/components/BackupSettings.tsx:201
 msgid "Select all"
 msgstr ""
 
@@ -2507,7 +2683,8 @@ msgstr ""
 msgid "Select model..."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:136
+#: src/components/BackupSettings.tsx:150
+#: src/components/BackupSettings.tsx:204
 msgid "Select none"
 msgstr ""
 
@@ -2540,11 +2717,21 @@ msgstr ""
 msgid "Serbian"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:448
+#: src/components/Patients/PatientDialogs.tsx:393
+#: src/components/Patients/PatientPicker.tsx:87
+msgid "Session day"
+msgstr ""
+
+#: src/components/Patients/PatientTree.tsx:289
+msgid "Session moved"
+msgstr ""
+
+#: src/components/BackupSettings.tsx:570
 msgid "Sessions already in the app are never overwritten."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:275
+#: src/components/BackupSettings.tsx:391
+#: src/components/Patients/PatientDialogs.tsx:193
 #: src/components/onboarding/steps/SecurityStep.tsx:146
 msgid "Set password"
 msgstr ""
@@ -2558,8 +2745,8 @@ msgid "Set your preferred microphone and system audio devices for recording. The
 msgstr ""
 
 #: src/app/settings/page.tsx:81
-#: src/components/Sidebar/index.tsx:539
-#: src/components/Sidebar/index.tsx:811
+#: src/components/Sidebar/index.tsx:548
+#: src/components/Sidebar/index.tsx:845
 msgid "Settings"
 msgstr ""
 
@@ -2569,6 +2756,11 @@ msgstr ""
 
 #: src/components/LanguageSelection.tsx:82
 msgid "Shona"
+msgstr ""
+
+#: src/app/patients/page.tsx:59
+#: src/components/Sidebar/index.tsx:769
+msgid "Show archived"
 msgstr ""
 
 #: src/app/_components/SettingsModal.tsx:280
@@ -2646,8 +2838,8 @@ msgstr ""
 msgid "Start recording"
 msgstr ""
 
-#: src/components/Sidebar/index.tsx:490
-#: src/components/Sidebar/index.tsx:791
+#: src/components/Sidebar/index.tsx:499
+#: src/components/Sidebar/index.tsx:817
 msgid "Start Recording"
 msgstr ""
 
@@ -2688,7 +2880,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:287
+#: src/components/BackupSettings.tsx:403
 msgid "Summaries"
 msgstr ""
 
@@ -2842,7 +3034,7 @@ msgstr ""
 msgid "The download is still shutting down. Retry will be available when cleanup completes."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:325
+#: src/components/BackupSettings.tsx:435
 msgid "The file can be saved anywhere (computer, USB drive, Dropbox, Google Drive...). It stays unreadable without your master password, and the app never connects to those services."
 msgstr ""
 
@@ -2850,11 +3042,11 @@ msgstr ""
 msgid "The imported meeting was saved, but the default summary language was not applied."
 msgstr ""
 
-#: src/hooks/useRecordingStop.ts:288
+#: src/hooks/useRecordingStop.ts:300
 msgid "The meeting was saved, but Auto could not detect the summary language."
 msgstr ""
 
-#: src/hooks/useRecordingStop.ts:275
+#: src/hooks/useRecordingStop.ts:287
 msgid "The meeting was saved, but the default summary language was not applied."
 msgstr ""
 
@@ -2866,23 +3058,40 @@ msgstr ""
 msgid "The password"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:188
+#: src/components/Patients/PatientDialogs.tsx:175
+msgid "The password locks this folder in the app. It does not yet encrypt the files on disk. If you forget it, this folder cannot be opened: there is no recovery."
+msgstr ""
+
+#: src/components/BackupSettings.tsx:302
+#: src/components/Patients/PatientDialogs.tsx:135
 #: src/components/onboarding/steps/SecurityStep.tsx:38
 msgid "The password must have at least {MIN_PASSWORD_LENGTH} characters."
+msgstr ""
+
+#: src/hooks/useRecordingStop.ts:269
+msgid "The patient folder was locked or no longer exists. You can move the session from the patient list."
 msgstr ""
 
 #: src/hooks/useTranscriptRecovery.ts:193
 msgid "The recovered meeting was saved, but the default summary language was not applied."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:192
+#: src/hooks/useRecordingStop.ts:268
+msgid "The session was saved under \"No patient\""
+msgstr ""
+
+#: src/components/BackupSettings.tsx:306
 #: src/components/LockScreen.tsx:59
-#: src/components/onboarding/steps/SecurityStep.tsx:40
+#: src/components/Patients/PatientDialogs.tsx:139
 msgid "The two passwords do not match."
 msgstr ""
 
 #: src/components/BetaSettings.tsx:26
 msgid "These features are still being tested. You may encounter issues, and we appreciate your feedback."
+msgstr ""
+
+#: src/services/patientService.ts:83
+msgid "This folder is locked. Unlock it with its password first."
 msgstr ""
 
 #: src/components/ParakeetModelManager.tsx:313
@@ -2902,7 +3111,7 @@ msgstr ""
 msgid "To enable system audio on macOS:"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:251
+#: src/components/BackupSettings.tsx:367
 msgid "To open this backup you will need the master password you used today. Keep it in a safe place: without it the backup cannot be recovered."
 msgstr ""
 
@@ -2970,7 +3179,7 @@ msgstr ""
 msgid "Transcription will be optimized for"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:286
+#: src/components/BackupSettings.tsx:402
 msgid "Transcripts"
 msgstr ""
 
@@ -3038,6 +3247,14 @@ msgstr ""
 msgid "Unable to start recording. Please check your audio device settings and try again."
 msgstr ""
 
+#: src/components/Patients/PatientDialogs.tsx:265
+msgid "Unlock"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:248
+msgid "Unlock folder"
+msgstr ""
+
 #: src/components/TranscriptSettings.tsx:176
 msgid "Unlock to edit"
 msgstr ""
@@ -3056,6 +3273,10 @@ msgstr ""
 
 #: src/components/About.tsx:43
 msgid "Use Any Model"
+msgstr ""
+
+#: src/components/Patients/PatientDialogs.tsx:69
+msgid "Use the name or an initials code, as you prefer."
 msgstr ""
 
 #: src/components/ParakeetModelManager.tsx:458
@@ -3103,7 +3324,7 @@ msgstr ""
 msgid "View and access where Trascrivi Seduta stores your data"
 msgstr ""
 
-#: src/app/page.tsx:132
+#: src/app/page.tsx:133
 msgid "View Meeting"
 msgstr ""
 
@@ -3148,7 +3369,7 @@ msgstr ""
 msgid "What makes Trascrivi Seduta different"
 msgstr ""
 
-#: src/components/BackupSettings.tsx:283
+#: src/components/BackupSettings.tsx:399
 msgid "What to include"
 msgstr ""
 
@@ -3156,8 +3377,8 @@ msgstr ""
 msgid "When disabled, beta features will be hidden. Your existing meetings remain unaffected."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:300
-msgid "Which sessions"
+#: src/components/BackupSettings.tsx:416
+msgid "Which patients and sessions"
 msgstr ""
 
 #: src/components/BluetoothPlaybackWarning.tsx:78
@@ -3196,11 +3417,14 @@ msgstr ""
 msgid "Wrong answer."
 msgstr ""
 
-#: src/components/BackupSettings.tsx:61
+#: src/components/BackupSettings.tsx:75
+#: src/services/patientService.ts:84
 msgid "Wrong password."
 msgstr ""
 
 #: src/components/LockScreen.tsx:34
+#: src/components/Patients/PatientDialogs.tsx:130
+#: src/components/Patients/PatientDialogs.tsx:235
 msgid "Wrong password. After a few mistakes the wait gets longer."
 msgstr ""
 

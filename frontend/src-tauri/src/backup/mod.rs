@@ -6,6 +6,10 @@
 //!
 //! Contenuto dell'archivio (dentro il contenitore cifrato, compresso con gzip):
 //! `manifest.json`, `db.json` e `audio/<id seduta>/<file audio>`.
+//!
+//! Pazienti: `db.json` contiene anche la tabella `patients` (con `password_hash`, mai la password)
+//! e le colonne `patient_id`/`session_date` delle sedute. Il ripristino non sovrascrive mai
+//! pazienti o sedute già presenti. Le password delle cartelle restano un blocco di interfaccia.
 
 pub mod crypto;
 
@@ -38,6 +42,17 @@ pub struct BackupMeetingInfo {
     pub created_at: String,
     pub audio_files: u32,
     pub audio_bytes: u64,
+    pub patient_id: Option<String>,
+    pub session_date: Option<String>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BackupPatientInfo {
+    pub id: String,
+    pub name: String,
+    pub protected: bool,
+    pub session_count: i64,
 }
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
@@ -54,6 +69,10 @@ pub struct BackupRequest {
     pub password: String,
     /// `None` = tutte le sedute
     pub meeting_ids: Option<Vec<String>>,
+    /// Pazienti da includere (anche senza sedute). `None` con `meeting_ids` `None` = tutti i pazienti;
+    /// con `meeting_ids` `None` e `patient_ids` presente = tutte le sedute di quei pazienti.
+    #[serde(default)]
+    pub patient_ids: Option<Vec<String>>,
     pub include: Include,
     pub destination: String,
 }
@@ -73,6 +92,17 @@ pub struct ManifestMeeting {
     pub title: String,
     pub created_at: String,
     pub audio_files: u32,
+    #[serde(default)]
+    pub patient_id: Option<String>,
+    #[serde(default)]
+    pub session_date: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ManifestPatient {
+    pub id: String,
+    pub name: String,
+    pub protected: bool,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -82,6 +112,8 @@ pub struct Manifest {
     pub created_at: String,
     pub include: Include,
     pub meetings: Vec<ManifestMeeting>,
+    #[serde(default)]
+    pub patients: Vec<ManifestPatient>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -91,6 +123,10 @@ pub struct RestoreRequest {
     pub password: String,
     /// `None` = tutte le sedute presenti nel backup
     pub meeting_ids: Option<Vec<String>>,
+    /// Pazienti da ripristinare anche se senza sedute scelte. Con `meeting_ids` `None` e
+    /// `patient_ids` `None` si ripristinano tutti i pazienti del backup.
+    #[serde(default)]
+    pub patient_ids: Option<Vec<String>>,
 }
 
 #[derive(Debug, Serialize)]
@@ -99,6 +135,7 @@ pub struct RestoreResult {
     pub restored: usize,
     pub skipped_existing: usize,
     pub audio_files: usize,
+    pub patients_restored: usize,
 }
 
 #[derive(Serialize, Clone)]
@@ -193,8 +230,34 @@ async fn select_by_ids(pool: &SqlitePool, table: &str, column: &str, ids: &[Stri
     Ok(out)
 }
 
-async fn export_db(pool: &SqlitePool, ids: &[String], include: &Include) -> Result<Value, String> {
+/// Pazienti da salvare: quelli delle sedute scelte, più quelli richiesti esplicitamente
+/// (oppure tutti, se non si è scelto nulla).
+fn select_patient_ids(
+    referenced: &[Option<String>],
+    requested: Option<&[String]>,
+    all_meetings: bool,
+    all_patients: &[String],
+) -> Vec<String> {
+    let mut out: Vec<String> = Vec::new();
+    let mut push = |id: &String| {
+        if !out.contains(id) {
+            out.push(id.clone());
+        }
+    };
+    for id in referenced.iter().flatten() {
+        push(id);
+    }
+    match requested {
+        Some(req) => req.iter().filter(|id| all_patients.contains(id)).for_each(&mut push),
+        None if all_meetings => all_patients.iter().for_each(&mut push),
+        None => {}
+    }
+    out
+}
+
+async fn export_db(pool: &SqlitePool, ids: &[String], patient_ids: &[String], include: &Include) -> Result<Value, String> {
     let mut db = Map::new();
+    db.insert("patients".into(), Value::Array(select_by_ids(pool, "patients", "id", patient_ids).await?));
     db.insert("meetings".into(), Value::Array(select_by_ids(pool, "meetings", "id", ids).await?));
     if include.transcripts {
         db.insert("transcripts".into(), Value::Array(select_by_ids(pool, "transcripts", "meeting_id", ids).await?));
@@ -262,7 +325,7 @@ async fn table_columns(pool: &SqlitePool, table: &str) -> Result<HashSet<String>
 #[tauri::command]
 pub async fn backup_list_meetings(state: State<'_, AppState>) -> Result<Vec<BackupMeetingInfo>, String> {
     let pool = state.db_manager.pool();
-    let rows = sqlx::query("SELECT id, title, created_at, folder_path FROM meetings ORDER BY created_at DESC")
+    let rows = sqlx::query("SELECT id, title, created_at, folder_path, patient_id, session_date FROM meetings ORDER BY created_at DESC")
         .fetch_all(pool)
         .await
         .map_err(|e| format!("Errore del database: {e}"))?;
@@ -276,9 +339,33 @@ pub async fn backup_list_meetings(state: State<'_, AppState>) -> Result<Vec<Back
             created_at: row.try_get::<String, _>("created_at").unwrap_or_default(),
             audio_files: files.len() as u32,
             audio_bytes: files.iter().map(|(_, n)| *n).sum(),
+            patient_id: row.try_get::<Option<String>, _>("patient_id").ok().flatten(),
+            session_date: row.try_get::<Option<String>, _>("session_date").ok().flatten(),
         });
     }
     Ok(out)
+}
+
+/// Elenco dei pazienti per la scelta nel pannello Backup (solo nome e conteggi, mai note o password).
+#[tauri::command]
+pub async fn backup_list_patients(state: State<'_, AppState>) -> Result<Vec<BackupPatientInfo>, String> {
+    let rows = sqlx::query(
+        "SELECT p.id, p.name, p.password_hash IS NOT NULL AS protected,
+                (SELECT COUNT(*) FROM meetings m WHERE m.patient_id = p.id) AS n
+         FROM patients p ORDER BY lower(p.name)",
+    )
+    .fetch_all(state.db_manager.pool())
+    .await
+    .map_err(|e| format!("Errore del database: {e}"))?;
+    Ok(rows
+        .iter()
+        .map(|r| BackupPatientInfo {
+            id: r.get("id"),
+            name: r.get("name"),
+            protected: r.get::<i64, _>("protected") != 0,
+            session_count: r.get("n"),
+        })
+        .collect())
 }
 
 #[tauri::command]
@@ -322,33 +409,50 @@ pub async fn backup_create<R: Runtime>(
     emit(&app, "preparing", 0, 1);
 
     // sedute scelte
-    let all: Vec<(String, String, String, Option<String>)> =
-        sqlx::query("SELECT id, title, created_at, folder_path FROM meetings ORDER BY created_at")
+    let all: Vec<ChosenMeeting> =
+        sqlx::query("SELECT id, title, created_at, folder_path, patient_id, session_date FROM meetings ORDER BY created_at")
             .fetch_all(&pool)
             .await
             .map_err(|e| format!("Errore del database: {e}"))?
             .iter()
-            .map(|r| {
-                (
-                    r.get::<String, _>("id"),
-                    r.get::<String, _>("title"),
-                    r.try_get::<String, _>("created_at").unwrap_or_default(),
-                    r.try_get::<Option<String>, _>("folder_path").ok().flatten(),
-                )
+            .map(|r| ChosenMeeting {
+                id: r.get::<String, _>("id"),
+                title: r.get::<String, _>("title"),
+                created_at: r.try_get::<String, _>("created_at").unwrap_or_default(),
+                folder: r.try_get::<Option<String>, _>("folder_path").ok().flatten(),
+                patient_id: r.try_get::<Option<String>, _>("patient_id").ok().flatten(),
+                session_date: r.try_get::<Option<String>, _>("session_date").ok().flatten(),
             })
             .collect();
-    let wanted: Option<HashSet<&String>> = request.meeting_ids.as_ref().map(|v| v.iter().collect());
-    let chosen: Vec<_> = all
-        .into_iter()
-        .filter(|(id, ..)| wanted.as_ref().map(|w| w.contains(id)).unwrap_or(true))
+    let chosen = filter_meetings(all, request.meeting_ids.as_deref(), request.patient_ids.as_deref());
+
+    let all_patients: Vec<(String, String, bool)> = sqlx::query("SELECT id, name, password_hash IS NOT NULL AS protected FROM patients ORDER BY lower(name)")
+        .fetch_all(&pool)
+        .await
+        .map_err(|e| format!("Errore del database: {e}"))?
+        .iter()
+        .map(|r| (r.get::<String, _>("id"), r.get::<String, _>("name"), r.get::<i64, _>("protected") != 0))
         .collect();
-    if chosen.is_empty() {
+    let all_patient_ids: Vec<String> = all_patients.iter().map(|(id, ..)| id.clone()).collect();
+    let referenced: Vec<Option<String>> = chosen.iter().map(|m| m.patient_id.clone()).collect();
+    let patient_ids = select_patient_ids(
+        &referenced,
+        request.patient_ids.as_deref(),
+        request.meeting_ids.is_none(),
+        &all_patient_ids,
+    );
+    if chosen.is_empty() && patient_ids.is_empty() {
         return Err("Nessuna seduta da salvare.".to_string());
     }
-    let ids: Vec<String> = chosen.iter().map(|(id, ..)| id.clone()).collect();
+    let manifest_patients: Vec<ManifestPatient> = all_patients
+        .into_iter()
+        .filter(|(id, ..)| patient_ids.contains(id))
+        .map(|(id, name, protected)| ManifestPatient { id, name, protected })
+        .collect();
+    let ids: Vec<String> = chosen.iter().map(|m| m.id.clone()).collect();
 
     emit(&app, "database", 0, ids.len() as u64);
-    let db_json = export_db(&pool, &ids, &include).await?;
+    let db_json = export_db(&pool, &ids, &patient_ids, &include).await?;
 
     let created_at = chrono::Utc::now().to_rfc3339();
     let version = env!("CARGO_PKG_VERSION").to_string();
@@ -358,7 +462,7 @@ pub async fn backup_create<R: Runtime>(
 
     let outcome = tokio::task::spawn_blocking(move || -> Result<BackupResult, String> {
         let partial = destination.with_extension(format!("{FILE_EXTENSION}.partial"));
-        let result = write_backup(&app_for_task, &partial, &password, &version, &created_at, &chosen, &db_json, include);
+        let result = write_backup(&app_for_task, &partial, &password, &version, &created_at, &chosen, &manifest_patients, &db_json, include);
         match result {
             Ok(mut res) => {
                 fs::rename(&partial, &destination).map_err(|e| format!("Impossibile salvare il backup: {e}"))?;
@@ -379,6 +483,26 @@ pub async fn backup_create<R: Runtime>(
     Ok(outcome)
 }
 
+struct ChosenMeeting {
+    id: String,
+    title: String,
+    created_at: String,
+    folder: Option<String>,
+    patient_id: Option<String>,
+    session_date: Option<String>,
+}
+
+/// Sedute da salvare: per id se indicati, altrimenti quelle dei pazienti indicati, altrimenti tutte.
+fn filter_meetings(all: Vec<ChosenMeeting>, meeting_ids: Option<&[String]>, patient_ids: Option<&[String]>) -> Vec<ChosenMeeting> {
+    all.into_iter()
+        .filter(|m| match (meeting_ids, patient_ids) {
+            (Some(ids), _) => ids.contains(&m.id),
+            (None, Some(pids)) => m.patient_id.as_ref().map(|p| pids.contains(p)).unwrap_or(false),
+            (None, None) => true,
+        })
+        .collect()
+}
+
 #[allow(clippy::too_many_arguments)]
 fn write_backup<R: Runtime>(
     app: &AppHandle<R>,
@@ -386,7 +510,8 @@ fn write_backup<R: Runtime>(
     password: &str,
     version: &str,
     created_at: &str,
-    chosen: &[(String, String, String, Option<String>)],
+    chosen: &[ChosenMeeting],
+    manifest_patients: &[ManifestPatient],
     db_json: &Value,
     include: Include,
 ) -> Result<BackupResult, String> {
@@ -398,20 +523,22 @@ fn write_backup<R: Runtime>(
     // elenco audio
     let mut audio_plan: Vec<(String, PathBuf)> = Vec::new();
     let mut manifest_meetings = Vec::new();
-    for (id, title, created, folder) in chosen {
+    for m in chosen {
         let files = if include.audio {
-            folder.as_deref().map(|f| audio_files_in(Path::new(f))).unwrap_or_default()
+            m.folder.as_deref().map(|f| audio_files_in(Path::new(f))).unwrap_or_default()
         } else {
             Vec::new()
         };
         manifest_meetings.push(ManifestMeeting {
-            id: id.clone(),
-            title: title.clone(),
-            created_at: created.clone(),
+            id: m.id.clone(),
+            title: m.title.clone(),
+            created_at: m.created_at.clone(),
             audio_files: files.len() as u32,
+            patient_id: m.patient_id.clone(),
+            session_date: m.session_date.clone(),
         });
         for (path, _) in files {
-            audio_plan.push((id.clone(), path));
+            audio_plan.push((m.id.clone(), path));
         }
     }
 
@@ -421,6 +548,7 @@ fn write_backup<R: Runtime>(
         created_at: created_at.to_string(),
         include,
         meetings: manifest_meetings,
+        patients: manifest_patients.to_vec(),
     };
     append_bytes(&mut tar, "manifest.json", &serde_json::to_vec(&manifest).map_err(|e| e.to_string())?)?;
     append_bytes(&mut tar, "db.json", &serde_json::to_vec(db_json).map_err(|e| e.to_string())?)?;
@@ -545,18 +673,22 @@ pub async fn backup_restore<R: Runtime>(
     .map_err(|_| "Errore interno durante il ripristino.".to_string())??;
 
     // inserimento nel database in un'unica transazione
-    let result = restore_into_db(&pool, &extracted).await;
-    if let Err(e) = result {
-        for folder in extracted.folders.values() {
-            let _ = fs::remove_dir_all(folder);
+    let result = restore_into_db(&pool, &extracted, request.meeting_ids.is_none(), request.patient_ids.as_deref()).await;
+    let patients_restored = match result {
+        Ok(n) => n,
+        Err(e) => {
+            for folder in extracted.folders.values() {
+                let _ = fs::remove_dir_all(folder);
+            }
+            return Err(e);
         }
-        return Err(e);
-    }
+    };
     emit(&app, "done", 1, 1);
     Ok(RestoreResult {
         restored: extracted.to_restore.len(),
         skipped_existing: extracted.skipped,
         audio_files: extracted.audio_files,
+        patients_restored,
     })
 }
 
@@ -694,12 +826,81 @@ fn extract_backup<R: Runtime>(
     }
 }
 
-async fn restore_into_db(pool: &SqlitePool, extracted: &Extracted) -> Result<(), String> {
+/// Pazienti da ripristinare: quelli delle sedute scelte, quelli richiesti, oppure tutti.
+/// Mai quelli già presenti (non si sovrascrive nulla).
+fn patients_to_restore(
+    db: &Map<String, Value>,
+    restore_ids: &HashSet<&String>,
+    all: bool,
+    requested: Option<&[String]>,
+    existing: &HashSet<String>,
+) -> Vec<String> {
+    let mut out: Vec<String> = Vec::new();
+    let mut add = |id: &str| {
+        if valid_meeting_id(id) && !existing.contains(id) && !out.iter().any(|o| o == id) {
+            out.push(id.to_string());
+        }
+    };
+    let in_backup: Vec<&str> = match db.get("patients") {
+        Some(Value::Array(rows)) => rows.iter().filter_map(|r| r.get("id").and_then(|v| v.as_str())).collect(),
+        _ => Vec::new(),
+    };
+    if let Some(Value::Array(rows)) = db.get("meetings") {
+        for r in rows {
+            let mid = r.get("id").and_then(|v| v.as_str()).unwrap_or_default();
+            if restore_ids.contains(&mid.to_string()) {
+                if let Some(pid) = r.get("patient_id").and_then(|v| v.as_str()) {
+                    if in_backup.contains(&pid) {
+                        add(pid);
+                    }
+                }
+            }
+        }
+    }
+    match requested {
+        Some(req) => req.iter().filter(|id| in_backup.contains(&id.as_str())).for_each(|id| add(id)),
+        None if all => in_backup.iter().for_each(|id| add(id)),
+        None => {}
+    }
+    out
+}
+
+async fn restore_into_db(
+    pool: &SqlitePool,
+    extracted: &Extracted,
+    all: bool,
+    requested_patients: Option<&[String]>,
+) -> Result<usize, String> {
     let restore_ids: HashSet<&String> = extracted.to_restore.iter().collect();
+    let existing_patients: HashSet<String> = sqlx::query("SELECT id FROM patients")
+        .fetch_all(pool)
+        .await
+        .map_err(|e| format!("Errore del database: {e}"))?
+        .iter()
+        .map(|r| r.get::<String, _>("id"))
+        .collect();
+    let new_patients = patients_to_restore(&extracted.db, &restore_ids, all, requested_patients, &existing_patients);
+    // pazienti noti dopo il ripristino: se una seduta punta a un paziente sconosciuto resta "Senza paziente"
+    let known_patients: HashSet<String> = existing_patients.iter().cloned().chain(new_patients.iter().cloned()).collect();
+    // colonne lette prima della transazione (il pool può avere una sola connessione)
+    let mut table_cols: HashMap<&str, HashSet<String>> = HashMap::new();
+    for table in ["patients", "meetings", "transcripts", "transcript_chunks", "summary_processes", "meeting_notes"] {
+        table_cols.insert(table, table_columns(pool, table).await?);
+    }
     let mut tx = pool.begin().await.map_err(|e| format!("Errore del database: {e}"))?;
+    if let Some(Value::Array(rows)) = extracted.db.get("patients") {
+        let columns = &table_cols["patients"];
+        for row in rows {
+            let Some(obj) = row.as_object() else { continue };
+            let Some(id) = obj.get("id").and_then(|v| v.as_str()) else { continue };
+            if new_patients.iter().any(|p| p == id) {
+                insert_rows(&mut tx, "patients", columns, obj).await?;
+            }
+        }
+    }
     for (table, key) in RESTORE_TABLES {
         let Some(Value::Array(rows)) = extracted.db.get(table) else { continue };
-        let columns = table_columns(pool, table).await?;
+        let columns = &table_cols[table];
         for row in rows {
             let Some(obj) = row.as_object() else { continue };
             let Some(id) = obj.get(key).and_then(|v| v.as_str()) else { continue };
@@ -711,12 +912,16 @@ async fn restore_into_db(pool: &SqlitePool, extracted: &Extracted) -> Result<(),
                 // la cartella audio originale può non esistere più: punta a quella ripristinata
                 let new_folder = extracted.folders.get(id).map(|p| Value::from(p.to_string_lossy().to_string()));
                 obj.insert("folder_path".into(), new_folder.unwrap_or(Value::Null));
+                let keeps = obj.get("patient_id").and_then(|v| v.as_str()).map(|p| known_patients.contains(p)).unwrap_or(false);
+                if !keeps {
+                    obj.insert("patient_id".into(), Value::Null);
+                }
             }
-            insert_rows(&mut tx, table, &columns, &obj).await?;
+            insert_rows(&mut tx, table, columns, &obj).await?;
         }
     }
     tx.commit().await.map_err(|e| format!("Errore del database: {e}"))?;
-    Ok(())
+    Ok(new_patients.len())
 }
 
 #[cfg(test)]
@@ -776,5 +981,100 @@ mod tests {
         let mut wrong = open_archive(&path, "password-sbagliata").unwrap();
         let first = wrong.entries().unwrap().next();
         assert!(first.is_none() || first.unwrap().is_err(), "con la password errata la lettura deve fallire");
+    }
+
+    fn chosen(id: &str, patient: Option<&str>) -> ChosenMeeting {
+        ChosenMeeting {
+            id: id.into(),
+            title: id.into(),
+            created_at: String::new(),
+            folder: None,
+            patient_id: patient.map(String::from),
+            session_date: None,
+        }
+    }
+
+    #[test]
+    fn selection_modes_for_meetings_and_patients() {
+        let all = || vec![chosen("m1", Some("p1")), chosen("m2", Some("p2")), chosen("m3", None)];
+        assert_eq!(filter_meetings(all(), None, None).len(), 3, "tutti");
+        let by_patient = filter_meetings(all(), None, Some(&["p2".to_string()]));
+        assert_eq!(by_patient.iter().map(|m| m.id.as_str()).collect::<Vec<_>>(), ["m2"], "solo alcuni pazienti");
+        let by_meeting = filter_meetings(all(), Some(&["m3".to_string(), "m1".to_string()]), None);
+        assert_eq!(by_meeting.len(), 2, "solo alcune sedute");
+
+        let all_p = vec!["p1".to_string(), "p2".to_string(), "p3".to_string()];
+        // tutti: anche i pazienti senza sedute
+        assert_eq!(select_patient_ids(&[], None, true, &all_p).len(), 3);
+        // solo alcune sedute: solo i pazienti di quelle sedute
+        assert_eq!(select_patient_ids(&[Some("p1".into()), None], None, false, &all_p), ["p1"]);
+        // pazienti richiesti (anche vuoti), id sconosciuti ignorati
+        let got = select_patient_ids(&[Some("p1".into())], Some(&["p3".to_string(), "zz".to_string()]), false, &all_p);
+        assert_eq!(got, ["p1", "p3"]);
+    }
+
+    async fn test_pool() -> SqlitePool {
+        let pool = sqlx::sqlite::SqlitePoolOptions::new().max_connections(1).connect("sqlite::memory:").await.unwrap();
+        sqlx::migrate!("./migrations").run(&pool).await.unwrap();
+        pool
+    }
+
+    fn backup_db() -> Map<String, Value> {
+        let v = serde_json::json!({
+            "patients": [
+                {"id":"p-new","name":"Nuovo","notes":null,"created_at":"2026-01-01T00:00:00Z","updated_at":"2026-01-01T00:00:00Z","password_hash":"$argon2id$x","archived":0},
+                {"id":"p-old","name":"DaBackup","notes":null,"created_at":"2026-01-01T00:00:00Z","updated_at":"2026-01-01T00:00:00Z","password_hash":null,"archived":0},
+                {"id":"p-empty","name":"Vuoto","notes":null,"created_at":"2026-01-01T00:00:00Z","updated_at":"2026-01-01T00:00:00Z","password_hash":null,"archived":0}
+            ],
+            "meetings": [
+                {"id":"m-new","title":"A","created_at":"2026-01-02T10:00:00Z","updated_at":"2026-01-02T10:00:00Z","folder_path":"/vecchio","patient_id":"p-new","session_date":"2026-01-02"},
+                {"id":"m-old","title":"B","created_at":"2026-01-03T10:00:00Z","updated_at":"2026-01-03T10:00:00Z","folder_path":null,"patient_id":"p-old","session_date":"2026-01-03"},
+                {"id":"m-orph","title":"C","created_at":"2026-01-04T10:00:00Z","updated_at":"2026-01-04T10:00:00Z","folder_path":null,"patient_id":"p-ghost","session_date":"2026-01-04"}
+            ]
+        });
+        v.as_object().unwrap().clone()
+    }
+
+    #[tokio::test]
+    async fn restore_adds_patients_without_overwriting() {
+        let pool = test_pool().await;
+        // paziente già presente con lo stesso id ma dati diversi: non va toccato
+        sqlx::query("INSERT INTO patients (id,name,created_at,updated_at,archived) VALUES ('p-old','Locale','2026-02-01T00:00:00Z','2026-02-01T00:00:00Z',0)")
+            .execute(&pool).await.unwrap();
+        let extracted = Extracted {
+            db: backup_db(),
+            to_restore: vec!["m-new".into(), "m-old".into(), "m-orph".into()],
+            folders: HashMap::new(),
+            skipped: 0,
+            audio_files: 0,
+        };
+        // modalità "solo alcune sedute": nessun paziente richiesto, quelli referenziati si ripristinano
+        let n = restore_into_db(&pool, &extracted, false, None).await.unwrap();
+        assert_eq!(n, 1, "solo p-new è nuovo; p-old esiste già; p-empty non è referenziato");
+
+        let name: String = sqlx::query_scalar("SELECT name FROM patients WHERE id='p-old'").fetch_one(&pool).await.unwrap();
+        assert_eq!(name, "Locale", "il paziente esistente non viene sovrascritto");
+        let hash: Option<String> = sqlx::query_scalar("SELECT password_hash FROM patients WHERE id='p-new'").fetch_one(&pool).await.unwrap();
+        assert_eq!(hash.as_deref(), Some("$argon2id$x"), "l'hash della password viaggia nel backup");
+        let (p, d): (Option<String>, Option<String>) = sqlx::query_as("SELECT patient_id, session_date FROM meetings WHERE id='m-new'").fetch_one(&pool).await.unwrap();
+        assert_eq!((p.as_deref(), d.as_deref()), (Some("p-new"), Some("2026-01-02")));
+        let orphan: Option<String> = sqlx::query_scalar("SELECT patient_id FROM meetings WHERE id='m-orph'").fetch_one(&pool).await.unwrap();
+        assert_eq!(orphan, None, "paziente sconosciuto: la seduta torna in \"Senza paziente\"");
+        let patients: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM patients").fetch_one(&pool).await.unwrap();
+        assert_eq!(patients, 2);
+    }
+
+    #[test]
+    fn patients_to_restore_modes() {
+        let db = backup_db();
+        let ids = vec!["m-new".to_string()];
+        let restore: HashSet<&String> = ids.iter().collect();
+        let none = HashSet::new();
+        assert_eq!(patients_to_restore(&db, &restore, false, None, &none), ["p-new"]);
+        assert_eq!(patients_to_restore(&db, &restore, true, None, &none).len(), 3, "tutti");
+        let req = ["p-empty".to_string()];
+        assert_eq!(patients_to_restore(&db, &restore, false, Some(&req), &none), ["p-new", "p-empty"]);
+        let existing: HashSet<String> = ["p-new".to_string()].into();
+        assert_eq!(patients_to_restore(&db, &restore, false, None, &existing).len(), 0);
     }
 }

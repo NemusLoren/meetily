@@ -16,6 +16,8 @@ export interface SaveMeetingRequest {
 
 export interface SaveMeetingResponse {
   meeting_id: string;
+  /** false se la cartella del paziente era chiusa o non esiste più: la seduta è in "Senza paziente" */
+  patient_assigned?: boolean;
 }
 
 export interface Meeting {
@@ -39,12 +41,16 @@ export class StorageService {
   async saveMeeting(
     meetingTitle: string,
     transcripts: Transcript[],
-    folderPath: string | null
+    folderPath: string | null,
+    patientId?: string | null,
+    sessionDate?: string | null
   ): Promise<SaveMeetingResponse> {
     return invoke<SaveMeetingResponse>('api_save_transcript', {
       meetingTitle,
       transcripts,
       folderPath,
+      patientId: patientId ?? null,
+      sessionDate: sessionDate ?? null,
     });
   }
 

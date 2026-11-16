@@ -6,6 +6,7 @@ import { useTranscripts } from '@/contexts/TranscriptContext';
 import { useSidebar } from '@/components/Sidebar/SidebarProvider';
 import { useRecordingState, RecordingStatus } from '@/contexts/RecordingStateContext';
 import { storageService } from '@/services/storageService';
+import { readRecordingChoice, writeRecordingChoice } from '@/services/patientService';
 import { transcriptService } from '@/services/transcriptService';
 import Analytics from '@/lib/analytics';
 import {
@@ -254,11 +255,22 @@ export function useRecordingStop(
         });
 
         try {
+          // Paziente e giorno scelti prima della registrazione (facoltativi)
+          const choice = readRecordingChoice();
           const responseData = await storageService.saveMeeting(
             savedMeetingName || meetingTitle || 'New Meeting',  // PREFER savedMeetingName (backend source)
             freshTranscripts,
-            folderPath
+            folderPath,
+            choice.patientId,
+            choice.sessionDate
           );
+          if (choice.patientId && responseData.patient_assigned === false) {
+            toast.warning(t("The session was saved under \"No patient\""), {
+              description: t("The patient folder was locked or no longer exists. You can move the session from the patient list."),
+            });
+          }
+          // La scelta vale per una sola seduta: così non si assegna per errore la prossima a un altro paziente.
+          writeRecordingChoice(null, null);
 
           const meetingId = responseData.meeting_id;
           if (!meetingId) {

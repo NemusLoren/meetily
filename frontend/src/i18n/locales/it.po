@@ -28,7 +28,15 @@ msgstr "... e"
 msgid "\". Try a different search term."
 msgstr "\". Prova con un altro termine di ricerca."
 
-#: src/components/BackupSettings.tsx:243
+#: src/components/BackupSettings.tsx:530
+msgid "{count} patient folders restored."
+msgstr "{count} cartelle paziente ripristinate."
+
+#: src/components/BackupSettings.tsx:214
+msgid "{count} sessions"
+msgstr "{count} sedute"
+
+#: src/components/BackupSettings.tsx:359
 msgid "{count} sessions, {audio} audio files, {size}"
 msgstr "{count} sedute, {audio} file audio, {size}"
 
@@ -45,7 +53,7 @@ msgstr "{errorMessage}. Il riassunto precedente è stato ripristinato."
 msgid "{recommendedModel} is already downloading"
 msgstr "{recommendedModel} è già in download"
 
-#: src/components/BackupSettings.tsx:404
+#: src/components/BackupSettings.tsx:524
 msgid "{restored} sessions restored, {audio} audio files, {skipped} already present and left untouched."
 msgstr "{restored} sedute ripristinate, {audio} file audio; {skipped} erano già presenti e non sono state toccate."
 
@@ -62,7 +70,7 @@ msgstr "{v1} download annullato"
 msgid "{v1} summary..."
 msgstr "{v1} riassunto..."
 
-#: src/hooks/useRecordingStop.ts:328
+#: src/hooks/useRecordingStop.ts:340
 msgid "{v1} transcript segments saved."
 msgstr "{v1} segmenti di trascrizione salvati."
 
@@ -86,8 +94,8 @@ msgstr "• Il microfono usa sempre il metodo predefinito"
 msgid "＋ Add language"
 msgstr "＋ Aggiungi lingua"
 
-#: src/components/Sidebar/SidebarProvider.tsx:80
-#: src/components/Sidebar/SidebarProvider.tsx:147
+#: src/components/Sidebar/SidebarProvider.tsx:85
+#: src/components/Sidebar/SidebarProvider.tsx:167
 msgid "+ New Call"
 msgstr "+ Nuova seduta"
 
@@ -115,7 +123,7 @@ msgstr "🌐 Modalità traduzione attiva"
 msgid "🏠 Local Whisper (High Accuracy)"
 msgstr "🏠 Whisper locale (Alta precisione)"
 
-#: src/components/BackupSettings.tsx:268
+#: src/components/BackupSettings.tsx:384
 msgid "A backup is always encrypted with your master password. Create one now to continue."
 msgstr "Il backup è sempre cifrato con la tua password master. Creane una ora per continuare."
 
@@ -123,7 +131,7 @@ msgstr "Il backup è sempre cifrato con la tua password master. Creane una ora p
 msgid "A library of on-device AI agents-automating follow-ups, action tracking, and more."
 msgstr "Una libreria di agenti AI sul dispositivo per automatizzare follow-up, monitoraggio dei compiti e altro."
 
-#: src/components/BackupSettings.tsx:62
+#: src/components/BackupSettings.tsx:76
 msgid "A master password is required to create backups."
 msgstr "Per creare i backup serve una password master."
 
@@ -165,7 +173,7 @@ msgstr "Attivo"
 msgid "Add context for AI summary. For example people involved, meeting overview, objective etc..."
 msgstr "Aggiungi un contesto per il riassunto AI, per esempio le persone coinvolte, il quadro della seduta, gli obiettivi..."
 
-#: src/components/BackupSettings.tsx:79
+#: src/components/BackupSettings.tsx:93
 msgid "Adding audio {done} of {total}..."
 msgstr "Aggiunta dell'audio {done} di {total}..."
 
@@ -205,7 +213,7 @@ msgstr "Riassunto AI"
 msgid "Albanian"
 msgstr "Albanese"
 
-#: src/components/Sidebar/index.tsx:342
+#: src/components/Sidebar/index.tsx:350
 msgid "All associated data has been removed"
 msgstr "Tutti i dati associati sono stati rimossi"
 
@@ -217,9 +225,9 @@ msgstr "Tutto l'audio verrà tradotto automaticamente in inglese. Adatto a sedut
 msgid "All Languages"
 msgstr "Tutte le lingue"
 
-#: src/components/BackupSettings.tsx:304
-msgid "All sessions ({count})"
-msgstr "Tutte le sedute ({count})"
+#: src/components/BackupSettings.tsx:254
+msgid "All patients and sessions ({count} sessions)"
+msgstr "Tutti i pazienti e tutte le sedute ({count} sedute)"
 
 #: src/components/LanguageSelection.tsx:92
 msgid "Amharic"
@@ -241,7 +249,7 @@ msgstr "Si è verificato un errore durante la ritrascrizione"
 msgid "Analyzing your transcript..."
 msgstr "Analisi della trascrizione..."
 
-#: src/components/BackupSettings.tsx:274
+#: src/components/BackupSettings.tsx:390
 #: src/components/LockScreen.tsx:139
 msgid "Answer"
 msgstr "Risposta"
@@ -250,7 +258,7 @@ msgstr "Risposta"
 msgid "Answer the secret question and choose a new password. Your data is not touched."
 msgstr "Rispondi alla domanda segreta e scegli una nuova password. I tuoi dati non vengono toccati."
 
-#: src/components/BackupSettings.tsx:274
+#: src/components/BackupSettings.tsx:390
 #: src/components/LockScreen.tsx:142
 msgid "Answer to the secret question"
 msgstr "Risposta alla domanda segreta"
@@ -263,9 +271,22 @@ msgstr "Chiave API"
 msgid "Arabic"
 msgstr "Arabo"
 
+#: src/components/Patients/PatientTree.tsx:213
+#: src/components/Patients/PatientTree.tsx:214
+msgid "Archive patient"
+msgstr "Archivia paziente"
+
+#: src/components/Patients/PatientTree.tsx:190
+msgid "archived"
+msgstr "archiviato"
+
 #: src/components/onboarding/steps/SecurityStep.tsx:75
 msgid "are not encrypted yet"
 msgstr "non sono ancora cifrati"
+
+#: src/components/Sidebar/index.tsx:858
+msgid "Are you sure you want to delete this meeting? This action cannot be undone."
+msgstr "Vuoi davvero eliminare questa seduta? L'operazione non può essere annullata."
 
 #: src/components/LanguageSelection.tsx:70
 msgid "Armenian"
@@ -296,7 +317,7 @@ msgstr "Dispositivi audio"
 msgid "Audio recording is disabled. Enable \"Save Audio Recordings\" to automatically save your meeting audio."
 msgstr "Il salvataggio dell'audio è disattivato. Attiva \"Salva le registrazioni audio\" per conservare automaticamente l'audio delle sedute."
 
-#: src/components/BackupSettings.tsx:289
+#: src/components/BackupSettings.tsx:405
 msgid "Audio recordings"
 msgstr "Registrazioni audio"
 
@@ -338,7 +359,7 @@ msgid "Azerbaijani"
 msgstr "Azero"
 
 #: src/app/feedback/page.tsx:31
-#: src/app/settings/page.tsx:79
+#: src/app/patients/page.tsx:37
 msgid "Back"
 msgstr "Indietro"
 
@@ -346,21 +367,21 @@ msgstr "Indietro"
 msgid "Backup"
 msgstr "Backup"
 
-#: src/components/BackupSettings.tsx:226
-#: src/components/BackupSettings.tsx:240
+#: src/components/BackupSettings.tsx:342
+#: src/components/BackupSettings.tsx:356
 msgid "Backup created"
 msgstr "Backup creato"
 
-#: src/components/BackupSettings.tsx:445
+#: src/components/BackupSettings.tsx:567
 msgid "Backup created on {date}, with {count} sessions."
 msgstr "Backup creato il {date}, con {count} sedute."
 
-#: src/components/BackupSettings.tsx:390
-#: src/components/BackupSettings.tsx:402
+#: src/components/BackupSettings.tsx:510
+#: src/components/BackupSettings.tsx:522
 msgid "Backup restored"
 msgstr "Backup ripristinato"
 
-#: src/components/BackupSettings.tsx:477
+#: src/components/BackupSettings.tsx:616
 msgid "Backups are encrypted with your master password. Save them where you like: only someone who knows the password can open them."
 msgstr "I backup sono cifrati con la tua password master. Salvali dove vuoi: solo chi conosce la password può aprirli."
 
@@ -482,6 +503,10 @@ msgstr "Annullamento…"
 msgid "Catalan"
 msgstr "Catalano"
 
+#: src/components/Patients/PatientDialogs.tsx:193
+msgid "Change password"
+msgstr "Cambia password"
+
 #: src/hooks/meeting-details/useMeetingData.ts:68
 msgid "Changes saved successfully"
 msgstr "Modifiche salvate"
@@ -507,7 +532,7 @@ msgstr "Scegli un modello di trascrizione"
 msgid "Choose audio to record. Default follows your system’s selected output."
 msgstr "Scegli l'audio da registrare. \"Predefinito\" segue l'uscita selezionata nel sistema."
 
-#: src/components/BackupSettings.tsx:428
+#: src/components/BackupSettings.tsx:550
 msgid "Choose backup file"
 msgstr "Scegli il file di backup"
 
@@ -515,15 +540,15 @@ msgstr "Scegli il file di backup"
 msgid "Choose Different File"
 msgstr "Scegli un altro file"
 
-#: src/components/BackupSettings.tsx:308
-msgid "Choose sessions"
-msgstr "Scegli le sedute"
+#: src/components/Patients/PatientDialogs.tsx:377
+msgid "Choose the patient and the day of this session."
+msgstr "Scegli il paziente e il giorno di questa seduta."
 
-#: src/components/BackupSettings.tsx:489
-msgid "Choose what to include: everything, only some sessions, or only some types of files."
-msgstr "Scegli cosa includere: tutto, solo alcune sedute o solo alcuni tipi di file."
+#: src/components/BackupSettings.tsx:628
+msgid "Choose what to include: everything, only some patients, only some sessions, or only some types of files."
+msgstr "Scegli cosa includere: tutto, solo alcuni pazienti, solo alcune sedute o solo alcuni tipi di file."
 
-#: src/components/BackupSettings.tsx:339
+#: src/components/BackupSettings.tsx:449
 msgid "Choose where to save and create backup"
 msgstr "Scegli dove salvare e crea il backup"
 
@@ -577,7 +602,7 @@ msgstr "Chiudi l'avviso"
 msgid "Closing Remarks"
 msgstr "Osservazioni finali"
 
-#: src/components/BackupSettings.tsx:78
+#: src/components/BackupSettings.tsx:92
 msgid "Collecting sessions and transcripts..."
 msgstr "Raccolta di sedute e trascrizioni..."
 
@@ -636,7 +661,7 @@ msgid "Cost-Smart"
 msgstr "Risparmio intelligente"
 
 #: src/hooks/useImportAudio.ts:118
-#: src/hooks/useRecordingStop.ts:274
+#: src/hooks/useRecordingStop.ts:286
 msgid "Could not apply default summary language"
 msgstr "Impossibile applicare la lingua predefinita del riassunto"
 
@@ -644,7 +669,7 @@ msgstr "Impossibile applicare la lingua predefinita del riassunto"
 msgid "Could not copy. Write to {FEEDBACK_EMAIL}"
 msgstr "Impossibile copiare. Scrivi a {FEEDBACK_EMAIL}"
 
-#: src/hooks/useRecordingStop.ts:287
+#: src/hooks/useRecordingStop.ts:299
 msgid "Could not detect summary language"
 msgstr "Impossibile rilevare la lingua del riassunto"
 
@@ -669,8 +694,8 @@ msgstr "Impossibile aprire il link. Controlla il browser predefinito e riprova."
 msgid "Create a bulleted list"
 msgstr "Crea un elenco puntato"
 
-#: src/components/BackupSettings.tsx:263
-#: src/components/BackupSettings.tsx:488
+#: src/components/BackupSettings.tsx:379
+#: src/components/BackupSettings.tsx:627
 msgid "Create encrypted backup"
 msgstr "Crea un backup cifrato"
 
@@ -678,13 +703,17 @@ msgstr "Crea un backup cifrato"
 msgid "Creating a detailed summary of your meeting..."
 msgstr "Creazione di un riassunto dettagliato della seduta..."
 
-#: src/components/BackupSettings.tsx:339
+#: src/components/BackupSettings.tsx:449
 msgid "Creating backup..."
 msgstr "Creazione del backup..."
 
 #: src/components/LanguageSelection.tsx:49
 msgid "Croatian"
 msgstr "Croato"
+
+#: src/components/Patients/PatientDialogs.tsx:179
+msgid "Current password"
+msgstr "Password attuale"
 
 #: src/components/LanguageSelection.tsx:212
 msgid "Current:"
@@ -748,7 +777,12 @@ msgstr "Audio di sistema predefinito"
 msgid "Delete"
 msgstr "Elimina"
 
-#: src/components/Sidebar/index.tsx:638
+#: src/components/Patients/PatientDialogs.tsx:318
+msgid "Delete folder"
+msgstr "Elimina cartella"
+
+#: src/components/Patients/PatientTree.tsx:161
+#: src/components/Sidebar/index.tsx:647
 msgid "Delete meeting"
 msgstr "Elimina la seduta"
 
@@ -761,9 +795,18 @@ msgstr "Elimina il modello"
 msgid "Delete model to free up space"
 msgstr "Elimina il modello per liberare spazio"
 
+#: src/components/Patients/PatientDialogs.tsx:310
+#: src/components/Patients/PatientTree.tsx:219
+msgid "Delete patient folder"
+msgstr "Elimina cartella del paziente"
+
 #: src/components/EditableTitle.tsx:91
 msgid "Delete section"
 msgstr "Elimina la sezione"
+
+#: src/components/Patients/PatientDialogs.tsx:312
+msgid "Delete the folder \"{name}\"? Its {count} sessions are NOT deleted: they move to \"No patient\". You can assign them to another patient later."
+msgstr "Eliminare la cartella \"{name}\"? Le sue {count} sedute NON vengono cancellate: passano a \"Senza paziente\". Potrai assegnarle a un altro paziente in seguito."
 
 #: src/components/TranscriptRecovery/TranscriptRecovery.tsx:273
 msgid "Deleting..."
@@ -899,12 +942,17 @@ msgstr "Rilascia il file audio per importarlo"
 msgid "Dutch"
 msgstr "Olandese"
 
-#: src/components/Sidebar/index.tsx:628
+#: src/app/patients/page.tsx:63
+msgid "Each patient has a folder, and inside it one subfolder per session day. A folder can have its own password: it locks the folder in the app, it does not yet encrypt files on disk."
+msgstr "Ogni paziente ha una cartella e, al suo interno, una sottocartella per ogni giorno di seduta. Ogni cartella può avere una password propria: blocca la cartella nell'app, ma non cifra ancora i file su disco."
+
+#: src/components/Patients/PatientTree.tsx:156
+#: src/components/Sidebar/index.tsx:637
 msgid "Edit meeting title"
 msgstr "Modifica il titolo della seduta"
 
-#: src/components/Sidebar/index.tsx:835
-#: src/components/Sidebar/index.tsx:838
+#: src/components/Sidebar/index.tsx:869
+#: src/components/Sidebar/index.tsx:872
 msgid "Edit Meeting Title"
 msgstr "Modifica il titolo della seduta"
 
@@ -929,7 +977,7 @@ msgstr "Attiva \"Importa audio e ritrascrivi\" in Impostazioni > Beta per usare 
 msgid "Enable or disable notifications of start and end of meeting"
 msgstr "Attiva o disattiva le notifiche di inizio e fine seduta"
 
-#: src/components/BackupSettings.tsx:80
+#: src/components/BackupSettings.tsx:94
 msgid "Encrypting and saving..."
 msgstr "Cifratura e salvataggio..."
 
@@ -954,11 +1002,11 @@ msgid "Enhance"
 msgstr "Migliora"
 
 #: src/components/ImportAudio/ImportAudioDialog.tsx:297
-#: src/components/Sidebar/index.tsx:856
+#: src/components/Sidebar/index.tsx:890
 msgid "Enter meeting title"
 msgstr "Inserisci il titolo della seduta"
 
-#: src/components/BackupSettings.tsx:433
+#: src/components/BackupSettings.tsx:555
 msgid "Enter the master password that was in use when the backup was made."
 msgstr "Inserisci la password master che usavi quando è stato fatto il backup."
 
@@ -966,11 +1014,15 @@ msgstr "Inserisci la password master che usavi quando è stato fatto il backup."
 msgid "Enter the master password to open the app."
 msgstr "Inserisci la password master per aprire l'app."
 
+#: src/components/Patients/PatientDialogs.tsx:249
+msgid "Enter the password of the folder \"{name}\"."
+msgstr "Inserisci la password della cartella \"{name}\"."
+
 #: src/components/TranscriptSettings.tsx:160
 msgid "Enter your API key"
 msgstr "Inserisci la tua chiave API"
 
-#: src/components/BackupSettings.tsx:318
+#: src/components/BackupSettings.tsx:428
 msgid "Enter your master password: it encrypts the backup."
 msgstr "Inserisci la tua password master: serve a cifrare il backup."
 
@@ -1029,7 +1081,7 @@ msgstr "Impossibile eliminare {displayName}"
 msgid "Failed to delete {modelName}"
 msgstr "Impossibile eliminare {modelName}"
 
-#: src/components/Sidebar/index.tsx:352
+#: src/components/Sidebar/index.tsx:360
 msgid "Failed to delete meeting"
 msgstr "Impossibile eliminare la seduta"
 
@@ -1096,7 +1148,7 @@ msgstr "Impossibile caricare le trascrizioni"
 msgid "Failed to play audio"
 msgstr "Impossibile riprodurre l'audio"
 
-#: src/app/page.tsx:156
+#: src/app/page.tsx:157
 msgid "Failed to recover meeting"
 msgstr "Impossibile recuperare la seduta"
 
@@ -1116,7 +1168,7 @@ msgstr "Impossibile salvare le preferenze dei dispositivi"
 msgid "Failed to save language preference"
 msgstr "Impossibile salvare la preferenza di lingua"
 
-#: src/hooks/useRecordingStop.ts:352
+#: src/hooks/useRecordingStop.ts:364
 msgid "Failed to save meeting"
 msgstr "Impossibile salvare la seduta"
 
@@ -1149,7 +1201,7 @@ msgstr "Impossibile avviare il monitoraggio del livello audio"
 msgid "Failed to stop summary generation"
 msgstr "Impossibile interrompere la generazione del riassunto"
 
-#: src/components/Sidebar/index.tsx:414
+#: src/components/Sidebar/index.tsx:423
 msgid "Failed to update meeting title"
 msgstr "Impossibile aggiornare il titolo della seduta"
 
@@ -1193,6 +1245,19 @@ msgstr "Termina la configurazione"
 #: src/components/LanguageSelection.tsx:35
 msgid "Finnish"
 msgstr "Finlandese"
+
+#: src/components/Patients/PatientTree.tsx:281
+msgid "Folder deleted. Its sessions are now under \"No patient\"."
+msgstr "Cartella eliminata. Le sue sedute sono ora in \"Senza paziente\"."
+
+#: src/components/Patients/PatientDialogs.tsx:173
+#: src/components/Patients/PatientTree.tsx:198
+msgid "Folder password"
+msgstr "Password della cartella"
+
+#: src/components/Patients/PatientTree.tsx:271
+msgid "Folder password updated"
+msgstr "Password della cartella aggiornata"
 
 #: src/components/LanguageSelection.tsx:217
 msgid "For best accuracy, select your specific language (e.g., English, Spanish, etc.)"
@@ -1328,8 +1393,8 @@ msgstr "Nascondi la password"
 msgid "Hindi"
 msgstr "Hindi"
 
-#: src/components/Sidebar/index.tsx:471
-#: src/components/Sidebar/index.tsx:732
+#: src/components/Sidebar/index.tsx:480
+#: src/components/Sidebar/index.tsx:741
 msgid "Home"
 msgstr "Home"
 
@@ -1357,8 +1422,8 @@ msgstr "Importa"
 msgid "Import an audio file to create a new meeting with transcripts"
 msgstr "Importa un file audio per creare una nuova seduta con le trascrizioni"
 
-#: src/components/Sidebar/index.tsx:505
-#: src/components/Sidebar/index.tsx:802
+#: src/components/Sidebar/index.tsx:514
+#: src/components/Sidebar/index.tsx:836
 msgid "Import Audio"
 msgstr "Importa audio"
 
@@ -1572,9 +1637,18 @@ msgstr "Caricamento dell'anteprima..."
 msgid "Loading..."
 msgstr "Caricamento..."
 
+#: src/components/Patients/PatientTree.tsx:204
+#: src/components/Patients/PatientTree.tsx:205
+msgid "Lock folder now"
+msgstr "Blocca la cartella adesso"
+
 #: src/components/TranscriptSettings.tsx:176
 msgid "Lock to prevent editing"
 msgstr "Blocca per impedire le modifiche"
+
+#: src/components/Patients/PatientTree.tsx:183
+msgid "Locked folder"
+msgstr "Cartella bloccata"
 
 #: src/components/LanguageSelection.tsx:103
 msgid "Luxembourgish"
@@ -1612,12 +1686,12 @@ msgstr "Marathi"
 msgid "Markdown Input"
 msgstr "Input Markdown"
 
-#: src/components/BackupSettings.tsx:271
-#: src/components/BackupSettings.tsx:317
+#: src/components/BackupSettings.tsx:387
+#: src/components/BackupSettings.tsx:427
 msgid "Master password"
 msgstr "Password master"
 
-#: src/components/Sidebar/index.tsx:649
+#: src/components/Sidebar/index.tsx:658
 msgid "Match:"
 msgstr "Corrispondenza:"
 
@@ -1630,7 +1704,7 @@ msgstr "MB)"
 msgid "Medium section heading"
 msgstr "Titolo di sezione medio"
 
-#: src/components/Sidebar/index.tsx:341
+#: src/components/Sidebar/index.tsx:349
 msgid "Meeting deleted successfully"
 msgstr "Seduta eliminata"
 
@@ -1638,8 +1712,8 @@ msgstr "Seduta eliminata"
 msgid "Meeting folder path not available"
 msgstr "Percorso della cartella della seduta non disponibile"
 
-#: src/components/Sidebar/SidebarProvider.tsx:131
-#: src/components/Sidebar/index.tsx:524
+#: src/components/Sidebar/SidebarProvider.tsx:151
+#: src/components/Sidebar/index.tsx:533
 msgid "Meeting Notes"
 msgstr "Note delle sedute"
 
@@ -1647,20 +1721,20 @@ msgstr "Note delle sedute"
 msgid "Meeting Recordings"
 msgstr "Registrazioni delle sedute"
 
-#: src/app/page.tsx:127
+#: src/app/page.tsx:128
 msgid "Meeting recovered successfully!"
 msgstr "Seduta recuperata!"
 
 #: src/components/ImportAudio/ImportAudioDialog.tsx:290
-#: src/components/Sidebar/index.tsx:841
+#: src/components/Sidebar/index.tsx:875
 msgid "Meeting Title"
 msgstr "Titolo della seduta"
 
-#: src/components/Sidebar/index.tsx:383
+#: src/components/Sidebar/index.tsx:391
 msgid "Meeting title cannot be empty"
 msgstr "Il titolo della seduta non può essere vuoto"
 
-#: src/components/Sidebar/index.tsx:407
+#: src/components/Sidebar/index.tsx:416
 msgid "Meeting title updated successfully"
 msgstr "Titolo della seduta aggiornato"
 
@@ -1785,6 +1859,15 @@ msgstr "Mongolo"
 msgid "more transcript"
 msgstr "altra trascrizione"
 
+#: src/components/Patients/PatientDialogs.tsx:405
+msgid "Move"
+msgstr "Sposta"
+
+#: src/components/Patients/PatientDialogs.tsx:376
+#: src/components/Patients/PatientTree.tsx:146
+msgid "Move session"
+msgstr "Sposta seduta"
+
 #: src/components/ImportAudio/ImportAudioDialog.tsx:318
 msgid "MP4, WAV, MP3, FLAC, OGG, MKV, WebM, WMA"
 msgstr "MP4, WAV, MP3, FLAC, OGG, MKV, WebM, WMA"
@@ -1792,6 +1875,11 @@ msgstr "MP4, WAV, MP3, FLAC, OGG, MKV, WebM, WMA"
 #: src/components/LanguageSelection.tsx:104
 msgid "Myanmar"
 msgstr "Birmano"
+
+#: src/components/Patients/PatientDialogs.tsx:76
+#: src/components/Patients/PatientDialogs.tsx:77
+msgid "Name or initials"
+msgstr "Nome o sigla"
 
 #: src/components/LanguageSelection.tsx:71
 msgid "Nepali"
@@ -1801,6 +1889,11 @@ msgstr "Nepalese"
 #: src/components/LockScreen.tsx:150
 msgid "New password"
 msgstr "Nuova password"
+
+#: src/app/patients/page.tsx:43
+#: src/components/Patients/PatientDialogs.tsx:68
+msgid "New patient"
+msgstr "Nuovo paziente"
 
 #: src/components/AISummary/index.tsx:545
 msgid "New Section"
@@ -1815,7 +1908,7 @@ msgstr "Nessun audio"
 msgid "No database found at selected location. Please select the Meetily folder, backend folder, or the database file directly."
 msgstr "Nessun database trovato nella posizione scelta. Seleziona la cartella di Meetily, la cartella backend o direttamente il file del database."
 
-#: src/components/BackupSettings.tsx:429
+#: src/components/BackupSettings.tsx:551
 msgid "No file chosen"
 msgstr "Nessun file scelto"
 
@@ -1859,9 +1952,27 @@ msgstr "Nessun modello trovato. Scarica un modello consigliato oppure premi \"Re
 msgid "No other app is exclusively using the microphone"
 msgstr "Nessun'altra app sta usando il microfono in esclusiva"
 
-#: src/components/BackupSettings.tsx:140
+#: src/components/BackupSettings.tsx:187
+#: src/components/Patients/PatientDialogs.tsx:386
+msgid "No patient"
+msgstr "Senza paziente"
+
+#: src/components/BackupSettings.tsx:208
+msgid "No patients found."
+msgstr "Nessun paziente trovato."
+
+#: src/components/Patients/PatientTree.tsx:256
+msgid "No patients or sessions yet."
+msgstr "Ancora nessun paziente o seduta."
+
+#: src/components/BackupSettings.tsx:154
+#: src/components/Patients/PatientTree.tsx:256
 msgid "No sessions found."
 msgstr "Nessuna seduta trovata."
+
+#: src/components/Patients/PatientTree.tsx:229
+msgid "No sessions yet."
+msgstr "Ancora nessuna seduta."
 
 #: src/hooks/meeting-details/useCopyOperations.ts:112
 #: src/hooks/meeting-details/useCopyOperations.ts:161
@@ -1909,9 +2020,14 @@ msgstr "Norvegese nynorsk"
 msgid "Note:"
 msgstr "Nota:"
 
-#: src/components/BackupSettings.tsx:288
+#: src/components/BackupSettings.tsx:404
 msgid "Notes"
 msgstr "Appunti"
+
+#: src/components/Patients/PatientDialogs.tsx:83
+#: src/components/Patients/PatientDialogs.tsx:84
+msgid "Notes (optional)"
+msgstr "Note (facoltative)"
 
 #: src/components/PreferenceSettings.tsx:177
 msgid "Notifications"
@@ -1934,15 +2050,23 @@ msgstr "Ollama non è installato"
 msgid "Ollama is not installed or not running. Please download and install Ollama to use local models."
 msgstr "Ollama non è installato o non è in esecuzione. Scarica e installa Ollama per usare i modelli locali."
 
+#: src/components/BackupSettings.tsx:258
+msgid "Only some patients"
+msgstr "Solo alcuni pazienti"
+
+#: src/components/BackupSettings.tsx:262
+msgid "Only some sessions"
+msgstr "Solo alcune sedute"
+
 #: src/components/LockScreen.tsx:117
 msgid "Open"
 msgstr "Apri"
 
-#: src/components/BackupSettings.tsx:498
+#: src/components/BackupSettings.tsx:637
 msgid "Open a backup file and bring back the sessions you choose."
 msgstr "Apri un file di backup e recupera le sedute che scegli."
 
-#: src/components/BackupSettings.tsx:436
+#: src/components/BackupSettings.tsx:558
 msgid "Open backup"
 msgstr "Apri il backup"
 
@@ -1963,11 +2087,12 @@ msgstr "Apri la cartella delle registrazioni"
 msgid "Open Screen Recording Settings"
 msgstr "Apri le impostazioni di registrazione dello schermo"
 
-#: src/components/BackupSettings.tsx:436
+#: src/components/BackupSettings.tsx:558
 msgid "Opening..."
 msgstr "Apertura..."
 
 #: src/services/appLockService.ts:16
+#: src/services/patientService.ts:85
 msgid "Operation failed. Please try again."
 msgstr "Operazione non riuscita. Riprova."
 
@@ -1982,6 +2107,25 @@ msgstr "Parakeet supporta per ora solo il rilevamento automatico della lingua: l
 #: src/components/LanguageSelection.tsx:98
 msgid "Pashto"
 msgstr "Pashtu"
+
+#: src/components/Patients/PatientDialogs.tsx:181
+#: src/components/Patients/PatientDialogs.tsx:258
+msgid "Password"
+msgstr "Password"
+
+#: src/components/Patients/PatientDialogs.tsx:380
+#: src/components/Patients/PatientPicker.tsx:67
+msgid "Patient"
+msgstr "Paziente"
+
+#: src/components/Sidebar/index.tsx:754
+msgid "Patients"
+msgstr "Pazienti"
+
+#: src/app/patients/page.tsx:40
+#: src/components/Sidebar/index.tsx:827
+msgid "Patients and sessions"
+msgstr "Pazienti e sedute"
 
 #: src/components/ChunkProgressDisplay.tsx:110
 msgid "Pause"
@@ -2097,7 +2241,7 @@ msgstr "Preferenza salvata"
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: src/components/BackupSettings.tsx:77
+#: src/components/BackupSettings.tsx:91
 msgid "Preparing..."
 msgstr "Preparazione..."
 
@@ -2155,6 +2299,10 @@ msgstr "Avanzamento: {v1}%"
 msgid "Protect access"
 msgstr "Proteggi l'accesso"
 
+#: src/components/Patients/PatientDialogs.tsx:173
+msgid "Protect folder with a password"
+msgstr "Proteggi la cartella con una password"
+
 #: src/components/LanguageSelection.tsx:79
 msgid "Punjabi"
 msgstr "Punjabi"
@@ -2207,8 +2355,8 @@ msgstr "Registrazione"
 msgid "Recording Failed"
 msgstr "Registrazione non riuscita"
 
-#: src/components/Sidebar/index.tsx:490
-#: src/components/Sidebar/index.tsx:786
+#: src/components/Sidebar/index.tsx:499
+#: src/components/Sidebar/index.tsx:812
 msgid "Recording in progress..."
 msgstr "Registrazione in corso..."
 
@@ -2225,7 +2373,7 @@ msgstr "Registrazione in pausa"
 msgid "Recording permissions are required. Please:\n• Grant microphone access in System Settings\n• Grant screen recording access for system audio (macOS)\n• Restart the app after granting permissions"
 msgstr "Servono i permessi di registrazione. Per favore:\n• Concedi l'accesso al microfono nelle Impostazioni di Sistema\n• Concedi l'accesso alla registrazione dello schermo per l'audio di sistema (macOS)\n• Riavvia l'app dopo aver concesso i permessi"
 
-#: src/hooks/useRecordingStop.ts:327
+#: src/hooks/useRecordingStop.ts:339
 msgid "Recording saved successfully!"
 msgstr "Registrazione salvata!"
 
@@ -2285,17 +2433,26 @@ msgstr "Rigenera il riassunto AI"
 msgid "Regenerate Summary"
 msgstr "Rigenera il riassunto"
 
-#: src/components/BackupSettings.tsx:412
+#: src/components/BackupSettings.tsx:534
 msgid "Reload the app"
 msgstr "Ricarica l'app"
+
+#: src/components/Patients/PatientDialogs.tsx:189
+msgid "Remove password"
+msgstr "Rimuovi password"
+
+#: src/components/Patients/PatientDialogs.tsx:68
+#: src/components/Patients/PatientTree.tsx:195
+msgid "Rename patient"
+msgstr "Rinomina paziente"
 
 #: src/components/LockScreen.tsx:155
 #: src/components/LockScreen.tsx:158
 msgid "Repeat the new password"
 msgstr "Ripeti la nuova password"
 
-#: src/components/BackupSettings.tsx:272
-#: src/components/onboarding/steps/SecurityStep.tsx:107
+#: src/components/BackupSettings.tsx:388
+#: src/components/Patients/PatientDialogs.tsx:182
 msgid "Repeat the password"
 msgstr "Ripeti la password"
 
@@ -2315,20 +2472,26 @@ msgstr "Reimposta e apri"
 msgid "Resize transcript and summary"
 msgstr "Ridimensiona trascrizione e riassunto"
 
-#: src/components/BackupSettings.tsx:453
+#: src/components/BackupSettings.tsx:589
+#: src/components/BackupSettings.tsx:591
 msgid "Restore {count} sessions"
 msgstr "Ripristina {count} sedute"
 
-#: src/components/BackupSettings.tsx:424
-#: src/components/BackupSettings.tsx:497
+#: src/components/BackupSettings.tsx:546
+#: src/components/BackupSettings.tsx:636
 msgid "Restore from a backup"
 msgstr "Ripristina da un backup"
 
-#: src/components/BackupSettings.tsx:79
+#: src/components/Patients/PatientTree.tsx:213
+#: src/components/Patients/PatientTree.tsx:214
+msgid "Restore patient"
+msgstr "Ripristina paziente"
+
+#: src/components/BackupSettings.tsx:93
 msgid "Restoring audio {done}..."
 msgstr "Ripristino dell'audio {done}..."
 
-#: src/components/BackupSettings.tsx:453
+#: src/components/BackupSettings.tsx:587
 msgid "Restoring..."
 msgstr "Ripristino..."
 
@@ -2419,26 +2582,31 @@ msgstr "Salvataggio..."
 msgid "Search language..."
 msgstr "Cerca una lingua..."
 
-#: src/components/Sidebar/index.tsx:700
-msgid "Search meeting content..."
-msgstr "Cerca nel contenuto delle sedute..."
-
 #: src/components/ModelSettingsModal.tsx:542
 #: src/components/ModelSettingsModal.tsx:663
 msgid "Search models..."
 msgstr "Cerca modelli..."
 
-#: src/components/BackupSettings.tsx:120
-#: src/components/BackupSettings.tsx:121
+#: src/app/patients/page.tsx:52
+#: src/app/patients/page.tsx:53
+msgid "Search patients and sessions..."
+msgstr "Cerca pazienti e sedute..."
+
+#: src/components/BackupSettings.tsx:199
+msgid "Search patients..."
+msgstr "Cerca pazienti..."
+
+#: src/components/BackupSettings.tsx:134
+#: src/components/BackupSettings.tsx:135
 msgid "Search sessions..."
 msgstr "Cerca nelle sedute..."
 
-#: src/components/Sidebar/index.tsx:604
-#: src/components/Sidebar/index.tsx:751
+#: src/components/Sidebar/index.tsx:613
+#: src/components/Sidebar/index.tsx:756
 msgid "Searching..."
 msgstr "Ricerca in corso..."
 
-#: src/components/BackupSettings.tsx:273
+#: src/components/BackupSettings.tsx:389
 #: src/components/onboarding/steps/SecurityStep.tsx:119
 msgid "Secret question"
 msgstr "Domanda segreta"
@@ -2455,7 +2623,8 @@ msgstr "Seleziona una seduta per l'anteprima"
 msgid "Select a specific language to improve accuracy, or use auto-detect"
 msgstr "Scegli una lingua specifica per migliorare la precisione, oppure usa il rilevamento automatico"
 
-#: src/components/BackupSettings.tsx:129
+#: src/components/BackupSettings.tsx:143
+#: src/components/BackupSettings.tsx:201
 msgid "Select all"
 msgstr "Seleziona tutte"
 
@@ -2481,7 +2650,8 @@ msgstr "Seleziona il modello"
 msgid "Select model..."
 msgstr "Seleziona il modello..."
 
-#: src/components/BackupSettings.tsx:136
+#: src/components/BackupSettings.tsx:150
+#: src/components/BackupSettings.tsx:204
 msgid "Select none"
 msgstr "Deseleziona tutte"
 
@@ -2514,12 +2684,21 @@ msgstr "Selezione..."
 msgid "Serbian"
 msgstr "Serbo"
 
-#: src/components/BackupSettings.tsx:448
+#: src/components/Patients/PatientDialogs.tsx:393
+#: src/components/Patients/PatientPicker.tsx:87
+msgid "Session day"
+msgstr "Giorno della seduta"
+
+#: src/components/Patients/PatientTree.tsx:289
+msgid "Session moved"
+msgstr "Seduta spostata"
+
+#: src/components/BackupSettings.tsx:570
 msgid "Sessions already in the app are never overwritten."
 msgstr "Le sedute già presenti nell'app non vengono mai sovrascritte."
 
-#: src/components/BackupSettings.tsx:275
-#: src/components/onboarding/steps/SecurityStep.tsx:146
+#: src/components/BackupSettings.tsx:391
+#: src/components/Patients/PatientDialogs.tsx:193
 msgid "Set password"
 msgstr "Imposta la password"
 
@@ -2532,7 +2711,7 @@ msgid "Set your preferred microphone and system audio devices for recording. The
 msgstr "Scegli i dispositivi preferiti per microfono e audio di sistema. Verranno selezionati automaticamente all'avvio di una nuova registrazione."
 
 #: src/app/settings/page.tsx:81
-#: src/components/Sidebar/index.tsx:539
+#: src/components/Sidebar/index.tsx:548
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -2543,6 +2722,11 @@ msgstr "Riepilogo della configurazione"
 #: src/components/LanguageSelection.tsx:82
 msgid "Shona"
 msgstr "Shona"
+
+#: src/app/patients/page.tsx:59
+#: src/components/Sidebar/index.tsx:769
+msgid "Show archived"
+msgstr "Mostra archiviati"
 
 #: src/app/_components/SettingsModal.tsx:280
 msgid "Show Confidence Indicators"
@@ -2619,8 +2803,8 @@ msgstr "Ricomincia da zero (senza importare)"
 msgid "Start recording"
 msgstr "Avvia la registrazione"
 
-#: src/components/Sidebar/index.tsx:490
-#: src/components/Sidebar/index.tsx:791
+#: src/components/Sidebar/index.tsx:499
+#: src/components/Sidebar/index.tsx:817
 msgid "Start Recording"
 msgstr "Avvia registrazione"
 
@@ -2661,7 +2845,7 @@ msgstr "Arresto in corso..."
 msgid "Success!"
 msgstr "Fatto!"
 
-#: src/components/BackupSettings.tsx:287
+#: src/components/BackupSettings.tsx:403
 msgid "Summaries"
 msgstr "Riassunti"
 
@@ -2815,7 +2999,7 @@ msgstr "Tailandese"
 msgid "The download is still shutting down. Retry will be available when cleanup completes."
 msgstr "Il download si sta ancora chiudendo. Potrai riprovare al termine della pulizia."
 
-#: src/components/BackupSettings.tsx:325
+#: src/components/BackupSettings.tsx:435
 msgid "The file can be saved anywhere (computer, USB drive, Dropbox, Google Drive...). It stays unreadable without your master password, and the app never connects to those services."
 msgstr "Il file si può salvare ovunque (computer, chiavetta USB, Dropbox, Google Drive...). Resta illeggibile senza la tua password master, e l'app non si collega mai a quei servizi."
 
@@ -2823,11 +3007,11 @@ msgstr "Il file si può salvare ovunque (computer, chiavetta USB, Dropbox, Googl
 msgid "The imported meeting was saved, but the default summary language was not applied."
 msgstr "La seduta importata è stata salvata, ma la lingua predefinita del riassunto non è stata applicata."
 
-#: src/hooks/useRecordingStop.ts:288
+#: src/hooks/useRecordingStop.ts:300
 msgid "The meeting was saved, but Auto could not detect the summary language."
 msgstr "La seduta è stata salvata, ma \"Auto\" non ha rilevato la lingua del riassunto."
 
-#: src/hooks/useRecordingStop.ts:275
+#: src/hooks/useRecordingStop.ts:287
 msgid "The meeting was saved, but the default summary language was not applied."
 msgstr "La seduta è stata salvata, ma la lingua predefinita del riassunto non è stata applicata."
 
@@ -2839,16 +3023,28 @@ msgstr "La nuova password deve avere almeno {MIN_PASSWORD_LENGTH} caratteri."
 msgid "The password"
 msgstr "La password"
 
-#: src/components/BackupSettings.tsx:188
-#: src/components/onboarding/steps/SecurityStep.tsx:38
+#: src/components/Patients/PatientDialogs.tsx:175
+msgid "The password locks this folder in the app. It does not yet encrypt the files on disk. If you forget it, this folder cannot be opened: there is no recovery."
+msgstr "La password blocca questa cartella nell'app, ma non cifra ancora i file su disco. Se la dimentichi la cartella non si potrà aprire: non esiste un recupero."
+
+#: src/components/BackupSettings.tsx:302
+#: src/components/Patients/PatientDialogs.tsx:135
 msgid "The password must have at least {MIN_PASSWORD_LENGTH} characters."
 msgstr "La password deve avere almeno {MIN_PASSWORD_LENGTH} caratteri."
+
+#: src/hooks/useRecordingStop.ts:269
+msgid "The patient folder was locked or no longer exists. You can move the session from the patient list."
+msgstr "La cartella del paziente era bloccata o non esiste più. Puoi spostare la seduta dall'elenco dei pazienti."
 
 #: src/hooks/useTranscriptRecovery.ts:193
 msgid "The recovered meeting was saved, but the default summary language was not applied."
 msgstr "La seduta recuperata è stata salvata, ma la lingua predefinita del riassunto non è stata applicata."
 
-#: src/components/BackupSettings.tsx:192
+#: src/hooks/useRecordingStop.ts:268
+msgid "The session was saved under \"No patient\""
+msgstr "La seduta è stata salvata in \"Senza paziente\""
+
+#: src/components/BackupSettings.tsx:306
 #: src/components/LockScreen.tsx:59
 msgid "The two passwords do not match."
 msgstr "Le due password non coincidono."
@@ -2856,6 +3052,10 @@ msgstr "Le due password non coincidono."
 #: src/components/BetaSettings.tsx:26
 msgid "These features are still being tested. You may encounter issues, and we appreciate your feedback."
 msgstr "Queste funzioni sono ancora in prova. Potresti incontrare problemi e ti ringraziamo per il tuo feedback."
+
+#: src/services/patientService.ts:83
+msgid "This folder is locked. Unlock it with its password first."
+msgstr "Questa cartella è bloccata. Sbloccala prima con la sua password."
 
 #: src/components/ParakeetModelManager.tsx:313
 #: src/components/WhisperModelManager.tsx:379
@@ -2874,7 +3074,7 @@ msgstr "Tibetano"
 msgid "To enable system audio on macOS:"
 msgstr "Per attivare l'audio di sistema su macOS:"
 
-#: src/components/BackupSettings.tsx:251
+#: src/components/BackupSettings.tsx:367
 msgid "To open this backup you will need the master password you used today. Keep it in a safe place: without it the backup cannot be recovered."
 msgstr "Per aprire questo backup servirà la password master che hai usato oggi. Conservala in un posto sicuro: senza di essa il backup non si può recuperare."
 
@@ -2941,7 +3141,7 @@ msgstr "Avviso sulle prestazioni di trascrizione"
 msgid "Transcription will be optimized for"
 msgstr "La trascrizione sarà ottimizzata per"
 
-#: src/components/BackupSettings.tsx:286
+#: src/components/BackupSettings.tsx:402
 msgid "Transcripts"
 msgstr "Trascrizioni"
 
@@ -3007,6 +3207,14 @@ msgstr "Impossibile acquisire l'audio di sistema. Controlla che:\n• Sia instal
 msgid "Unable to start recording. Please check your audio device settings and try again."
 msgstr "Impossibile avviare la registrazione. Controlla le impostazioni dei dispositivi audio e riprova."
 
+#: src/components/Patients/PatientDialogs.tsx:265
+msgid "Unlock"
+msgstr "Sblocca"
+
+#: src/components/Patients/PatientDialogs.tsx:248
+msgid "Unlock folder"
+msgstr "Sblocca cartella"
+
 #: src/components/TranscriptSettings.tsx:176
 msgid "Unlock to edit"
 msgstr "Sblocca per modificare"
@@ -3026,6 +3234,10 @@ msgstr "Richiesta conformità USA"
 #: src/components/About.tsx:43
 msgid "Use Any Model"
 msgstr "Usa il modello che preferisci"
+
+#: src/components/Patients/PatientDialogs.tsx:69
+msgid "Use the name or an initials code, as you prefer."
+msgstr "Usa il nome oppure una sigla, come preferisci."
 
 #: src/components/ParakeetModelManager.tsx:458
 #: src/components/WhisperModelManager.tsx:556
@@ -3072,7 +3284,7 @@ msgstr "Vietnamita"
 msgid "View and access where Trascrivi Seduta stores your data"
 msgstr "Vedi e apri la cartella in cui Trascrivi Seduta salva i tuoi dati"
 
-#: src/app/page.tsx:132
+#: src/app/page.tsx:133
 msgid "View Meeting"
 msgstr "Vedi la seduta"
 
@@ -3117,7 +3329,7 @@ msgstr "Gallese"
 msgid "What makes Trascrivi Seduta different"
 msgstr "Cosa rende diverso Trascrivi Seduta"
 
-#: src/components/BackupSettings.tsx:283
+#: src/components/BackupSettings.tsx:399
 msgid "What to include"
 msgstr "Cosa includere"
 
@@ -3125,9 +3337,9 @@ msgstr "Cosa includere"
 msgid "When disabled, beta features will be hidden. Your existing meetings remain unaffected."
 msgstr "Se disattivate, le funzioni beta saranno nascoste. Le sedute esistenti non cambiano."
 
-#: src/components/BackupSettings.tsx:300
-msgid "Which sessions"
-msgstr "Quali sedute"
+#: src/components/BackupSettings.tsx:416
+msgid "Which patients and sessions"
+msgstr "Quali pazienti e sedute"
 
 #: src/components/BluetoothPlaybackWarning.tsx:78
 msgid "wired headphones"
@@ -3165,11 +3377,13 @@ msgstr "Scrivi la risposta alla domanda segreta."
 msgid "Wrong answer."
 msgstr "Risposta errata."
 
-#: src/components/BackupSettings.tsx:61
+#: src/components/BackupSettings.tsx:75
+#: src/services/patientService.ts:84
 msgid "Wrong password."
 msgstr "Password errata."
 
 #: src/components/LockScreen.tsx:34
+#: src/components/Patients/PatientDialogs.tsx:130
 msgid "Wrong password. After a few mistakes the wait gets longer."
 msgstr "Password errata. Dopo alcuni errori l’attesa si allunga."
 

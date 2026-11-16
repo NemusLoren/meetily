@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { ChevronDown, ChevronRight, File, Settings, ChevronLeftCircle, ChevronRightCircle, Calendar, StickyNote, Home, Trash2, Mic, Square, Plus, Search, Pencil, NotebookPen, SearchIcon, X, Upload } from 'lucide-react';
+import { UserPlus, Users, ChevronDown, ChevronRight, File, Settings, ChevronLeftCircle, ChevronRightCircle, Calendar, StickyNote, Home, Trash2, Mic, Square, Plus, Search, Pencil, NotebookPen, SearchIcon, X, Upload } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useSidebar } from './SidebarProvider';
 import type { CurrentMeeting } from '@/components/Sidebar/SidebarProvider';
@@ -30,6 +30,7 @@ import Logo from '../Logo';
 import FeedbackLink from '../FeedbackLink';
 import { ComplianceNotification } from '../ComplianceNotification';
 import { Input } from '../ui/input';
+import { PatientTree } from '../Patients/PatientTree';
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '../ui/input-group';
 
 import { t } from '@/i18n';
@@ -55,8 +56,14 @@ const Sidebar: React.FC = () => {
     isSearching,
     meetings,
     setMeetings,
-    serverAddress
+    serverAddress,
+    patientsTree,
+    refetchPatients,
+    showArchivedPatients,
+    setShowArchivedPatients,
   } = useSidebar();
+  const [newPatientOpen, setNewPatientOpen] = useState(false);
+  const matchedIds = useMemo(() => new Set(searchResults.map((r: { id: string }) => r.id)), [searchResults]);
 
   // Get recording state from RecordingStateContext (single source of truth)
   const { isRecording } = useRecordingState();
@@ -333,6 +340,7 @@ const Sidebar: React.FC = () => {
       console.log('Meeting deleted successfully');
       const updatedMeetings = meetings.filter((m: CurrentMeeting) => m.id !== itemId);
       setMeetings(updatedMeetings);
+      void refetchPatients();
 
       // Track meeting deletion
       Analytics.trackMeetingDeleted(itemId);
@@ -395,6 +403,7 @@ const Sidebar: React.FC = () => {
         m.id === meetingId ? { ...m, title: newTitle } : m
       );
       setMeetings(updatedMeetings);
+      void refetchPatients();
 
       // Update current meeting if it's the one being edited
       if (currentMeeting?.id === meetingId) {
@@ -697,7 +706,7 @@ const Sidebar: React.FC = () => {
 
                 <div className="relative mb-1">
                   <InputGroup >
-                    <InputGroupInput placeholder={t("Search meeting content...")} value={searchQuery}
+                    <InputGroupInput placeholder={t("Search patients and sessions...")} value={searchQuery}
                       onChange={(e) => handleSearchChange(e.target.value)}
                     />
                     <InputGroupAddon>
@@ -737,35 +746,52 @@ const Sidebar: React.FC = () => {
           {/* Content area */}
           <div className="flex-1 flex flex-col min-h-0">
             {renderCollapsedIcons()}
-            {/* Meeting Notes folder header - fixed */}
+            {/* Cartelle per paziente: intestazione */}
             {!isCollapsed && (
               <div className="flex-shrink-0">
-                {filteredSidebarItems.filter(item => item.type === 'folder').map(item => (
-                  <div key={item.id}>
-                    <div
-                      className="flex items-center transition-all duration-150 p-3 text-lg font-semibold h-10 mx-3 mt-3 rounded-lg"
-                    >
-                      <NotebookPen className="w-4 h-4 mr-2 text-gray-600" />
-                      <span className="text-gray-700">{item.title}</span>
-                      {searchQuery && item.id === 'meetings' && isSearching && (
-                        <span className="ml-2 text-xs text-blue-500 animate-pulse">{t("Searching...")}</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                <div className="mx-3 mt-3 flex h-10 items-center rounded-lg p-3 text-lg font-semibold">
+                  <Users className="mr-2 h-4 w-4 text-gray-600" />
+                  <span className="flex-1 text-gray-700">{t("Patients")}</span>
+                  {searchQuery && isSearching && (
+                    <span className="mr-2 animate-pulse text-xs text-blue-500">{t("Searching...")}</span>
+                  )}
+                  <button
+                    onClick={() => setNewPatientOpen(true)}
+                    className="rounded-md p-1 text-gray-600 hover:bg-gray-100"
+                    aria-label={t("New patient")}
+                    title={t("New patient")}
+                  >
+                    <UserPlus className="h-4 w-4" />
+                  </button>
+                </div>
+                <label className="mx-6 mb-1 flex items-center gap-2 text-xs text-gray-500">
+                  <input type="checkbox" checked={showArchivedPatients} onChange={(e) => setShowArchivedPatients(e.target.checked)} />
+                  {t("Show archived")}
+                </label>
               </div>
             )}
 
-            {/* Scrollable meeting items */}
+            {/* Pazienti > giorni > sedute */}
             {!isCollapsed && (
-              <div className="flex-1 overflow-y-auto custom-scrollbar min-h-0">
-                {filteredSidebarItems
-                  .filter(item => item.type === 'folder' && expandedFolders.has(item.id) && item.children)
-                  .map(item => (
-                    <div key={`${item.id}-children`} className="mx-3">
-                      {item.children!.map(child => renderItem(child, 1))}
-                    </div>
-                  ))}
+              <div className="min-h-0 flex-1 overflow-y-auto custom-scrollbar">
+                <div className="mx-3">
+                  <PatientTree
+                    tree={patientsTree}
+                    query={searchQuery}
+                    matchedIds={matchedIds}
+                    compact
+                    currentMeetingId={currentMeeting?.id}
+                    onOpenSession={(id, title) => {
+                      setCurrentMeeting({ id, title });
+                      router.push(`/meeting-details?id=${id}`);
+                    }}
+                    onRenameSession={handleEditStart}
+                    onDeleteSession={(id) => setDeleteModalState({ isOpen: true, itemId: id })}
+                    onChanged={refetchPatients}
+                    newPatientOpen={newPatientOpen}
+                    onNewPatientClose={() => setNewPatientOpen(false)}
+                  />
+                </div>
               </div>
             )}
           </div>
@@ -791,6 +817,14 @@ const Sidebar: React.FC = () => {
                   <span>{t("Start Recording")}</span>
                 </>
               )}
+            </button>
+
+            <button
+              onClick={() => router.push('/patients')}
+              className="w-full flex items-center justify-center px-3 py-2 mt-1 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors shadow-sm"
+            >
+              <Users className="w-4 h-4 mr-2" />
+              <span>{t("Patients and sessions")}</span>
             </button>
 
             {betaFeatures.importAndRetranscribe && (
@@ -821,7 +855,7 @@ const Sidebar: React.FC = () => {
       {/* Confirmation Modal for Delete */}
       <ConfirmationModal
         isOpen={deleteModalState.isOpen}
-        text="Are you sure you want to delete this meeting? This action cannot be undone."
+        text={t("Are you sure you want to delete this meeting? This action cannot be undone.")}
         onConfirm={handleDeleteConfirm}
         onCancel={() => setDeleteModalState({ isOpen: false, itemId: null })}
       />

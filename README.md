@@ -25,9 +25,9 @@ A chi fa colloqui clinici e vuole smettere di prendere appunti a mano senza affi
 | Interfaccia in italiano (lingua predefinita) | ✅ quasi tutta: restano alcuni messaggi dal nucleo nativo, da verificare nell'app |
 | Altre lingue tramite file `.po`, scelte in Impostazioni | ✅ disponibili italiano e inglese; altre si aggiungono con un file `.po` ([guida](docs/TRADUZIONI.md)) |
 | Password master facoltativa all'avvio, con domanda segreta per reimpostarla | ✅ disponibile: blocca l'apertura dell'app (password protetta con Argon2id) |
-| Backup cifrato con la password master (tutto, solo alcune sedute, solo alcuni tipi di file), da salvare dove vuoi | ✅ disponibile in Impostazioni → Backup ([guida](docs/BACKUP.md)) |
+| Backup cifrato con la password master (tutto, solo alcuni pazienti, solo alcune sedute, solo alcuni tipi di file), da salvare dove vuoi | ✅ disponibile in Impostazioni → Backup ([guida](docs/BACKUP.md)) |
 | Cifratura dei dati (database e audio) | 🚧 pianificato: **oggi i dati NON sono cifrati**, la password non protegge i file sul disco |
-| Cartelle per paziente, con password facoltativa, e sottocartelle per giorno di seduta | 🚧 pianificato |
+| Cartelle per paziente, con password facoltativa, e sottocartelle per giorno di seduta | ✅ disponibile ([guida](docs/PAZIENTI.md)): la password della cartella è oggi un blocco di interfaccia, **non cifra** i dati; le cartelle sono logiche (nell'archivio), non cartelle su disco |
 | Riassunti solo con modelli locali (provider cloud rimossi) | ✅ fatto: restano Ollama e il modello integrato |
 | Nessuna statistica d'uso né icona scaricata da internet | ✅ fatto: rimosse del tutto |
 | Aggiornamenti automatici | ❌ non previsti per ora: si scarica la nuova versione a mano |

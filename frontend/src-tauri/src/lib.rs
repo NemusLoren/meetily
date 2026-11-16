@@ -46,6 +46,7 @@ pub mod ollama;
 pub mod onboarding;
 pub mod app_lock;
 pub mod backup;
+pub mod patients;
 pub mod parakeet_engine;
 pub mod state;
 pub mod summary;
@@ -573,6 +574,7 @@ pub fn run() {
         )) as NotificationManagerState<tauri::Wry>)
         .manage(audio::init_system_audio_state())
         .manage(app_lock::AppLockState::default())
+        .manage(patients::PatientLockState::default())
         .manage(summary::summary_engine::ModelManagerState(Arc::new(tokio::sync::Mutex::new(None))))
         .setup(|_app| {
             let verbose = cfg!(debug_assertions)
@@ -901,6 +903,17 @@ pub fn run() {
             app_lock::app_lock_setup,
             app_lock::app_lock_verify,
             app_lock::app_lock_reset,
+            patients::patients_list,
+            patients::patient_create,
+            patients::patient_update,
+            patients::patient_set_archived,
+            patients::patient_delete,
+            patients::patient_set_password,
+            patients::patient_remove_password,
+            patients::patient_unlock,
+            patients::patient_lock,
+            patients::meeting_assign_patient,
+            backup::backup_list_patients,
             backup::backup_list_meetings,
             backup::backup_pick_save_path,
             backup::backup_pick_open_path,

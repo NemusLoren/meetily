@@ -807,6 +807,7 @@ pub async fn api_get_meeting<R: Runtime>(
     meeting_id: String,
     state: tauri::State<'_, AppState>,
     auth_token: Option<String>,
+    patient_lock: tauri::State<'_, crate::patients::PatientLockState>,
 ) -> Result<MeetingDetails, String> {
     log_info!(
         "api_get_meeting called(native) for meeting_id: {}, auth_token: {}",
@@ -815,6 +816,9 @@ pub async fn api_get_meeting<R: Runtime>(
     );
 
     let pool = state.db_manager.pool();
+
+    // Le sedute di una cartella protetta restano chiuse finché non è sbloccata.
+    crate::patients::ensure_meeting_open(pool, &patient_lock, &meeting_id).await?;
 
     match MeetingsRepository::get_meeting(pool, &meeting_id).await {
         Ok(Some(meeting)) => {
@@ -958,6 +962,9 @@ pub async fn api_save_transcript<R: Runtime>(
     transcripts: Vec<serde_json::Value>,
     folder_path: Option<String>,
     auth_token: Option<String>,
+    patient_id: Option<String>,
+    session_date: Option<String>,
+    patient_lock: tauri::State<'_, crate::patients::PatientLockState>,
 ) -> Result<serde_json::Value, String> {
     log_info!(
         "Transcript save requested; transcript_count={}, folder_configured={}, auth_present={}",
@@ -979,6 +986,20 @@ pub async fn api_save_transcript<R: Runtime>(
 
     let pool = state.db_manager.pool();
 
+    // Cartella paziente (facoltativa). Se è chiusa o non esiste più la trascrizione viene salvata
+    // comunque (mai perdere una seduta) in "Senza paziente", e la risposta lo segnala.
+    let requested_patient = patient_id.clone();
+    let mut patient_id = patient_id;
+    if let Some(pid) = patient_id.clone() {
+        if crate::patients::ensure_open(pool, &patient_lock, &pid).await.is_err() {
+            log_warn!("Patient folder not available at save time; saving without patient");
+            patient_id = None;
+        }
+    }
+    if let Some(d) = session_date.as_deref() {
+        crate::database::repositories::patient::validate_session_date(d)?;
+    }
+
     // Now, call the repository with the correctly typed data.
     match TranscriptsRepository::save_transcript(
         pool,
@@ -993,9 +1014,24 @@ pub async fn api_save_transcript<R: Runtime>(
                 "Successfully saved transcript and created meeting with id: {}",
                 meeting_id
             );
+            let mut assigned = requested_patient.is_none() || patient_id.is_some();
+            if patient_id.is_some() || session_date.is_some() {
+                if let Err(e) = crate::database::repositories::patient::PatientsRepository::assign_meeting(
+                    pool,
+                    &meeting_id,
+                    patient_id.as_deref(),
+                    session_date.as_deref(),
+                )
+                .await
+                {
+                    log_error!("Meeting saved but patient assignment failed: {}", e);
+                    assigned = false;
+                }
+            }
             Ok(serde_json::json!({
                 "status": "success",
                 "message": "Transcript saved successfully",
+                "patient_assigned": assigned,
                 "meeting_id": meeting_id
             }))
         }

@@ -16,7 +16,19 @@ interface MeetingInfo {
   created_at: string;
   audio_files: number;
   audio_bytes: number;
+  patient_id: string | null;
+  session_date: string | null;
 }
+
+interface PatientInfo {
+  id: string;
+  name: string;
+  protected: boolean;
+  sessionCount: number;
+}
+
+/** Voce virtuale per le sedute senza paziente. */
+const NO_PATIENT = '__none__';
 
 interface Include {
   transcripts: boolean;
@@ -35,13 +47,15 @@ interface BackupResult {
 interface Manifest {
   created_at: string;
   include: Include;
-  meetings: { id: string; title: string; created_at: string; audio_files: number }[];
+  meetings: { id: string; title: string; created_at: string; audio_files: number; patient_id?: string | null; session_date?: string | null }[];
+  patients?: { id: string; name: string; protected: boolean }[];
 }
 
 interface RestoreResult {
   restored: number;
   skippedExisting: number;
   audioFiles: number;
+  patientsRestored: number;
 }
 
 const formatBytes = (n: number): string => {
@@ -155,12 +169,110 @@ function SessionList({
   );
 }
 
+/** Scelta dei pazienti (e di "Senza paziente") con ricerca. */
+function PatientList({
+  patients,
+  counts,
+  selected,
+  onChange,
+}: {
+  patients: { id: string; name: string; protected?: boolean }[];
+  /** Numero di sedute per paziente (chiave NO_PATIENT per le sedute senza paziente). */
+  counts: Record<string, number>;
+  selected: Set<string>;
+  onChange: (next: Set<string>) => void;
+}) {
+  const [query, setQuery] = useState('');
+  const rows = useMemo(() => {
+    const all = [...patients.map((p) => ({ ...p })), { id: NO_PATIENT, name: t("No patient"), protected: false }];
+    return all.filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase()));
+  }, [patients, query]);
+  const toggle = (id: string) => {
+    const next = new Set(selected);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    onChange(next);
+  };
+  return (
+    <div className="mt-3 rounded-md border border-gray-200">
+      <div className="flex items-center gap-2 border-b border-gray-200 p-2">
+        <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("Search patients...")} aria-label={t("Search patients...")} className="h-8" />
+        <button type="button" className="whitespace-nowrap text-sm text-blue-600 hover:underline" onClick={() => onChange(new Set(rows.map((p) => p.id).concat([...selected])))}>
+          {t("Select all")}
+        </button>
+        <button type="button" className="whitespace-nowrap text-sm text-blue-600 hover:underline" onClick={() => onChange(new Set())}>
+          {t("Select none")}
+        </button>
+      </div>
+      <ul className="max-h-64 divide-y divide-gray-100 overflow-y-auto">
+        {rows.length === 0 && <li className="p-3 text-sm text-gray-500">{t("No patients found.")}</li>}
+        {rows.map((p) => (
+          <li key={p.id}>
+            <label className="flex cursor-pointer items-center gap-3 p-2 text-sm hover:bg-gray-50">
+              <input type="checkbox" checked={selected.has(p.id)} onChange={() => toggle(p.id)} />
+              <span className="flex-1 truncate">{p.name}{p.protected ? ' 🔒' : ''}</span>
+              <span className="text-xs text-gray-500">{t("{count} sessions", { count: counts[p.id] ?? 0 })}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Id delle sedute che appartengono ai pazienti scelti. */
+function meetingsOfPatients(meetings: { id: string; patient_id?: string | null }[], chosen: Set<string>): string[] {
+  return meetings
+    .filter((m) => (m.patient_id ? chosen.has(m.patient_id) : chosen.has(NO_PATIENT)))
+    .map((m) => m.id);
+}
+
+function countByPatient(meetings: { patient_id?: string | null }[]): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const m of meetings) {
+    const key = m.patient_id ?? NO_PATIENT;
+    counts[key] = (counts[key] ?? 0) + 1;
+  }
+  return counts;
+}
+
+function ScopeChooser({
+  scope,
+  setScope,
+  total,
+  idPrefix,
+}: {
+  scope: 'all' | 'patients' | 'some';
+  setScope: (s: 'all' | 'patients' | 'some') => void;
+  total: number;
+  idPrefix: string;
+}) {
+  return (
+    <div className="mt-3 space-y-2 text-sm text-gray-700">
+      <label className="flex items-center gap-2">
+        <input type="radio" name={`${idPrefix}-scope`} checked={scope === 'all'} onChange={() => setScope('all')} />
+        {t("All patients and sessions ({count} sessions)", { count: total })}
+      </label>
+      <label className="flex items-center gap-2">
+        <input type="radio" name={`${idPrefix}-scope`} checked={scope === 'patients'} onChange={() => setScope('patients')} />
+        {t("Only some patients")}
+      </label>
+      <label className="flex items-center gap-2">
+        <input type="radio" name={`${idPrefix}-scope`} checked={scope === 'some'} onChange={() => setScope('some')} />
+        {t("Only some sessions")}
+      </label>
+    </div>
+  );
+}
+
 function CreateBackup({ onBack }: { onBack: () => void }) {
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [meetings, setMeetings] = useState<MeetingInfo[]>([]);
   const [include, setInclude] = useState<Include>({ transcripts: true, summaries: true, notes: true, audio: true });
-  const [scope, setScope] = useState<'all' | 'some'>('all');
+  const [patients, setPatients] = useState<PatientInfo[]>([]);
+  const [scope, setScope] = useState<'all' | 'patients' | 'some'>('all');
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [selectedPatients, setSelectedPatients] = useState<Set<string>>(new Set());
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -176,11 +288,13 @@ function CreateBackup({ onBack }: { onBack: () => void }) {
   useEffect(() => {
     appLockService.status().then((s) => setConfigured(s.configured)).catch(() => setConfigured(false));
     invoke<MeetingInfo[]>('backup_list_meetings').then(setMeetings).catch((e) => setError(errorText(e)));
+    invoke<PatientInfo[]>('backup_list_patients').then(setPatients).catch((e) => setError(errorText(e)));
   }, []);
 
   const audioTotal = useMemo(() => meetings.reduce((sum, m) => sum + m.audio_bytes, 0), [meetings]);
   const nothingSelected = !(include.transcripts || include.summaries || include.notes || include.audio);
-  const noSessions = scope === 'some' && selected.size === 0;
+  const noSessions = (scope === 'some' && selected.size === 0) || (scope === 'patients' && selectedPatients.size === 0);
+  const patientCounts = useMemo(() => countByPatient(meetings), [meetings]);
 
   const createMasterPassword = async () => {
     setError(null);
@@ -216,7 +330,9 @@ function CreateBackup({ onBack }: { onBack: () => void }) {
       const res = await invoke<BackupResult>('backup_create', {
         request: {
           password,
-          meetingIds: scope === 'all' ? null : [...selected],
+          meetingIds:
+            scope === 'all' ? null : scope === 'some' ? [...selected] : meetingsOfPatients(meetings, selectedPatients),
+          patientIds: scope === 'patients' ? [...selectedPatients].filter((id) => id !== NO_PATIENT) : null,
           include,
           destination,
         },
@@ -297,17 +413,11 @@ function CreateBackup({ onBack }: { onBack: () => void }) {
           </div>
 
           <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-            <p className="text-sm font-semibold text-gray-900">{t("Which sessions")}</p>
-            <div className="mt-3 space-y-2 text-sm text-gray-700">
-              <label className="flex items-center gap-2">
-                <input type="radio" name="scope" checked={scope === 'all'} onChange={() => setScope('all')} />
-                {t("All sessions ({count})", { count: meetings.length })}
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="radio" name="scope" checked={scope === 'some'} onChange={() => setScope('some')} />
-                {t("Choose sessions")}
-              </label>
-            </div>
+            <p className="text-sm font-semibold text-gray-900">{t("Which patients and sessions")}</p>
+            <ScopeChooser scope={scope} setScope={setScope} total={meetings.length} idPrefix="create" />
+            {scope === 'patients' && (
+              <PatientList patients={patients} counts={patientCounts} selected={selectedPatients} onChange={setSelectedPatients} />
+            )}
             {scope === 'some' && (
               <SessionList meetings={meetings} selected={selected} onChange={setSelected} showAudio={include.audio} />
             )}
@@ -348,6 +458,8 @@ function RestoreBackup({ onBack }: { onBack: () => void }) {
   const [password, setPassword] = useState('');
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [scope, setScope] = useState<'all' | 'patients' | 'some'>('all');
+  const [selectedPatients, setSelectedPatients] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<RestoreResult | null>(null);
@@ -370,6 +482,8 @@ function RestoreBackup({ onBack }: { onBack: () => void }) {
       const m = await invoke<Manifest>('backup_inspect', { path, password });
       setManifest(m);
       setSelected(new Set(m.meetings.map((x) => x.id)));
+      setSelectedPatients(new Set([...(m.patients ?? []).map((p) => p.id), NO_PATIENT]));
+      setScope('all');
     } catch (e) {
       setError(errorText(e));
     } finally {
@@ -383,7 +497,13 @@ function RestoreBackup({ onBack }: { onBack: () => void }) {
     setError(null);
     try {
       const res = await invoke<RestoreResult>('backup_restore', {
-        request: { path, password, meetingIds: [...selected] },
+        request: {
+          path,
+          password,
+          meetingIds:
+            scope === 'all' ? null : scope === 'some' ? [...selected] : meetingsOfPatients(manifest.meetings, selectedPatients),
+          patientIds: scope === 'patients' ? [...selectedPatients].filter((id) => id !== NO_PATIENT) : null,
+        },
       });
       setResult(res);
       setPassword('');
@@ -406,6 +526,8 @@ function RestoreBackup({ onBack }: { onBack: () => void }) {
               audio: result.audioFiles,
               skipped: result.skippedExisting,
             })}
+            {' '}
+            {t("{count} patient folders restored.", { count: result.patientsRestored })}
           </p>
         </div>
         <div className="flex gap-2">
@@ -447,10 +569,27 @@ function RestoreBackup({ onBack }: { onBack: () => void }) {
           <p className="mt-1 text-sm text-gray-600">
             {t("Sessions already in the app are never overwritten.")}
           </p>
-          <SessionList meetings={manifest.meetings} selected={selected} onChange={setSelected} showAudio={false} />
+          <ScopeChooser scope={scope} setScope={setScope} total={manifest.meetings.length} idPrefix="restore" />
+          {scope === 'patients' && (
+            <PatientList
+              patients={manifest.patients ?? []}
+              counts={countByPatient(manifest.meetings)}
+              selected={selectedPatients}
+              onChange={setSelectedPatients}
+            />
+          )}
+          {scope === 'some' && (
+            <SessionList meetings={manifest.meetings} selected={selected} onChange={setSelected} showAudio={false} />
+          )}
           <div className="mt-4">
-            <Button onClick={() => void restore()} disabled={busy || selected.size === 0} className="bg-gray-900 text-white hover:bg-gray-800">
-              {busy ? t("Restoring...") : t("Restore {count} sessions", { count: selected.size })}
+            <Button onClick={() => void restore()} disabled={busy || (scope === 'some' && selected.size === 0) || (scope === 'patients' && selectedPatients.size === 0)} className="bg-gray-900 text-white hover:bg-gray-800">
+              {busy
+                ? t("Restoring...")
+                : scope === 'all'
+                  ? t("Restore {count} sessions", { count: manifest.meetings.length })
+                  : scope === 'some'
+                    ? t("Restore {count} sessions", { count: selected.size })
+                    : t("Restore {count} sessions", { count: meetingsOfPatients(manifest.meetings, selectedPatients).length })}
             </Button>
           </div>
         </div>
@@ -486,7 +625,7 @@ export function BackupSettings() {
         >
           <Archive className="h-6 w-6 text-gray-700" aria-hidden="true" />
           <h3 className="mt-3 text-lg font-semibold text-gray-900">{t("Create encrypted backup")}</h3>
-          <p className="mt-1 text-sm text-gray-600">{t("Choose what to include: everything, only some sessions, or only some types of files.")}</p>
+          <p className="mt-1 text-sm text-gray-600">{t("Choose what to include: everything, only some patients, only some sessions, or only some types of files.")}</p>
         </button>
         <button
           type="button"
